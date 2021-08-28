@@ -52,7 +52,8 @@ public class Board extends JPanel {
     private Random r;
     private boolean multiplayer = false;
 
-    // I know the entire class should be refactored, but it's a mess and it would take too much time
+    // I know the entire class should be refactored, but it's a mess and it would
+    // take too much time
     private static Board instance = null;
 
     private List<Color> colorList = new ArrayList<>(
@@ -599,17 +600,17 @@ public class Board extends JPanel {
         return gameArea[y][x];
     }
 
-    public static Board getInstance()   {
+    public static Board getInstance() {
         // instance would be initialized in one of the constructor
         // I know it's bad, but it's just for semplicity's sake
         return instance;
     }
 
-    public Tile[][] getMapTiles()   {
+    public Tile[][] getMapTiles() {
         return gameArea;
     }
 
-// Should be refactored
+    // Should be refactored
     /**
      * ScheduleTask is responsible for receiving and responding to timer calls
      */
@@ -620,7 +621,7 @@ public class Board extends JPanel {
         private InputProgram fixedProgram = new InputProgram();
         private InputProgram variableProgram = new InputProgram();
 
-        public ScheduleTask()   {
+        public ScheduleTask() {
             this.desktopService = new DLV2DesktopService("lib/Dlv2/dlv2_64bit.exe");
             this.handler = new DesktopHandler(desktopService);
             this.noFactsOption = new OptionDescriptor("--no-facts");
@@ -671,8 +672,10 @@ public class Board extends JPanel {
                 e.printStackTrace();
             }
             // TODO: Call here DLV2
-            // Is better to have a single AS with a move for each player? (Could be only a sync call)
-            // Or we should call dlv each time for each player (obviously it'd needs async calls)
+            // Is better to have a single AS with a move for each player? (Could be only a
+            // sync call)
+            // Or we should call dlv each time for each player (obviously it'd needs async
+            // calls)
 
             for (int i = 0; i < players.size(); i++) {
 
@@ -707,11 +710,12 @@ public class Board extends JPanel {
 
             focussed.updateD();
             focussedPainter.get(focussed).setDraw(focussed.getAlive());
-            if (multiplayer)    {
+            if (multiplayer) {
                 focussed2.updateD();
                 focussedPainter.get(focussed2).setDraw(focussed2.getAlive());
             }
-            if (multiplayer && (Boolean.FALSE.equals(focussed.getAlive()) && Boolean.FALSE.equals(focussed2.getAlive()))) {
+            if (multiplayer
+                    && (Boolean.FALSE.equals(focussed.getAlive()) && Boolean.FALSE.equals(focussed2.getAlive()))) {
                 endGame();
             }
             if (Boolean.FALSE.equals(focussed.getAlive()))
