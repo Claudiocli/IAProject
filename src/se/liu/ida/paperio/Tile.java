@@ -6,8 +6,9 @@ import it.unical.mat.embasp.languages.Id;
 import it.unical.mat.embasp.languages.Param;
 
 /**
- * A tile in the game area. A tile has an x and y position, a color. It can also have a AIplayer as owner and a AIplayer
- * as contested owner. A tiles color does depend on owner and contested owner.
+ * A tile in the game area. A tile has an x and y position, a color. It can also
+ * have a AIplayer as owner and a AIplayer as contested owner. A tiles color
+ * does depend on owner and contested owner.
  */
 @Id("tile")
 public class Tile {
@@ -24,10 +25,11 @@ public class Tile {
 
     /**
      * Initializes a tile at position (x, y)
+     * 
      * @param x x position of the tile
      * @param y y position of the tile
      */
-    public Tile(int x, int y){
+    public Tile(int x, int y) {
         this.x = x;
         this.y = y;
         this.color = Color.WHITE;
@@ -35,28 +37,30 @@ public class Tile {
 
     /**
      * Decides what color to be drawn depending on owner and contested owner
+     * 
      * @return color of the tile
      */
-    public Color getColor(){
+    public Color getColor() {
         // If a Tile has an owner and Tile is not being contested,
         // returns owner's color darkened
-        if(owner != null && contestedOwner == null) {
+        if (owner != null && contestedOwner == null) {
             return owner.getColor().darker();
         }
         // If Tile has no owner and is being contested,
         // returns contestedOwner's color with an alpha of 100
         else if (owner == null && contestedOwner != null) {
-            return(new Color(contestedOwner.getColor().getRed(), contestedOwner.getColor().getGreen(),
+            return (new Color(contestedOwner.getColor().getRed(), contestedOwner.getColor().getGreen(),
                     contestedOwner.getColor().getBlue(), 100));
         }
         // If Tile has an owner and is being contested by someone,
         // returns contestedOwner's color with an alpha of 100
-        else if (owner != null && contestedOwner != owner){
+        else if (owner != null && contestedOwner != owner) {
             return blendColors();
-        }else{
+        } else {
             return color;
         }
     }
+
     /**
      * @param color the color to set
      */
@@ -66,14 +70,15 @@ public class Tile {
 
     /**
      * Blends colors of owner and contested owner
+     * 
      * @return the blended color
      */
-    private Color blendColors(){
+    private Color blendColors() {
         float blendedRed = ((owner.getColor().getRed() / 255f) * (contestedOwner.getColor().getRed() / 255f));
         float blendedGreen = ((owner.getColor().getGreen() / 255f) * (contestedOwner.getColor().getGreen() / 255f));
         float blendedBlue = ((owner.getColor().getBlue() / 255f) * (contestedOwner.getColor().getBlue() / 255f));
 
-        return(new Color(((blendedRed + 1 ) / 2),((blendedGreen + 1) / 2),((blendedBlue +1 )/ 2)));
+        return (new Color(((blendedRed + 1) / 2), ((blendedGreen + 1) / 2), ((blendedBlue + 1) / 2)));
     }
 
     /**
@@ -85,6 +90,7 @@ public class Tile {
 
     /**
      * Sets a AIplayer as contestant to Tile
+     * 
      * @param contestedOwner AIPlayer that is contesting Tile
      */
     public void setContestedOwner(AIPlayer contestedOwner) {
@@ -93,6 +99,7 @@ public class Tile {
 
     /**
      * Get owner of tile
+     * 
      * @return AIPlayer that is owner of tile
      */
     public AIPlayer getOwner() {
@@ -101,10 +108,11 @@ public class Tile {
 
     /**
      * Sets owner to owner of tile and removes current owner and contested owner
+     * 
      * @param owner AIPlayer to be set as owner of tile
      */
     public void setOwner(AIPlayer owner) {
-        if(this.owner != null){
+        if (this.owner != null) {
             this.owner.removeTileOwned(this);
         }
         this.owner = owner;
@@ -112,11 +120,13 @@ public class Tile {
 
     /**
      * Get the tiles x-position
+     * 
      * @return The x-position of the tile
      */
     public int getX() {
         return x;
     }
+
     /**
      * @param x the x to set
      */
@@ -126,11 +136,13 @@ public class Tile {
 
     /**
      * Get the tiles y-position
+     * 
      * @return The y-position of the tile
      */
     public int getY() {
         return y;
     }
+
     /**
      * @param y the y to set
      */
