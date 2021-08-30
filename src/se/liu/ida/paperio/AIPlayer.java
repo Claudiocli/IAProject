@@ -15,6 +15,7 @@ import it.unical.mat.embasp.languages.Param;
 /**
  * Class "bean-ified" from the <code>Player</code>. Cause this code is a mess,
  * only minor changing were made
+ * 
  * @author Claudio Lucisano
  */
 @Id("player")
@@ -31,7 +32,10 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	private ArrayList<Tile> tilesContested = new ArrayList<>();
 	private int height;
 	private int width;
+	@Param(3)
 	private String name;
+	@Param(4)
+	private String currentDirection;
 
 	private int nextKey;
 
@@ -81,15 +85,19 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		if (rand < 0.25d) {
 			dx = 1;
 			dy = 0;
+			this.currentDirection = Board.EAST_DIRECTION;
 		} else if (rand < 0.5d) {
 			dx = -1;
 			dy = 0;
+			this.currentDirection = Board.WEST_DIRECTION;
 		} else if (rand < 0.75d) {
 			dx = 0;
 			dy = 1;
+			this.currentDirection = Board.SOUTH_DIRECTION;
 		} else {
 			dx = 0;
 			dy = -1;
+			this.currentDirection = Board.NORTH_DIRECTION;
 		}
 	}
 
@@ -110,15 +118,19 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		if (rand < 0.25d) {
 			dx = 1;
 			dy = 0;
+			this.currentDirection = Board.EAST_DIRECTION;
 		} else if (rand < 0.5d) {
 			dx = -1;
 			dy = 0;
+			this.currentDirection = Board.WEST_DIRECTION;
 		} else if (rand < 0.75d) {
 			dx = 0;
 			dy = 1;
+			this.currentDirection = Board.SOUTH_DIRECTION;
 		} else {
 			dx = 0;
 			dy = -1;
+			this.currentDirection = Board.NORTH_DIRECTION;
 		}
 	}
 
@@ -156,15 +168,19 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		if (rand < 0.25d) {
 			dx = 1;
 			dy = 0;
+			this.currentDirection = Board.EAST_DIRECTION;
 		} else if (rand < 0.5d) {
 			dx = -1;
 			dy = 0;
+			this.currentDirection = Board.WEST_DIRECTION;
 		} else if (rand < 0.75d) {
 			dx = 0;
 			dy = 1;
+			this.currentDirection = Board.SOUTH_DIRECTION;
 		} else {
 			dx = 0;
 			dy = -1;
+			this.currentDirection = Board.NORTH_DIRECTION;
 		}
 	}
 
@@ -231,6 +247,36 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	 */
 	public void setColor(Color color) {
 		this.color = color;
+	}
+
+	/**
+	 * Get name of AIplayer
+	 * 
+	 * @return Name of AIplayer
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the currentDirection
+	 */
+	public String getCurrentDirection() {
+		return currentDirection;
+	}
+
+	/**
+	 * @param currentDirection the currentDirection to set
+	 */
+	public void setCurrentDirection(String currentDirection) {
+		this.currentDirection = currentDirection;
 	}
 
 	/**
@@ -327,15 +373,6 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	 */
 	public int getDy() {
 		return dy;
-	}
-
-	/**
-	 * Get name of AIplayer
-	 * 
-	 * @return Name of AIplayer
-	 */
-	public String getName() {
-		return name;
 	}
 
 	/**

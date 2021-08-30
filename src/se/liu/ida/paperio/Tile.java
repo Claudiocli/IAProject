@@ -14,7 +14,8 @@ public class Tile {
 
     private AIPlayer owner;
     @Param(2)
-    private Color color = Color.white;
+    private Color color;
+    @Param(3)
     private AIPlayer contestedOwner;
     @Param(0)
     private int x;
@@ -29,6 +30,7 @@ public class Tile {
     public Tile(int x, int y){
         this.x = x;
         this.y = y;
+        this.color = Color.WHITE;
     }
 
     /**
@@ -54,6 +56,12 @@ public class Tile {
         }else{
             return color;
         }
+    }
+    /**
+     * @param color the color to set
+     */
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     /**
