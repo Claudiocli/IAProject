@@ -1,0 +1,44 @@
+% Si aspetti come input  i fatti corrispondenti ai singoli AIPlayer e allo status delle singole Tile
+% Verranno trattati come segue: player(X, Y, Color, Name, CurrentDirection). tile(X, Y, Color, ContestedOwner).
+% Il termine `CurrentDirection` indica la direzione in cui si sta andando attualmente.
+% E.g. nel caso stessi andando verso sud, non potrei andare nella direzione da cui arrivo, ovvero nord.
+% TODO: Servirebbe passare anche un currentPlayer(X, Y, Color, Name), oppure un currentPlayer(Name).
+% I predicati `player(X, Y, Color, Name, CurrentDirection)` sono identificati dal termine univoco `Name`,
+% il quale sarà unico per ogni AIPlayer.
+% I predicati `tile(X, Y, Color, ContestedOwner)` sono identificati dalla coppia dei termini (X, Y), 
+% i quali identificano la Tile in posizione (X, Y). Essa avrà un determinato colore in base al suo 
+% "proprietario" (default: bianco) e, se è contestata da qualcuno, avrà anche chi la sta contestando
+% TODO: dovremmo passare il colore del contestatore? Il nome?
+% TODO: da aggiungere come fatto: limiteXMax(XMax). limiteYMax(YMax). - De facto delimitano i bordi
+limiteXMin(0). limiteYMin(0).
+
+% È impossibile che ci siano due player con lo stesso nome
+:- player(_, _, _, N1), player(_, _, _, N2), N1=N2.
+
+% Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
+% prescindere la direzione da cui si arriva
+% Nord
+adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP, Y=XY-1, CDir!=south.
+% Sud
+adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP, Y=XY+1, CDir!=north.
+% Ovest
+adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP-1, Y=XY, CDir!=east.
+% Est
+adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP+1, Y=XY, CDir!=west.
+
+% Guess della next move
+nextMove(X, Y) | notNextMove(X, Y):- adjacentTile(X, Y, _).
+
+% È impossibile che la nextMove faccia oltrepassare uno dei bordi
+:- nextMove(X, _), limiteXMin(XMin), XMin > X.
+:- nextMove(X, _), limiteXMax(XMax), XMax < X.
+:- nextMove(_, Y), limiteYMin(YMin), YMin > Y.
+:- nextMove(_, Y), limiteYMax(YMax), YMax < Y.
+
+% Si preferisce massimizzare il numero di tile contestate dal currentPlayer
+% TODO: magari formulare il problema come minimizzazione con un determinato treshold
+
+% Si preferisce massimizzare la distanza tra i diversi nemici
+% TODO: minimizzare con un determinato treshold
+% TODO: si potrebbe creare un altro file contenente questa parte e cambiare i valori per creare due stili,
+% aggressivo e difensivo, per poi cambiarli in base alla decisione a runtime (e.g. come per variableInput)

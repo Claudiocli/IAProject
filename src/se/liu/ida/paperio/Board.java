@@ -27,6 +27,11 @@ public class Board extends JPanel {
 
     private static final String PAUSE = "Pause";
 
+    public static final String NORTH_DIRECTION = "north";
+    public static final String SOUTH_DIRECTION = "south";
+    public static final String WEST_DIRECTION = "west";
+    public static final String EAST_DIRECTION = "east";
+
     private final int areaHeight;
     private final int areaWidth;
     private transient Tile[][] gameArea;
@@ -187,78 +192,61 @@ public class Board extends JPanel {
         InputMap im = getInputMap(WHEN_IN_FOCUSED_WINDOW);
         ActionMap am = getActionMap();
 
-        if (!multiplayer) {
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveUP");
-            am.put("moveUP", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_UP);
-                }
-            });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "moveDOWN");
-            am.put("moveDOWN", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_DOWN);
-                }
-            });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "moveLEFT");
-            am.put("moveLEFT", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_LEFT);
-                }
-            });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "moveRIGHT");
-            am.put("moveRIGHT", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_RIGHT);
-                }
-            });
-        } else {
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveP1UP");
-            am.put("moveP1UP", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed2.setNextKey(KeyEvent.VK_UP);
-                }
-            });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "moveP1DOWN");
-            am.put("moveP1DOWN", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed2.setNextKey(KeyEvent.VK_DOWN);
-                }
-            });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "moveP1LEFT");
-            am.put("moveP1LEFT", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed2.setNextKey(KeyEvent.VK_LEFT);
-                }
-            });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "moveP1RIGHT");
-            am.put("moveP1RIGHT", new AbstractAction() {
-                public void actionPerformed(ActionEvent evt) {
-                    focussed2.setNextKey(KeyEvent.VK_RIGHT);
-                }
-            });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "moveP2UP");
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveUP");
+        am.put("moveUP", new AbstractAction() {
+            public void actionPerformed(ActionEvent evt) {
+                focussed.setNextKey(KeyEvent.VK_UP);
+                focussed.setCurrentDirection(NORTH_DIRECTION);
+            }
+        });
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "moveDOWN");
+        am.put("moveDOWN", new AbstractAction() {
+            public void actionPerformed(ActionEvent evt) {
+                focussed.setNextKey(KeyEvent.VK_DOWN);
+                focussed.setCurrentDirection(SOUTH_DIRECTION);
+            }
+        });
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "moveLEFT");
+        am.put("moveLEFT", new AbstractAction() {
+            public void actionPerformed(ActionEvent evt) {
+                focussed.setNextKey(KeyEvent.VK_LEFT);
+                focussed.setCurrentDirection(WEST_DIRECTION);
+            }
+        });
+        im.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "moveRIGHT");
+        am.put("moveRIGHT", new AbstractAction() {
+            public void actionPerformed(ActionEvent evt) {
+                focussed.setNextKey(KeyEvent.VK_RIGHT);
+                focussed.setCurrentDirection(EAST_DIRECTION);
+            }
+        });
+        if (multiplayer) {
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "moveP2UP");
             am.put("moveP2UP", new AbstractAction() {
                 public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_W);
+                    focussed2.setNextKey(KeyEvent.VK_UP);
+                    focussed2.setCurrentDirection(NORTH_DIRECTION);
                 }
             });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), "moveP2DOWN");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "moveP2DOWN");
             am.put("moveP2DOWN", new AbstractAction() {
                 public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_S);
+                    focussed2.setNextKey(KeyEvent.VK_DOWN);
+                    focussed2.setCurrentDirection(SOUTH_DIRECTION);
                 }
             });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_A, 0), "moveP2LEFT");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0), "moveP2LEFT");
             am.put("moveP2LEFT", new AbstractAction() {
                 public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_A);
+                    focussed2.setNextKey(KeyEvent.VK_LEFT);
+                    focussed2.setCurrentDirection(WEST_DIRECTION);
                 }
             });
-            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_D, 0), "moveP2RIGHT");
+            im.put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0), "moveP2RIGHT");
             am.put("moveP2RIGHT", new AbstractAction() {
                 public void actionPerformed(ActionEvent evt) {
-                    focussed.setNextKey(KeyEvent.VK_D);
+                    focussed2.setNextKey(KeyEvent.VK_RIGHT);
+                    focussed2.setCurrentDirection(EAST_DIRECTION);
                 }
             });
         }
@@ -672,6 +660,7 @@ public class Board extends JPanel {
             }
             // TODO: Call here DLV2
             // Is better to have a single AS with a move for each player? (Could be only a sync call)
+            // For example: nextMove(PlayerID, Direction).
             // Or we should call dlv each time for each player (obviously it'd needs async calls)
 
             for (int i = 0; i < players.size(); i++) {
