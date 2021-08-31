@@ -1,37 +1,35 @@
 % Si aspetti come input  i fatti corrispondenti ai singoli AIPlayer e allo status delle singole Tile
-% Verranno trattati come segue:
-% - player(X, Y, Name, CurrentDirection, AreaSize).
-%		I predicati `player(X, Y, Name, CurrentDirection, AreaSize)` sono identificati dal termine univoco
-% 		`Name`, il quale sarà unico per ogni AIPlayer. `X` ed `Y` sono le coordinate del player;
-%		`CurrentDirection` indica la direzione in cui si sta andando attualmente (E.g. nel caso stessi andando
-%		verso sud, non potrei andare nella direzione da cui arrivo, ovvero nord); `AreaSize` è un numero che
-%		identifica il numero di tiles conquistate dal player
-% - tile(X, Y, Owner, ContestedOwner).
-%		I predicati `tile(X, Y, Owner, ContestedOwner)` sono identificati dalla coppia dei termini (X, Y), 
-%		i quali identificano la Tile in posizione (X, Y). Essa avrà, inoltre, il nome (che è identificativo)
-%		dell'eventuale `Owner` (il player che l'ha conquistata) e/o dell'eventuale `ContestedOwner` (il player
-%		che ci è passato sopra e la sta conquistando. Si può intendere come la "coda" del player). Di default
-%		le due stringhe sopracitate sono vuote (e.g."")
-% - currentPlayer(Name).
-%		Il predicato indica "l'ID" del player per cui si sta analizzando la mossa migliore.
-% - limiteX(XMin, XMax).
-%		Il predicato indica i limiti, inferiore e superiore, cui la coordinata X dei player non può superare
-% - limiteY(YMin, YMax).
-%		Il predicato indica i limiti, inferiore e superiore, cui la coordinata Y dei player non può superare
+% Verranno trattati come segue: player(X, Y, Name, CurrentDirection, AreaSize).
+% tile(X, Y, Owner, ContestedOwner).
+% Il termine `CurrentDirection` indica la direzione in cui si sta andando attualmente.
+% E.g. nel caso stessi andando verso sud, non potrei andare nella direzione da cui arrivo, ovvero nord.
+% TODO: Servirebbe passare anche un currentPlayer(Name).
+% I predicati `player(X, Y, Name, CurrentDirection, AreaSize)` sono identificati dal termine univoco `Name`,
+% il quale sarà unico per ogni AIPlayer.
+% I predicati `tile(X, Y, Owner, ContestedOwner)` sono identificati dalla coppia dei termini (X, Y), 
+% i quali identificano la Tile in posizione (X, Y). Essa è cartterizzata dal  nome dell'eventuale Owner
+o chi la sta contenstando.
+% TODO: da aggiungere come fatto: limiteXMax(XMax). limiteYMax(YMax). - De facto delimitano i bordi
+limiteXMin(0). limiteYMin(0).
 
-% È impossibile che ci siano due player con lo stesso nome
-:- player(_, _, _, N1), player(_, _, _, N2), N1=N2.
+% ------------------------------------ PLAYER RULES -------------------------------------
+
+% ---> È impossibile che ci siano due player con lo stesso nome
+:- player(_, _, N1, _, _), player(_, _, N2, _, _), N1=N2.
+% ---> la distanza tra il player è il nemico viene calcolata dalla distanza tra la tile del player e quella dell'enemy
+% in fase di sperimentazione
+%------- distancePlayer(Player, distanceX, distanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy
 
 % Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
 % prescindere la direzione da cui si arriva
 % Nord
-adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP, Y=XY-1, CDir!=south.
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP, Y=XY-1, CDir!=south.
 % Sud
-adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP, Y=XY+1, CDir!=north.
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP, Y=XY+1, CDir!=north.
 % Ovest
-adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP-1, Y=XY, CDir!=east.
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP-1, Y=XY, CDir!=east.
 % Est
-adjacentTile(X, Y, C):- tile(X, Y, C), currentPlayer(XP, XY, _, _, CDir), X=XP+1, Y=XY, CDir!=west.
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP+1, Y=XY, CDir!=west.
 
 % Guess della next move
 nextMove(X, Y) | notNextMove(X, Y):- adjacentTile(X, Y, _).
@@ -41,6 +39,17 @@ nextMove(X, Y) | notNextMove(X, Y):- adjacentTile(X, Y, _).
 :- nextMove(X, _), limiteXMax(XMax), XMax < X.
 :- nextMove(_, Y), limiteYMin(YMin), YMin > Y.
 :- nextMove(_, Y), limiteYMax(YMax), YMax < Y.
+
+% ---> è impossibile che con la prossima nextmove, il player vada a intaccare la sua stessa scia.
+:- nextMove(X,Y), tile(X, Y, "", Name), currentPlayer(Name).
+
+% ------------------------------------ PASSIVE PLAYER -------------------------------------
+% È preferibile ampliare il proprio territorio piuttosto che avvicinarsi ad un territorio nemico.
+
+:~ nextMove(X,Y), tile(X,Y,"",""). [1@2]
+
+enemyTailTerritory(X,Y,E):- tile(X,Y,P,E), currentPlayer(P), P != E.
+:~ nextMove(Px,Py), enemyTailTerritory(X, Y, Enemy), Dist = &distance(X,Y,Px,Py). [Dist@1]
 
 % Si preferisce massimizzare il numero di tile contestate dal currentPlayer
 % TODO: magari formulare il problema come minimizzazione con un determinato treshold
