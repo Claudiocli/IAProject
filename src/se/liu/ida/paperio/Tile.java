@@ -14,10 +14,12 @@ import it.unical.mat.embasp.languages.Param;
 public class Tile {
 
     private AIPlayer owner;
-    @Param(2)
-    private Color color;
-    @Param(3)
     private AIPlayer contestedOwner;
+    private Color color;
+    @Param(2)
+    private String ownerName;
+    @Param(3)
+    private String contestedOwnerName;
     @Param(0)
     private int x;
     @Param(1)
@@ -148,6 +150,34 @@ public class Tile {
      */
     public void setY(int y) {
         this.y = y;
+    }
+
+    /**
+     * @return the contestedOwnerName
+     */
+    public String getContestedOwnerName() {
+        return contestedOwnerName;
+    }
+
+    /**
+     * @param contestedOwnerName the contestedOwnerName to set
+     */
+    public void setContestedOwnerName(String contestedOwnerName) {
+        this.contestedOwnerName = contestedOwnerName;
+    }
+
+    /**
+     * @return the ownerName
+     */
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    /**
+     * @param ownerName the ownerName to set
+     */
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
 }

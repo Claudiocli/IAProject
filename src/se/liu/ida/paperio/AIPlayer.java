@@ -26,16 +26,17 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	private int y;
 	private int dx;
 	private int dy;
-	@Param(2)
 	private Color color;
 	private ArrayList<Tile> tilesOwned = new ArrayList<>();
 	private ArrayList<Tile> tilesContested = new ArrayList<>();
 	private int height;
 	private int width;
-	@Param(3)
+	@Param(2)
 	private String name;
-	@Param(4)
+	@Param(3)
 	private String currentDirection;
+	@Param(4)
+	private int areaSize;
 
 	private int nextKey;
 
@@ -199,6 +200,7 @@ public class AIPlayer implements Comparable<AIPlayer> {
 			contestedTilesCopy.get(i).setContestedOwner(null);
 		}
 		tilesOwned.clear();
+		this.areaSize = 0;
 		tilesContested.clear();
 
 	}
@@ -288,6 +290,7 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		tilesOwned.add(t);
 		t.setOwner(this);
 		t.setContestedOwner(null);
+		this.areaSize = tilesOwned.size();
 	}
 
 	/**
@@ -449,4 +452,19 @@ public class AIPlayer implements Comparable<AIPlayer> {
 			dy = 1;
 		}
 	}
+
+	/**
+	 * @return the areaSize
+	 */
+	public int getAreaSize() {
+		return areaSize;
+	}
+
+	/**
+	 * @param areaSize the areaSize to set
+	 */
+	public void setAreaSize(int areaSize) {
+		this.areaSize = areaSize;
+	}
+
 }

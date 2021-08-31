@@ -1,16 +1,23 @@
 % Si aspetti come input  i fatti corrispondenti ai singoli AIPlayer e allo status delle singole Tile
-% Verranno trattati come segue: player(X, Y, Color, Name, CurrentDirection). tile(X, Y, Color, ContestedOwner).
-% Il termine `CurrentDirection` indica la direzione in cui si sta andando attualmente.
-% E.g. nel caso stessi andando verso sud, non potrei andare nella direzione da cui arrivo, ovvero nord.
-% TODO: Servirebbe passare anche un currentPlayer(X, Y, Color, Name), oppure un currentPlayer(Name).
-% I predicati `player(X, Y, Color, Name, CurrentDirection)` sono identificati dal termine univoco `Name`,
-% il quale sarà unico per ogni AIPlayer.
-% I predicati `tile(X, Y, Color, ContestedOwner)` sono identificati dalla coppia dei termini (X, Y), 
-% i quali identificano la Tile in posizione (X, Y). Essa avrà un determinato colore in base al suo 
-% "proprietario" (default: bianco) e, se è contestata da qualcuno, avrà anche chi la sta contestando
-% TODO: dovremmo passare il colore del contestatore? Il nome?
-% TODO: da aggiungere come fatto: limiteXMax(XMax). limiteYMax(YMax). - De facto delimitano i bordi
-limiteXMin(0). limiteYMin(0).
+% Verranno trattati come segue:
+% - player(X, Y, Name, CurrentDirection, AreaSize).
+%		I predicati `player(X, Y, Name, CurrentDirection, AreaSize)` sono identificati dal termine univoco
+% 		`Name`, il quale sarà unico per ogni AIPlayer. `X` ed `Y` sono le coordinate del player;
+%		`CurrentDirection` indica la direzione in cui si sta andando attualmente (E.g. nel caso stessi andando
+%		verso sud, non potrei andare nella direzione da cui arrivo, ovvero nord); `AreaSize` è un numero che
+%		identifica il numero di tiles conquistate dal player
+% - tile(X, Y, Owner, ContestedOwner).
+%		I predicati `tile(X, Y, Owner, ContestedOwner)` sono identificati dalla coppia dei termini (X, Y), 
+%		i quali identificano la Tile in posizione (X, Y). Essa avrà, inoltre, il nome (che è identificativo)
+%		dell'eventuale `Owner` (il player che l'ha conquistata) e/o dell'eventuale `ContestedOwner` (il player
+%		che ci è passato sopra e la sta conquistando. Si può intendere come la "coda" del player). Di default
+%		le due stringhe sopracitate sono vuote (e.g."")
+% - currentPlayer(Name).
+%		Il predicato indica "l'ID" del player per cui si sta analizzando la mossa migliore.
+% - limiteX(XMin, XMax).
+%		Il predicato indica i limiti, inferiore e superiore, cui la coordinata X dei player non può superare
+% - limiteY(YMin, YMax).
+%		Il predicato indica i limiti, inferiore e superiore, cui la coordinata Y dei player non può superare
 
 % È impossibile che ci siano due player con lo stesso nome
 :- player(_, _, _, N1), player(_, _, _, N2), N1=N2.
