@@ -5,6 +5,12 @@ import javax.swing.*;
 import it.unical.mat.embasp.base.Handler;
 import it.unical.mat.embasp.base.InputProgram;
 import it.unical.mat.embasp.base.OptionDescriptor;
+import it.unical.mat.embasp.base.Output;
+import it.unical.mat.embasp.languages.IllegalAnnotationException;
+import it.unical.mat.embasp.languages.ObjectNotValidException;
+import it.unical.mat.embasp.languages.asp.ASPMapper;
+import it.unical.mat.embasp.languages.asp.AnswerSet;
+import it.unical.mat.embasp.languages.asp.AnswerSets;
 import it.unical.mat.embasp.platforms.desktop.DesktopHandler;
 import it.unical.mat.embasp.specializations.dlv2.desktop.DLV2DesktopService;
 
@@ -603,11 +609,12 @@ public class Board extends JPanel {
      * ScheduleTask is responsible for receiving and responding to timer calls
      */
     private class ScheduleTask extends TimerTask {
-        private DLV2DesktopService desktopService = new DLV2DesktopService("lib/Dlv2/dlv2_64bit.exe");
-        private Handler handler = new DesktopHandler(desktopService);
-        private OptionDescriptor noFactsOption = new OptionDescriptor("--no-facts");
-        private InputProgram fixedProgram = new InputProgram();
-        private InputProgram variableProgram = new InputProgram();
+        private DLV2DesktopService desktopService;
+        private Handler handler;
+        private OptionDescriptor noFactsOption;
+        private InputProgram fixedProgram;
+        private InputProgram variableProgram;
+        private InputProgram someWhatVariableProgram;
 
         public ScheduleTask() {
             this.desktopService = new DLV2DesktopService("lib/Dlv2/dlv2_64bit.exe");
@@ -615,11 +622,31 @@ public class Board extends JPanel {
             this.noFactsOption = new OptionDescriptor("--no-facts");
             this.fixedProgram = new InputProgram();
             this.variableProgram = new InputProgram();
+            this.someWhatVariableProgram = new InputProgram();
 
             // Adding options
             this.handler.addOption(this.noFactsOption);
             // Adding the fixed part of program
             this.fixedProgram.addFilesPath("AI.dl");
+
+            // Registering all the classes needed to the ASPMapper
+            try {
+                ASPMapper.getInstance().registerClass(AIPlayer.class);
+                ASPMapper.getInstance().registerClass(Tile.class);
+                ASPMapper.getInstance().registerClass(CurrentPlayer.class);
+                ASPMapper.getInstance().registerClass(LimitX.class);
+                ASPMapper.getInstance().registerClass(LimitY.class);
+                // Adding borders
+                this.fixedProgram.addObjectInput(new LimitX());
+                this.fixedProgram.addObjectInput(new LimitY());
+            } catch (ObjectNotValidException | IllegalAnnotationException e) {
+                System.out.println(e instanceof ObjectNotValidException ? "OBJECT NOT VALID" : "ILLEGAL ANNOTATION");
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            this.handler.addProgram(this.fixedProgram);
         }
 
         /**
@@ -643,35 +670,74 @@ public class Board extends JPanel {
          * enclosures should be filled.
          */
         private void tick() {
-            AIPlayer player;
             tileAIPlayerMap.clear();
 
             // DLV2 setup
-            // Adding every variable object to the program
-            this.variableProgram.clearAll();
+            // Adding map and players to the program (it changes everytime `tick()` is called)
+            this.someWhatVariableProgram.clearAll();
+
             try {
                 for (var p : players)
-                    this.variableProgram.addObjectInput(p);
+                    this.someWhatVariableProgram.addObjectInput(p);
                 Tile[][] map = Board.getInstance().getMapTiles();
                 for (var x = 0; x < map.length; x++)
                     for (var y = 0; y < map[0].length; y++)
-                        this.variableProgram.addObjectInput(map[x][y]);
+                        this.someWhatVariableProgram.addObjectInput(map[x][y]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            // TODO: Call here DLV2
-            // Is better to have a single AS with a move for each player? (Could be only a
-            // sync call)
-            // For example: nextMove(PlayerID, Direction).
-            // Or we should call dlv each time for each player (obviously it'd needs async
-            // calls)
+
+            this.handler.addProgram(this.someWhatVariableProgram);
+            this.handler.addProgram(this.variableProgram);
 
             for (int i = 0; i < players.size(); i++) {
 
-                // TODO: Applicate effects of DLV2 AS
+                var player = players.get(i);
 
-                player = players.get(i);
+                this.variableProgram.clearAll();
+
+                try {
+                    this.variableProgram.addObjectInput(new CurrentPlayer(player));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                // Calling DLV2
+                Output o = this.handler.startSync();
+                AnswerSets answersets = (AnswerSets) o;
+
+                for (AnswerSet a : answersets.getOptimalAnswerSets())  {
+                    try {
+                        for (Object obj : a.getAtoms()) {
+                            if (!(obj instanceof NextMove))
+                                continue;
+                            var nextMove = (NextMove) obj;
+                            if (nextMove.getX() == 0 && nextMove.getY() == -1)  {
+                                player.setCurrentDirection(NORTH_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_UP);
+                            }
+                            if (nextMove.getX() == 0 && nextMove.getY() == 1)  {
+                                player.setCurrentDirection(SOUTH_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_DOWN);
+                            }
+                            if (nextMove.getX() == -1 && nextMove.getY() == 0)  {
+                                player.setCurrentDirection(WEST_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_LEFT);
+                            }
+                            if (nextMove.getX() == 1 && nextMove.getY() == 0)  {
+                                player.setCurrentDirection(EAST_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_RIGHT);
+                            }
+                            break;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                // movement "logic"
+                player.updateD();
                 player.move();
+
                 // Kill player if player moves outside game area
                 if (player.getX() < 0 || player.getX() >= areaWidth || player.getY() < 0
                         || player.getY() >= areaHeight) {

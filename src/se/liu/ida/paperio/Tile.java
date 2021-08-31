@@ -35,6 +35,7 @@ public class Tile {
         this.x = x;
         this.y = y;
         this.color = Color.WHITE;
+        this.ownerName = this.contestedOwnerName = "";
     }
 
     /**
@@ -97,6 +98,7 @@ public class Tile {
      */
     public void setContestedOwner(AIPlayer contestedOwner) {
         this.contestedOwner = contestedOwner;
+        this.contestedOwnerName = "";
     }
 
     /**
@@ -117,7 +119,12 @@ public class Tile {
         if (this.owner != null) {
             this.owner.removeTileOwned(this);
         }
-        this.owner = owner;
+        this.owner = this.contestedOwner = owner;
+        if (owner == null)
+            this.ownerName = "";
+        else
+            this.ownerName = owner.getName();
+        this.contestedOwnerName = "";
     }
 
     /**
