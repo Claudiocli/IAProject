@@ -12,6 +12,10 @@ public class CurrentPlayer {
 		this.name = "";
 	}
 
+	public CurrentPlayer(AIPlayer player) {
+		this.name = player.getName();
+	}
+
 	/**
 	 * @return the name
 	 */
