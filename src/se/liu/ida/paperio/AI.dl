@@ -62,15 +62,15 @@ nextMove(X, Y) | notNextMove(X, Y):- adjacentTile(X, Y, _).
 
 
 
-% -----> la distanza totale non è altro che l'ultima Distanza calcolata dal comeBackHome.
-totalDistance(DistX,DistY):- #max{DistanceX: comeBackHome(_,_,DistanceX,_)}= DistX,#max{DistanceY: comeBackHome(_,_,_,DistanceY)} = DistY.
-
-%se la distanza tra il player in scia e il nemico è troppo corta ci troviamo in zona di pericolo
-WarningDistance(DistX,DistY):- distanceFromPlayer(Player,DistX,DistY,Enemy),totalDistance(DistanceX,DistanceY),contX = DistX-DistanceX, contY= DistY - DistanceY,contX<=DistanceX, contY<=DistanceY.
-
-:-WarningDistance(X,Y),nextMove(Nx,Ny),X>Nx, Y>Ny.
-
-%POTREI AVER SCRITTO UN MUCCHIO DI CAGATE.
+%% -----> la distanza totale non è altro che l'ultima Distanza calcolata dal comeBackHome.
+%totalDistance(DistX,DistY):- #max{DistanceX: comeBackHome(_,_,DistanceX,_)}= DistX,#max{DistanceY: comeBackHome(_,_,_,DistanceY)} = DistY.
+%
+%%se la distanza tra il player in scia e il nemico è troppo corta ci troviamo in zona di pericolo
+%WarningDistance(DistX,DistY):- distanceFromPlayer(Player,DistX,DistY,Enemy),totalDistance(DistanceX,DistanceY),contX = DistX-DistanceX, contY= DistY - DistanceY,contX<=DistanceX, contY<=DistanceY.
+%
+%:-WarningDistance(X,Y),nextMove(Nx,Ny),X>Nx, Y>Ny.
+%
+%%POTREI AVER SCRITTO UN MUCCHIO DI CAGATE.
 
 --------------------------------------------------FINE-------------------------------------------------------------
 
