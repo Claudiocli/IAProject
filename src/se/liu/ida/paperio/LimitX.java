@@ -18,28 +18,28 @@ public class LimitX {
 	/**
 	 * @return the xMin
 	 */
-	public int getxMin() {
+	public int getXMin() {
 		return xMin;
 	}
 
 	/**
 	 * @param xMin the xMin to set
 	 */
-	public void setxMin(int xMin) {
+	public void setXMin(int xMin) {
 		this.xMin = xMin;
 	}
 
 	/**
 	 * @return the xMax
 	 */
-	public int getxMax() {
+	public int getXMax() {
 		return xMax;
 	}
 
 	/**
 	 * @param xMax the xMax to set
 	 */
-	public void setxMax(int xMax) {
+	public void setXMax(int xMax) {
 		this.xMax = xMax;
 	}
 

@@ -1,0 +1,96 @@
+% Si aspetti come input  i fatti corrispondenti ai singoli AIPlayer e allo status delle singole Tile
+% Verranno trattati come segue:
+% - player(X, Y, Name, CurrentDirection, AreaSize).
+%		I predicati `player(X, Y, Name, CurrentDirection, AreaSize)` sono identificati dal termine univoco
+% 		`Name`, il quale sarà unico per ogni AIPlayer. `X` ed `Y` sono le coordinate del player;
+%		`CurrentDirection` indica la direzione in cui si sta andando attualmente (E.g. nel caso stessi andando
+%		verso sud, non potrei andare nella direzione da cui arrivo, ovvero nord); `AreaSize` è un numero che
+%		identifica il numero di tiles conquistate dal player
+% - tile(X, Y, Owner, ContestedOwner).
+%		I predicati `tile(X, Y, Owner, ContestedOwner)` sono identificati dalla coppia dei termini (X, Y), 
+%		i quali identificano la Tile in posizione (X, Y). Essa avrà, inoltre, il nome (che è identificativo)
+%		delleventuale `Owner` (il player che lha conquistata) e/o delleventuale `ContestedOwner` (il player
+%		che ci è passato sopra e la sta conquistando. Si può intendere come la "coda" del player). Di default
+%		le due stringhe sopracitate sono vuote (e.g."")
+% - currentPlayer(Name).
+%		Il predicato indica "lID" del player per cui si sta analizzando la mossa migliore.
+% - limiteX(XMin, XMax).
+%		Il predicato indica i limiti, inferiore e superiore, cui la coordinata X dei player non può superare
+% - limiteY(YMin, YMax).
+%		Il predicato indica i limiti, inferiore e superiore, cui la coordinata Y dei player non può superare
+
+% ------------------------------------ PLAYER RULES -------------------------------------
+
+% ---> È impossibile che ci siano due player con lo stesso nome
+:- player(_, _, N1, _, _), player(_, _, N2, _, _), N1=N2.
+% ---> la distanza tra il player è il nemico viene calcolata dalla distanza tra la tile del player e quella dellenemy
+% in fase di sperimentazione
+distanceFromPlayer(Distance, Enemy):- currentPlayer(P), player(PX, PY, P, _, _), player(EX, EY, Enemy, _, _), P!=Enemy, &abs(PX - EX; AX), &abs(PY - EY; AY), Distance = AX+AY.
+
+% Predicato ausiliare che identifica le eventuali "code" degli avversari che si trovano nel territorio del currentPlayer.
+enemyTailTerritory(X,Y,E):- tile(X,Y,P,E), currentPlayer(P), P != E.
+
+% ----> È preferibile diminuire la distanza tra il player e il nemico nel territorio.
+distanceTileFromPlayer(Distance, TileX, TileY):- currentPlayer(P), player(PX, PY, P, _, _), tile(TileX, TileY, _, _), &abs(PX - TileX; AX), &abs(PY - TileY; AY), Distance = AX + AY.
+:~ distanceTileFromPlayer(D, X, Y), enemyTailTerritory(X,Y,E). [D@3, D, X, Y]
+
+% Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
+% prescindere la direzione da cui si arriva
+% Nord
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP, Y=XY-1, CDir!=south.
+% Sud
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP, Y=XY+1, CDir!=north.
+% Ovest
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP-1, Y=XY, CDir!=east.
+% Est
+adjacentTile(X, Y, O, Co):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), currentPlayer(Name), X=XP+1, Y=XY, CDir!=west.
+
+% Guess della next move
+nextMove(X, Y) | notNextMove(X, Y):- adjacentTile(X, Y, _).
+
+% È impossibile che la nextMove faccia oltrepassare uno dei bordi
+% FIXME: Ridondante: non esiste la tile(-1, 0)
+:- nextMove(X, _), limiteXMin(XMin), XMin > X.
+:- nextMove(X, _), limiteXMax(XMax), XMax < X.
+:- nextMove(_, Y), limiteYMin(YMin), YMin > Y.
+:- nextMove(_, Y), limiteYMax(YMax), YMax < Y.
+
+% ---> è impossibile che con la prossima nextmove, il player vada a intaccare la sua stessa scia.
+:- nextMove(X,Y), tile(X, Y, "", Name), currentPlayer(Name).
+
+% ------------------------------------ PASSIVE PLAYER -------------------------------------
+% È preferibile ampliare il proprio territorio piuttosto che avvicinarsi ad un territorio nemico.
+
+:~ nextMove(X,Y), tile(X,Y,"",""). [1@4]
+
+% -----> calcolare il ritorno nella propria zona.
+
+
+%------------------------------------------- REVISIONE TOTALE ---------------------------------------------------
+
+
+
+%% -----> la distanza totale non è altro che lultima Distanza calcolata dal comeBackHome.
+%totalDistance(DistX,DistY):- #max{DistanceX: comeBackHome(_,_,DistanceX,_)}= DistX,#max{DistanceY: comeBackHome(_,_,_,DistanceY)} = DistY.
+%
+%%se la distanza tra il player in scia e il nemico è troppo corta ci troviamo in zona di pericolo
+%WarningDistance(DistX,DistY):- distanceFromPlayer(Player,DistX,DistY,Enemy),totalDistance(DistanceX,DistanceY),contX = DistX-DistanceX, contY= DistY - DistanceY,contX<=DistanceX, contY<=DistanceY.
+%
+%:-WarningDistance(X,Y),nextMove(Nx,Ny),X>Nx, Y>Ny.
+%
+%%POTREI AVER SCRITTO UN MUCCHIO DI CAGATE.
+
+%--------------------------------------------------FINE-------------------------------------------------------------
+
+
+
+
+% :~ nextMove(Px,Py), enemyTailTerritory(X, Y, Enemy), Dist = &distance(X,Y,Px,Py). [Dist@1]
+
+% Si preferisce massimizzare il numero di tile contestate dal currentPlayer
+% TODO: magari formulare il problema come minimizzazione con un determinato treshold
+
+% Si preferisce massimizzare la distanza tra i diversi nemici
+% TODO: minimizzare con un determinato treshold
+% TODO: si potrebbe creare un altro file contenente questa parte e cambiare i valori per creare due stili,
+% aggressivo e difensivo, per poi cambiarli in base alla decisione a runtime (e.g. come per variableInput)

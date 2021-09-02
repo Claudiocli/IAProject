@@ -3,11 +3,11 @@ package se.liu.ida.paperio;
 import javax.swing.*;
 
 import it.unical.mat.embasp.base.Handler;
-import it.unical.mat.embasp.base.InputProgram;
 import it.unical.mat.embasp.base.OptionDescriptor;
 import it.unical.mat.embasp.base.Output;
 import it.unical.mat.embasp.languages.IllegalAnnotationException;
 import it.unical.mat.embasp.languages.ObjectNotValidException;
+import it.unical.mat.embasp.languages.asp.ASPInputProgram;
 import it.unical.mat.embasp.languages.asp.ASPMapper;
 import it.unical.mat.embasp.languages.asp.AnswerSet;
 import it.unical.mat.embasp.languages.asp.AnswerSets;
@@ -126,7 +126,7 @@ public class Board extends JPanel {
         this.areaHeight = areaHeight;
         this.areaWidth = areaWidth;
         this.botNumber = botNumber;
-        int[] speeds = { 12, 10, 8, 6, 4 };
+        int[] speeds = { 12, 10, 8, 6, 4, 2 };
         tickReset = speeds[gameSpeed - 1];
 
         players.add(
@@ -612,22 +612,22 @@ public class Board extends JPanel {
         private DLV2DesktopService desktopService;
         private Handler handler;
         private OptionDescriptor noFactsOption;
-        private InputProgram fixedProgram;
-        private InputProgram variableProgram;
-        private InputProgram someWhatVariableProgram;
+        private ASPInputProgram fixedProgram;
+        private ASPInputProgram variableProgram;
+        private ASPInputProgram someWhatVariableProgram;
 
         public ScheduleTask() {
             this.desktopService = new DLV2DesktopService("lib/Dlv2/dlv2_64bit.exe");
             this.handler = new DesktopHandler(desktopService);
             this.noFactsOption = new OptionDescriptor("--no-facts");
-            this.fixedProgram = new InputProgram();
-            this.variableProgram = new InputProgram();
-            this.someWhatVariableProgram = new InputProgram();
+            this.fixedProgram = new ASPInputProgram();
+            this.variableProgram = new ASPInputProgram();
+            this.someWhatVariableProgram = new ASPInputProgram();
 
             // Adding options
             this.handler.addOption(this.noFactsOption);
             // Adding the fixed part of program
-            this.fixedProgram.addFilesPath("AI.dl");
+            this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");
 
             // Registering all the classes needed to the ASPMapper
             try {
@@ -656,11 +656,12 @@ public class Board extends JPanel {
         @Override
         public void run() {
             if (!paused) {
-                tickCounter++;
-                tickCounter %= tickReset;
-                if (tickCounter == 0) {
-                    tick();
-                }
+                // tickCounter++;
+                // tickCounter %= tickReset;
+                // if (tickCounter == 0) {
+                //     tick();
+                // }
+                tick();
                 repaint();
             }
         }
@@ -701,41 +702,12 @@ public class Board extends JPanel {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
+                PlayerUpdateCallback callbackObj = new PlayerUpdateCallback();
+                callbackObj.setPlayer(player);
                 // Calling DLV2
-                Output o = this.handler.startSync();
-                AnswerSets answersets = (AnswerSets) o;
+                this.handler.startAsync(callbackObj);
 
-                for (AnswerSet a : answersets.getOptimalAnswerSets())  {
-                    try {
-                        for (Object obj : a.getAtoms()) {
-                            if (!(obj instanceof NextMove))
-                                continue;
-                            var nextMove = (NextMove) obj;
-                            if (nextMove.getX() == 0 && nextMove.getY() == -1)  {
-                                player.setCurrentDirection(NORTH_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_UP);
-                            }
-                            if (nextMove.getX() == 0 && nextMove.getY() == 1)  {
-                                player.setCurrentDirection(SOUTH_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_DOWN);
-                            }
-                            if (nextMove.getX() == -1 && nextMove.getY() == 0)  {
-                                player.setCurrentDirection(WEST_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_LEFT);
-                            }
-                            if (nextMove.getX() == 1 && nextMove.getY() == 0)  {
-                                player.setCurrentDirection(EAST_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_RIGHT);
-                            }
-                            break;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
                 // movement "logic"
-                player.updateD();
                 player.move();
 
                 // Kill player if player moves outside game area
@@ -778,6 +750,8 @@ public class Board extends JPanel {
 
             // Remove dead players
             players.removeIf(p -> !p.getAlive());
+
+            // System.out.println("A tick has passed");
         }
 
     }
