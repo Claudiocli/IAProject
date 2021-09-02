@@ -23,7 +23,7 @@ distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),play
 distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Ex>=Px, Py >=Ey, DistanceX=Ex - Px, DistanceY = Py - Ey.
 distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Ex>=Px, Ey >=Py, DistanceX=Px - Ex, DistanceY = Ey - Py.
 
-% ----> la coda dell'avversario si trova nel nostro territorio.
+% Predicato ausiliare che identifica le eventuali "code" degli avversari che si trovano nel territorio del currentPlayer.
 enemyTailTerritory(X,Y,E):- tile(X,Y,P,E), currentPlayer(P), P != E.
 
 % ----> È preferibile diminuire la distanza tra il player e il nemico nel territorio.
