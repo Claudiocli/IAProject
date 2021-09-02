@@ -18,7 +18,7 @@ limiteXMin(0). limiteYMin(0).
 :- player(_, _, N1, _, _), player(_, _, N2, _, _), N1=N2.
 % ---> la distanza tra il player è il nemico viene calcolata dalla distanza tra la tile del player e quella dell'enemy
 % in fase di sperimentazione
-distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Px>=Ex, Py >=Ey, DistanceX=Px - Ex, DistanceY = Py - Ey.
+distanceFromPlayer(Distance, Enemey):- currentPlayer(P), player(PX, PY, P, _, _), player(EX, EY, Enemy, _, _), P!=Enemy, Distance = &abs(PX - EX) + &abs(PY - EY).
 distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Px>=Ex, Ey >=Py, DistanceX=Px - Ex, DistanceY = Ey - Px.
 distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Ex>=Px, Py >=Ey, DistanceX=Ex - Px, DistanceY = Py - Ey.
 distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Ex>=Px, Ey >=Py, DistanceX=Px - Ex, DistanceY = Ey - Py.
