@@ -19,15 +19,13 @@ limiteXMin(0). limiteYMin(0).
 % ---> la distanza tra il player è il nemico viene calcolata dalla distanza tra la tile del player e quella dell'enemy
 % in fase di sperimentazione
 distanceFromPlayer(Distance, Enemey):- currentPlayer(P), player(PX, PY, P, _, _), player(EX, EY, Enemy, _, _), P!=Enemy, Distance = &abs(PX - EX) + &abs(PY - EY).
-distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Px>=Ex, Ey >=Py, DistanceX=Px - Ex, DistanceY = Ey - Px.
-distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Ex>=Px, Py >=Ey, DistanceX=Ex - Px, DistanceY = Py - Ey.
-distancePlayer(Player, DistanceX, DistanceY, Enemy):- currentPlayer(Player),player(X,Y,Player,_,_),player(Ex,Ey,Enemy,_,_),Player != Enemy, Ex>=Px, Ey >=Py, DistanceX=Px - Ex, DistanceY = Ey - Py.
 
 % Predicato ausiliare che identifica le eventuali "code" degli avversari che si trovano nel territorio del currentPlayer.
 enemyTailTerritory(X,Y,E):- tile(X,Y,P,E), currentPlayer(P), P != E.
 
 % ----> È preferibile diminuire la distanza tra il player e il nemico nel territorio.
-:~ distancePlayer(Player, DistanceX, DistanceY, Enemy),enemyTailTerritory(X,Y,Enemy),player(Px,Py,Player,_,_), contx = DistanceX - Px, conty = DistanceY - Py, final = contx + conty. [final@5]
+distanceTileFromPlayer(Distance, TileX, TileY):- currentPlayer(P), player(PX, PY, P, _, _), tile(TileX, TileY, _, _), Distance = &abs(PX - TileX) + &abs(PY - TileY).
+:~ distanceTileFromPlayer(D, X, Y), enemyTailTerritory(X,Y,E). [D@3, D, X, Y].
 
 % Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
 % prescindere la direzione da cui si arriva
@@ -56,6 +54,27 @@ nextMove(X, Y) | notNextMove(X, Y):- adjacentTile(X, Y, _).
 % È preferibile ampliare il proprio territorio piuttosto che avvicinarsi ad un territorio nemico.
 
 :~ nextMove(X,Y), tile(X,Y,"",""). [1@4]
+
+% -----> calcolare il ritorno nella propria zona.
+
+
+------------------------------------------- REVISIONE TOTALE ---------------------------------------------------
+
+
+
+% -----> la distanza totale non è altro che l'ultima Distanza calcolata dal comeBackHome.
+totalDistance(DistX,DistY):- #max{DistanceX: comeBackHome(_,_,DistanceX,_)}= DistX,#max{DistanceY: comeBackHome(_,_,_,DistanceY)} = DistY.
+
+%se la distanza tra il player in scia e il nemico è troppo corta ci troviamo in zona di pericolo
+WarningDistance(DistX,DistY):- distanceFromPlayer(Player,DistX,DistY,Enemy),totalDistance(DistanceX,DistanceY),contX = DistX-DistanceX, contY= DistY - DistanceY,contX<=DistanceX, contY<=DistanceY.
+
+:-WarningDistance(X,Y),nextMove(Nx,Ny),X>Nx, Y>Ny.
+
+%POTREI AVER SCRITTO UN MUCCHIO DI CAGATE.
+
+--------------------------------------------------FINE-------------------------------------------------------------
+
+
 
 
 % :~ nextMove(Px,Py), enemyTailTerritory(X, Y, Enemy), Dist = &distance(X,Y,Px,Py). [Dist@1]
