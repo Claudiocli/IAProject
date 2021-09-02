@@ -24,7 +24,8 @@ distanceFromPlayer(Distance, Enemey):- currentPlayer(P), player(PX, PY, P, _, _)
 enemyTailTerritory(X,Y,E):- tile(X,Y,P,E), currentPlayer(P), P != E.
 
 % ----> È preferibile diminuire la distanza tra il player e il nemico nel territorio.
-:~ distanceFromPlayer(Player, DistanceX, DistanceY, Enemy),enemyTailTerritory(X,Y,Enemy),player(Px,Py,Player,_,_), contx = DistanceX - Px, conty = DistanceY - Py, final = contx + conty. [final@5]
+distanceTileFromPlayer(Distance, TileX, TileY):- currentPlayer(P), player(PX, PY, P, _, _), tile(TileX, TileY, _, _), Distance = &abs(PX - TileX) + &abs(PY - TileY).
+:~ distanceTileFromPlayer(D, X, Y), enemyTailTerritory(X,Y,E). [D@3, D, X, Y].
 
 % Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
 % prescindere la direzione da cui si arriva
