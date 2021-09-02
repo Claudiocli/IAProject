@@ -18,28 +18,28 @@ public class LimitY {
 	/**
 	 * @return the yMin
 	 */
-	public int getyMin() {
+	public int getYMin() {
 		return yMin;
 	}
 
 	/**
 	 * @param yMin the yMin to set
 	 */
-	public void setyMin(int yMin) {
+	public void setYMin(int yMin) {
 		this.yMin = yMin;
 	}
 
 	/**
 	 * @return the yMax
 	 */
-	public int getyMax() {
+	public int getYMax() {
 		return yMax;
 	}
 
 	/**
 	 * @param yMax the yMax to set
 	 */
-	public void setyMax(int yMax) {
+	public void setYMax(int yMax) {
 		this.yMax = yMax;
 	}
 
