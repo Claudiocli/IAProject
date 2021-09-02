@@ -56,7 +56,6 @@ nextMove(X, Y) | notNextMove(X, Y):- adjacentTile(X, Y, _).
 
 % -----> calcolare il ritorno nella propria zona.
 comeBackHome(X,Y,DistanceX,DistanceY):- player(X,Y,Player,"Est",_),player(X,Y,Player,"Ovest",_),currentPlayer(Player),nextMove(Nx,Ny),adjacentTile(Nx,Ny,V,""), Player!= Owner,DistanceX = Nx + 1,DistanceY = DistanceY + Ny.
-comeBackHome(X,Y,DistanceX,DistanceY):- player(X,Y,Player,"Sud",_),player(X,Y,Player,"Nord",_),currentPlayer(Player),nextMove(Nx,Ny),adjacentTile(Nx,Ny,V,""), Player!= Owner,DistanceX = Nx + DistanceX,DistanceY = Ny + 1.
 
 
 ------------------------------------------- REVISIONE TOTALE ---------------------------------------------------
