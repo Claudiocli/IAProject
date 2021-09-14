@@ -44,7 +44,7 @@ adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, 
 adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), nextMove(_,_,Name), X=XP+1, Y=XY, CDir!=west.
 
 % Guess della next move
-nextMove(X, Y, Name) | notNextMove(X, Y, Name):- adjacentTile(X, Y, _, _), player(_, _, Name, _, _).
+nextMove(X, Y, Name) | notNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, _), player(_, _, Name, _, _).
 
 % È impossibile che la nextMove faccia oltrepassare uno dei bordi
 % FIXME: Ridondante: non esiste la tile(-1, 0)
