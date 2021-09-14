@@ -64,7 +64,7 @@ nextMove(X, Y, Name) | notNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, _), pl
 :~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, nextMove(_, _, P), P = ContestedOwner, &abs(10 - Cont; Costo). [Costo@3, Costo, Cont,P]
 
 % Si preferisce massimizzare la distanza tra i diversi nemici. minimizzare con un determinato treshold.
-:~distanceFromPlayer(D, P, E),nextMove(_, _, P),player(_, _, E, _, _),P != E. [D@4]
+:~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@4]
 
 % TODO: si potrebbe creare un altro file contenente questa parte e cambiare i valori per creare due stili,
 % aggressivo e difensivo, per poi cambiarli in base alla decisione a runtime (e.g. come per variableInput)
