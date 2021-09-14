@@ -656,11 +656,11 @@ public class Board extends JPanel {
         @Override
         public void run() {
             if (!paused) {
-                // tickCounter++;
-                // tickCounter %= tickReset;
-                // if (tickCounter == 0) {
-                //     tick();
-                // }
+                tickCounter++;
+                tickCounter %= tickReset;
+                if (tickCounter == 0) {
+                    tick();
+                }
                 tick();
                 repaint();
             }
@@ -671,41 +671,32 @@ public class Board extends JPanel {
          * enclosures should be filled.
          */
         private void tick() {
+            // What's this?
             tileAIPlayerMap.clear();
 
             // DLV2 setup
             // Adding map and players to the program (it changes everytime `tick()` is called)
-            this.someWhatVariableProgram.clearAll();
+            this.variableProgram.clearAll();
 
             try {
                 for (var p : players)
-                    this.someWhatVariableProgram.addObjectInput(p);
+                    this.variableProgram.addObjectInput(p);
                 Tile[][] map = Board.getInstance().getMapTiles();
                 for (var x = 0; x < map.length; x++)
                     for (var y = 0; y < map[0].length; y++)
-                        this.someWhatVariableProgram.addObjectInput(map[x][y]);
+                        this.variableProgram.addObjectInput(map[x][y]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            this.handler.addProgram(this.someWhatVariableProgram);
             this.handler.addProgram(this.variableProgram);
+
+            // Calling DLV2
+            this.handler.startSync();
 
             for (int i = 0; i < players.size(); i++) {
 
                 var player = players.get(i);
-
-                this.variableProgram.clearAll();
-
-                try {
-                    this.variableProgram.addObjectInput(new CurrentPlayer(player));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                PlayerUpdateCallback callbackObj = new PlayerUpdateCallback();
-                callbackObj.setPlayer(player);
-                // Calling DLV2
-                this.handler.startAsync(callbackObj);
 
                 // movement "logic"
                 player.move();
