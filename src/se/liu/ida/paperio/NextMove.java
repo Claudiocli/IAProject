@@ -9,6 +9,8 @@ public class NextMove {
 	private int x;
 	@Param(1)
 	private int y;
+	@Param(2)
+	private String name;
 
 	public NextMove() {
 		this.x = -1;
@@ -41,6 +43,20 @@ public class NextMove {
 	 */
 	public void setY(int y) {
 		this.y = y;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

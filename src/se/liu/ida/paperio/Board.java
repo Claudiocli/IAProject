@@ -18,6 +18,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Timer;
 import java.util.*;
@@ -614,7 +620,6 @@ public class Board extends JPanel {
         private OptionDescriptor noFactsOption;
         private ASPInputProgram fixedProgram;
         private ASPInputProgram variableProgram;
-        private ASPInputProgram someWhatVariableProgram;
 
         public ScheduleTask() {
             this.desktopService = new DLV2DesktopService("lib/Dlv2/dlv2_64bit.exe");
@@ -622,18 +627,38 @@ public class Board extends JPanel {
             this.noFactsOption = new OptionDescriptor("--no-facts");
             this.fixedProgram = new ASPInputProgram();
             this.variableProgram = new ASPInputProgram();
-            this.someWhatVariableProgram = new ASPInputProgram();
 
             // Adding options
             this.handler.addOption(this.noFactsOption);
             // Adding the fixed part of program
-            this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");
+            this.fixedProgram.clearAll();   // Why it reminds of the old program?!
+            BufferedReader br = null;
+            // this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");    // Not working?
+            ArrayList<String> file = new ArrayList<>();
+            try {
+                br = new BufferedReader(new FileReader(new File("src\\se\\liu\\ida\\paperio\\AI.txt")));
+                while (br.ready())
+                    file.add(br.readLine());
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+            } finally   {
+                if (br != null)
+                    try {
+                        br.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.out.println(e.getMessage());
+                    }
+            }
 
             // Registering all the classes needed to the ASPMapper
             try {
+                for (String s : file)
+                    this.fixedProgram.addProgram(s);
+
                 ASPMapper.getInstance().registerClass(AIPlayer.class);
                 ASPMapper.getInstance().registerClass(Tile.class);
-                ASPMapper.getInstance().registerClass(CurrentPlayer.class);
                 ASPMapper.getInstance().registerClass(LimitX.class);
                 ASPMapper.getInstance().registerClass(LimitY.class);
                 // Adding borders
@@ -646,7 +671,17 @@ public class Board extends JPanel {
                 e.printStackTrace();
             }
 
+            System.out.println(this.fixedProgram.getPrograms());
+
             this.handler.addProgram(this.fixedProgram);
+        }
+
+        private AIPlayer getPlayerByName(String name)  {
+            for (AIPlayer p : players)  {
+                if (p.getName().equals(name))
+                    return p;
+            }
+            return null;
         }
 
         /**
@@ -656,11 +691,11 @@ public class Board extends JPanel {
         @Override
         public void run() {
             if (!paused) {
-                tickCounter++;
-                tickCounter %= tickReset;
-                if (tickCounter == 0) {
-                    tick();
-                }
+                // tickCounter++;
+                // tickCounter %= tickReset;
+                // if (tickCounter == 0) {
+                //     tick();
+                // }
                 tick();
                 repaint();
             }
@@ -692,7 +727,50 @@ public class Board extends JPanel {
             this.handler.addProgram(this.variableProgram);
 
             // Calling DLV2
-            this.handler.startSync();
+            Output o = this.handler.startSync();
+
+            System.out.println(o.getErrors());
+
+            // Handling output
+            AnswerSets answers = (AnswerSets) o;
+
+            for (AnswerSet a : answers.getOptimalAnswerSets())  {
+                System.out.println("There is an optimal AS");
+                try {
+                    for (Object obj : a.getAtoms()) {
+                        if (obj instanceof NextMove)    {
+                            NextMove nextMove = (NextMove) obj;
+                            System.out.println("player: "+nextMove.getName()+" - next direction: ");
+                            AIPlayer player = getPlayerByName(nextMove.getName());
+                            if (player == null)
+                                break;
+                            if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
+                                player.setCurrentDirection(Board.NORTH_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_UP);
+                                System.out.println("UP");
+                            }
+                            if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() + 1)  {
+                                player.setCurrentDirection(Board.SOUTH_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_DOWN);
+                                System.out.println("DOWN");
+                            }
+                            if (nextMove.getX() == player.getX() - 1 && nextMove.getY() == player.getY())  {
+                                player.setCurrentDirection(Board.WEST_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_LEFT);
+                                System.out.println("LEFT");
+                            }
+                            if (nextMove.getX() == player.getX() + 1 && nextMove.getY() == player.getY())  {
+                                player.setCurrentDirection(Board.EAST_DIRECTION);
+                                player.setNextKey(KeyEvent.VK_RIGHT);
+                                System.out.println("RIGHT");
+                            }
+                        }
+                    }
+                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | InstantiationException e) {
+                    System.err.println(e.getClass() + " error message:\n"+ e.getMessage());
+                    e.printStackTrace();
+                }
+            }
 
             for (int i = 0; i < players.size(); i++) {
 
