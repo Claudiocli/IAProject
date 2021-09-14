@@ -12,7 +12,7 @@ public class LimitY {
 
 	public LimitY() {
 		yMin = 0;
-		yMax = Board.getInstance().getAreaWidth();
+		yMax = Board.getInstance().getAreaWidth() - 1;
 	}
 
 	/**

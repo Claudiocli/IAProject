@@ -12,7 +12,7 @@ public class LimitX {
 
 	public LimitX() {
 		this.xMin = 0;
-		this.xMax = Board.getInstance().getAreaWidth();
+		this.xMax = Board.getInstance().getAreaWidth() - 1;
 	}
 
 	/**
