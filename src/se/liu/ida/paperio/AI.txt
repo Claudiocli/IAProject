@@ -19,12 +19,9 @@
 
 % ------------------------------------ PLAYER RULES -------------------------------------
 
-% ---> È impossibile che ci siano due player con lo stesso nome
-:- player(_, _, N1, _, _), player(_, _, N2, _, _), N1=N2.
 
-% ---> la distanza tra i vari player viene calcolata dalla distanza tra la tile del player e quella "ell'enemy"
+% ---> la distanza tra i vari player viene calcolata dalla distanza tra la tile del player e quella "dell'enemy"
 distanceFromPlayer(Distance, Player, Enemy):- player(PX, PY, Player, _, _), player(EX, EY, Enemy, _, _), Player!=Enemy, &abs(PX - EX; AX), &abs(PY - EY; AY), Distance = AX+AY.
-
 % Predicato ausiliare che identifica le eventuali "code" degli avversari che si trovano nel territorio del currentPlayer.
 enemyTailInTerritory(X,Y,P,E):- tile(X,Y,P,E), player(_, _, P, _, _), P != E.
 
@@ -35,28 +32,21 @@ distanceTileFromPlayer(Distance, TileX, TileY, P):- nextMove(_,_,P), player(PX, 
 % Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
 % prescindere la direzione da cui si arriva
 % Nord
-adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), nextMove(_,_,Name), X=XP, Y=XY-1, CDir!=south.
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP, Y=XY-1, CDir!=south.
 % Sud
-adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), nextMove(_,_,Name), X=XP, Y=XY+1, CDir!=north.
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP, Y=XY+1, CDir!=north.
 % Ovest
-adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), nextMove(_,_,Name), X=XP-1, Y=XY, CDir!=east.
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP-1, Y=XY, CDir!=east.
 % Est
-adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), nextMove(_,_,Name), X=XP+1, Y=XY, CDir!=west.
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP+1, Y=XY, CDir!=west.
+
 
 % Guess della next move
-nextMove(X, Y, Name) | notNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, _), player(_, _, Name, _, _).
+nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, _), player(_, _, Name, _, _).
 
-% È impossibile che la nextMove faccia oltrepassare uno dei bordi
-% FIXME: Ridondante: non esiste la tile(-1, 0)
-:- nextMove(X, _, _), limiteXMin(XMin), XMin > X.
-:- nextMove(X, _, _), limiteXMax(XMax), XMax < X.
-:- nextMove(_, Y, _), limiteYMin(YMin), YMin > Y.
-:- nextMove(_, Y, _), limiteYMax(YMax), YMax < Y.
-
-% ---> è impossibile che con la prossima nextmove, il player vada a intaccare la sua stessa scia.
 :- nextMove(X, Y, Name), tile(X, Y, "", Name), nextMove(_, _, Name).
 
-% ------------------------------------ PASSIVE PLAYER -------------------------------------
+:-player(_,_,N,_,_),#count{X,Y: nextMove(X,Y,N)}!=1.
 % È preferibile ampliare il proprio territorio piuttosto che avvicinarsi ad un territorio nemico.
 :~ nextMove(X,Y, Name), tile(X,Y,Owner,ContestedOwner), Name!=Owner, Name!=ContestedOwner, Owner="", ContestedOwner="". [1@4, Name]
 
@@ -65,6 +55,3 @@ nextMove(X, Y, Name) | notNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, _), pl
 
 % Si preferisce massimizzare la distanza tra i diversi nemici. minimizzare con un determinato treshold.
 :~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@4]
-
-% TODO: si potrebbe creare un altro file contenente questa parte e cambiare i valori per creare due stili,
-% aggressivo e difensivo, per poi cambiarli in base alla decisione a runtime (e.g. come per variableInput)
