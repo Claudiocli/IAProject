@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import it.unical.mat.embasp.languages.Id;
 import it.unical.mat.embasp.languages.Param;
+import it.unical.mat.embasp.languages.asp.SymbolicConstant;
 
 /**
  * A tile in the game area. A tile has an x and y position, a color. It can also
@@ -17,9 +18,9 @@ public class Tile {
     private AIPlayer contestedOwner;
     private Color color;
     @Param(2)
-    private String ownerName;
+    private SymbolicConstant ownerName;
     @Param(3)
-    private String contestedOwnerName;
+    private SymbolicConstant contestedOwnerName;
     @Param(0)
     private int x;
     @Param(1)
@@ -35,7 +36,7 @@ public class Tile {
         this.x = x;
         this.y = y;
         this.color = Color.WHITE;
-        this.ownerName = this.contestedOwnerName = "";
+        this.ownerName = this.contestedOwnerName = new SymbolicConstant("nas");
     }
 
     /**
@@ -98,7 +99,7 @@ public class Tile {
      */
     public void setContestedOwner(AIPlayer contestedOwner) {
         this.contestedOwner = contestedOwner;
-        this.contestedOwnerName = "";
+        this.contestedOwnerName = new SymbolicConstant("nas");
     }
 
     /**
@@ -121,10 +122,10 @@ public class Tile {
         }
         this.owner = this.contestedOwner = owner;
         if (owner == null)
-            this.ownerName = "";
+            this.ownerName = new SymbolicConstant("nas");
         else
             this.ownerName = owner.getName();
-        this.contestedOwnerName = "";
+        this.contestedOwnerName = new SymbolicConstant("nas");
     }
 
     /**
@@ -162,28 +163,28 @@ public class Tile {
     /**
      * @return the contestedOwnerName
      */
-    public String getContestedOwnerName() {
+    public SymbolicConstant getContestedOwnerName() {
         return contestedOwnerName;
     }
 
     /**
      * @param contestedOwnerName the contestedOwnerName to set
      */
-    public void setContestedOwnerName(String contestedOwnerName) {
+    public void setContestedOwnerName(SymbolicConstant contestedOwnerName) {
         this.contestedOwnerName = contestedOwnerName;
     }
 
     /**
      * @return the ownerName
      */
-    public String getOwnerName() {
+    public SymbolicConstant getOwnerName() {
         return ownerName;
     }
 
     /**
      * @param ownerName the ownerName to set
      */
-    public void setOwnerName(String ownerName) {
+    public void setOwnerName(SymbolicConstant ownerName) {
         this.ownerName = ownerName;
     }
 

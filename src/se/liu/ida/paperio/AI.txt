@@ -11,7 +11,7 @@
 %		i quali identificano la Tile in posizione (X, Y). Essa avrà, inoltre, il nome (che è identificativo)
 %		delleventuale `Owner` (il player che lha conquistata) e/o delleventuale `ContestedOwner` (il player
 %		che ci è passato sopra e la sta conquistando. Si può intendere come la "coda" del player). Di default
-%		le due stringhe sopracitate sono vuote (e.g."")
+%		le due stringhe sopracitate sono vuote (i.e."nas", aka NotAString)
 % - limiteX(XMin, XMax).
 %		Il predicato indica i limiti, inferiore e superiore, cui la coordinata X dei player non può superare
 % - limiteY(YMin, YMax).
@@ -42,13 +42,20 @@ adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, 
 
 
 % Guess della next move
-nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, _), player(_, _, Name, _, _).
+nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, Name), player(_, _, Name, _, _).
 
-:- nextMove(X, Y, Name), tile(X, Y, "", Name), nextMove(_, _, Name).
+% È impossibile che la nextMove porti il 
 
+% È *molto* sconsigliato che la nextMove sia una tile della "coda" del player.
+% Non è uno strong costraint, poiché renderebbe inconsistente l'AS nel momento in cui un player dovesse
+% trovarsi con le possibili mosse su tile della propria coda, e.g. si immagini il player in una "spirale".
+%:~ nextMove(X, Y, Name), tile(X, Y, "nas", Name), nextMove(_, _, Name). [10@10]
+
+% È necessario che ci sia una nextMove per player.
 :-player(_,_,N,_,_),#count{X,Y: nextMove(X,Y,N)}!=1.
+
 % È preferibile ampliare il proprio territorio piuttosto che avvicinarsi ad un territorio nemico.
-:~ nextMove(X,Y, Name), tile(X,Y,Owner,ContestedOwner), Name!=Owner, Name!=ContestedOwner, Owner="", ContestedOwner="". [1@4, Name]
+:~ nextMove(X,Y, Name), tile(X,Y,Owner,ContestedOwner), Name!=Owner, Name!=ContestedOwner, Owner="nas", ContestedOwner="nas". [1@4, Name]
 
 % Si preferisce massimizzare il numero di tile contestate dal currentPlayer
 :~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, nextMove(_, _, P), P = ContestedOwner, &abs(10 - Cont; Costo). [Costo@3, Costo, Cont,P]

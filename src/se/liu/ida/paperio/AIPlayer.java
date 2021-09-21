@@ -11,6 +11,7 @@ import java.util.Random;
 
 import it.unical.mat.embasp.languages.Id;
 import it.unical.mat.embasp.languages.Param;
+import it.unical.mat.embasp.languages.asp.SymbolicConstant;
 
 /**
  * Class "bean-ified" from the <code>Player</code>. Cause this code is a mess,
@@ -32,9 +33,9 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	private int height;
 	private int width;
 	@Param(2)
-	private String name;
+	private SymbolicConstant name;
 	@Param(3)
-	private String currentDirection;
+	private SymbolicConstant currentDirection;
 	@Param(4)
 	private int areaSize;
 
@@ -63,12 +64,12 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		this.height = height;
 		this.width = width;
 
-		ArrayList<String> names = new ArrayList<>();
+		ArrayList<SymbolicConstant> names = new ArrayList<>();
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("pokemon_names.txt")));
 			while (br.ready())
-				names.add(br.readLine());
+				names.add(new SymbolicConstant(br.readLine()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -113,7 +114,7 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		this.color = color;
 		this.height = height;
 		this.width = width;
-		this.name = name;
+		this.name = new SymbolicConstant(name);
 
 		double rand = r.nextDouble();
 		if (rand < 0.25d) {
@@ -142,12 +143,12 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		this.height = Board.getInstance().getAreaHeight();
 		this.width = Board.getInstance().getAreaWidth();
 		// Name setup
-		ArrayList<String> names = new ArrayList<>();
+		ArrayList<SymbolicConstant> names = new ArrayList<>();
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("pokemon_names.txt")));
 			while (br.ready())
-				names.add(br.readLine());
+				names.add(new SymbolicConstant(br.readLine()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -256,28 +257,28 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	 * 
 	 * @return Name of AIplayer
 	 */
-	public String getName() {
+	public SymbolicConstant getName() {
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
+	public void setName(SymbolicConstant name) {
 		this.name = name;
 	}
 
 	/**
 	 * @return the currentDirection
 	 */
-	public String getCurrentDirection() {
+	public SymbolicConstant getCurrentDirection() {
 		return currentDirection;
 	}
 
 	/**
 	 * @param currentDirection the currentDirection to set
 	 */
-	public void setCurrentDirection(String currentDirection) {
+	public void setCurrentDirection(SymbolicConstant currentDirection) {
 		this.currentDirection = currentDirection;
 	}
 

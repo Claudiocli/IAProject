@@ -84,7 +84,7 @@ public class Painter {
                         * ((board.getTickCounter() + 1) / (double) board.getTickReset()));
             }
             g.setColor(Color.BLACK);
-            g.drawString(player.getName(), drawX + (scale - fontMetrics.stringWidth(player.getName())) / 2,
+            g.drawString(player.getName().getValue(), drawX + (scale - fontMetrics.stringWidth(player.getName().getValue())) / 2,
                     drawY + scale + 16);
 
             // Draw player if visible

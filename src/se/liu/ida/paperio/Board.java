@@ -11,6 +11,7 @@ import it.unical.mat.embasp.languages.asp.ASPInputProgram;
 import it.unical.mat.embasp.languages.asp.ASPMapper;
 import it.unical.mat.embasp.languages.asp.AnswerSet;
 import it.unical.mat.embasp.languages.asp.AnswerSets;
+import it.unical.mat.embasp.languages.asp.SymbolicConstant;
 import it.unical.mat.embasp.platforms.desktop.DesktopHandler;
 import it.unical.mat.embasp.specializations.dlv2.desktop.DLV2DesktopService;
 
@@ -19,8 +20,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
@@ -39,10 +42,10 @@ public class Board extends JPanel {
 
     private static final String PAUSE = "Pause";
 
-    public static final String NORTH_DIRECTION = "north";
-    public static final String SOUTH_DIRECTION = "south";
-    public static final String WEST_DIRECTION = "west";
-    public static final String EAST_DIRECTION = "east";
+    public static final SymbolicConstant NORTH_DIRECTION = new SymbolicConstant("north");
+    public static final SymbolicConstant SOUTH_DIRECTION = new SymbolicConstant("south");
+    public static final SymbolicConstant WEST_DIRECTION = new SymbolicConstant("west");
+    public static final SymbolicConstant EAST_DIRECTION = new SymbolicConstant("east");
 
     private final int areaHeight;
     private final int areaWidth;
@@ -661,6 +664,7 @@ public class Board extends JPanel {
                 ASPMapper.getInstance().registerClass(Tile.class);
                 ASPMapper.getInstance().registerClass(LimitX.class);
                 ASPMapper.getInstance().registerClass(LimitY.class);
+                ASPMapper.getInstance().registerClass(NextMove.class);
                 // Adding borders
                 this.fixedProgram.addObjectInput(new LimitX());
                 this.fixedProgram.addObjectInput(new LimitY());
@@ -671,7 +675,7 @@ public class Board extends JPanel {
                 e.printStackTrace();
             }
 
-            System.out.println(this.fixedProgram.getPrograms());
+            // System.out.println(this.fixedProgram.getPrograms());
 
             this.handler.addProgram(this.fixedProgram);
         }
@@ -723,8 +727,28 @@ public class Board extends JPanel {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            // var variableInput = this.variableProgram.getPrograms();
+            // this.variableProgram.clearAll();
+            // this.variableProgram.addProgram(variableInput.replaceAll("\"\"([a-zA-Z]+)\"\"", "\"$1\""));
+            // System.out.println("VARIABLE PROGRAM:");
+            // System.out.println(this.variableProgram.getPrograms());
 
             this.handler.addProgram(this.variableProgram);
+
+            BufferedWriter bw = null;
+            try {
+                bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt")));
+                bw.write(this.variableProgram.getPrograms());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally   {
+                if (bw!=null)
+                    try {
+                        bw.close();
+                    } catch (IOException e) {
+                       e.printStackTrace();
+                    }
+            }
 
             // Calling DLV2
             Output o = this.handler.startSync();
@@ -735,35 +759,37 @@ public class Board extends JPanel {
             AnswerSets answers = (AnswerSets) o;
 
             for (AnswerSet a : answers.getOptimalAnswerSets())  {
-                System.out.println("There is an optimal AS");
+                System.out.println("There is an AS");
+                System.out.println(a);
                 try {
                     for (Object obj : a.getAtoms()) {
-                        if (obj instanceof NextMove)    {
-                            NextMove nextMove = (NextMove) obj;
-                            System.out.println("player: "+nextMove.getName()+" - next direction: ");
-                            AIPlayer player = getPlayerByName(nextMove.getName());
-                            if (player == null)
-                                break;
-                            if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
-                                player.setCurrentDirection(Board.NORTH_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_UP);
-                                System.out.println("UP");
-                            }
-                            if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() + 1)  {
-                                player.setCurrentDirection(Board.SOUTH_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_DOWN);
-                                System.out.println("DOWN");
-                            }
-                            if (nextMove.getX() == player.getX() - 1 && nextMove.getY() == player.getY())  {
-                                player.setCurrentDirection(Board.WEST_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_LEFT);
-                                System.out.println("LEFT");
-                            }
-                            if (nextMove.getX() == player.getX() + 1 && nextMove.getY() == player.getY())  {
-                                player.setCurrentDirection(Board.EAST_DIRECTION);
-                                player.setNextKey(KeyEvent.VK_RIGHT);
-                                System.out.println("RIGHT");
-                            }
+                        System.out.println(obj);
+                        if (!(obj instanceof NextMove))
+                            continue;
+                        NextMove nextMove = (NextMove) obj;
+                        System.out.println("player: "+nextMove.getName()+" - next direction: ");
+                        AIPlayer player = getPlayerByName(nextMove.getName().getValue());
+                        if (player == null)
+                            break;
+                        if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
+                            player.setCurrentDirection(Board.NORTH_DIRECTION);
+                            player.setNextKey(KeyEvent.VK_UP);
+                            System.out.println("UP");
+                        }
+                        if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() + 1)  {
+                            player.setCurrentDirection(Board.SOUTH_DIRECTION);
+                            player.setNextKey(KeyEvent.VK_DOWN);
+                            System.out.println("DOWN");
+                        }
+                        if (nextMove.getX() == player.getX() - 1 && nextMove.getY() == player.getY())  {
+                            player.setCurrentDirection(Board.WEST_DIRECTION);
+                            player.setNextKey(KeyEvent.VK_LEFT);
+                            System.out.println("LEFT");
+                        }
+                        if (nextMove.getX() == player.getX() + 1 && nextMove.getY() == player.getY())  {
+                            player.setCurrentDirection(Board.EAST_DIRECTION);
+                            player.setNextKey(KeyEvent.VK_RIGHT);
+                            System.out.println("RIGHT");
                         }
                     }
                 } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | InstantiationException e) {
