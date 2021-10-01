@@ -415,6 +415,7 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	 */
 	public void setNextKey(int nextKey) {
 		this.nextKey = nextKey;
+		updateD();
 	}
 
 	/**

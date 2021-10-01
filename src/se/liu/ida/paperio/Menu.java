@@ -128,13 +128,13 @@ public class Menu extends JPanel {
 
         // Setting labels and spinners
         JLabel areaHeightLabel = new JLabel("Game area height:");
-        areaHeightSpnr = new JSpinner(new SpinnerNumberModel(100, 25, 500, 5));
+        areaHeightSpnr = new JSpinner(new SpinnerNumberModel(40, 25, 500, 5));
         JLabel areaWidthLabel = new JLabel("Game area width:");
-        areaWidthSpnr = new JSpinner(new SpinnerNumberModel(100, 25, 500, 5));
+        areaWidthSpnr = new JSpinner(new SpinnerNumberModel(40, 25, 500, 5));
         JLabel speedLabel = new JLabel("Game speed (1-5):");
         gameSpeedSpnr = new JSpinner(new SpinnerNumberModel(3, 1, 5, 1));
         JLabel botNumberLabel = new JLabel("Number of bots:");
-        botNumberSpnr = new JSpinner(new SpinnerNumberModel(10, 0, 25, 1));
+        botNumberSpnr = new JSpinner(new SpinnerNumberModel(4, 0, 25, 1));
 
         JLabel[] settingLabels = { areaHeightLabel, areaWidthLabel, speedLabel, botNumberLabel };
         JSpinner[] settingSpinners = { areaHeightSpnr, areaWidthSpnr, gameSpeedSpnr, botNumberSpnr };
