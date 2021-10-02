@@ -22,10 +22,8 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Timer;
@@ -72,8 +70,8 @@ public class Board extends JPanel {
     private Random r;
     private boolean multiplayer = false;
 
-    // I know the entire class should be refactored, but it's a mess and it would
-    // take too much time
+    // I know, have mercy. The entire class, if not the whole code, should be refactored, 
+    // but it's a mess and it would take too much time
     private static Board instance = null;
 
     private List<Color> colorList = new ArrayList<>(
@@ -195,7 +193,8 @@ public class Board extends JPanel {
             players.remove(p);
 
         // Starts a timer to tick the game logic
-        final int INITIAL_DELAY = 0;
+        // TODO: ensure the ConcurrentModificationException was raised because of the little initial delay
+        final int INITIAL_DELAY = 100;
         final int PERIOD_INTERVAL = 1000 / 60;
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new ScheduleTask(), INITIAL_DELAY, PERIOD_INTERVAL);
@@ -640,7 +639,7 @@ public class Board extends JPanel {
             this.handler.addOption(this.noFactsOption);
             // Adding the fixed part of program
             //this.fixedProgram.clearAll();   // Why it reminds of the old program?!
-            BufferedReader br = null;
+            // BufferedReader br = null;
             // src\\se\\liu\\ida\\paperio\\AI.txt
             this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");    // Not working?
             // ArrayList<String> file = new ArrayList<>();
@@ -668,8 +667,6 @@ public class Board extends JPanel {
 
                 ASPMapper.getInstance().registerClass(AIPlayer.class);
                 ASPMapper.getInstance().registerClass(Tile.class);
-                ASPMapper.getInstance().registerClass(LimitX.class);
-                ASPMapper.getInstance().registerClass(LimitY.class);
                 ASPMapper.getInstance().registerClass(NextMove.class);
             } catch (ObjectNotValidException | IllegalAnnotationException e) {
                 System.out.println(e instanceof ObjectNotValidException ? "OBJECT NOT VALID" : "ILLEGAL ANNOTATION");
@@ -797,7 +794,7 @@ public class Board extends JPanel {
                         if (!(obj instanceof NextMove))
                             continue;
                         NextMove nextMove = (NextMove) obj;
-                        AIPlayer player = getPlayerByName(nextMove.getName());
+                        AIPlayer player = getPlayerByName(nextMove.getName().getValue());
                         System.out.println("player: "+player.getName().getValue()+" - current tile["+player.getX()+","+player.getY()+"]"+" - next direction: ");
                         if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
                             player.setCurrentDirection(Board.NORTH_DIRECTION);

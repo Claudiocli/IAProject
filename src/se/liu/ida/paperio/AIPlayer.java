@@ -68,8 +68,13 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("pokemon_names.txt")));
-			while (br.ready())
-				names.add(new SymbolicConstant(br.readLine()));
+			// "Magikarp" -/> magikarp -> "Magikarp"
+			while (br.ready())	{
+				String sanificatedName = br.readLine();
+				sanificatedName = sanificatedName.trim();
+				sanificatedName = sanificatedName.replace("\"", "");
+				names.add(new SymbolicConstant(sanificatedName.toLowerCase()));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -114,7 +119,9 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		this.color = color;
 		this.height = height;
 		this.width = width;
-		this.name = new SymbolicConstant(name);
+		name = name.trim();
+		name = name.replace("\"", "");
+		this.name = new SymbolicConstant(name.toLowerCase());
 
 		double rand = r.nextDouble();
 		if (rand < 0.25d) {
@@ -147,8 +154,12 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("pokemon_names.txt")));
-			while (br.ready())
-				names.add(new SymbolicConstant(br.readLine()));
+			while (br.ready())	{
+				String sanificatedName = br.readLine();
+				sanificatedName = sanificatedName.trim();
+				sanificatedName = sanificatedName.replace("\"", "");
+				names.add(new SymbolicConstant(sanificatedName.toLowerCase()));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

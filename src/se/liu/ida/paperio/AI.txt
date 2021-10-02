@@ -1,3 +1,5 @@
+#show nextMove/3.
+
 % Si aspetti come input  i fatti corrispondenti ai singoli AIPlayer e allo status delle singole Tile
 % Verranno trattati come segue:
 % - player(X, Y, Name, CurrentDirection, AreaSize).
@@ -44,7 +46,7 @@ nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, Name), 
 % È *molto* sconsigliato che la nextMove sia una tile della "coda" del player.
 % Non è uno strong costraint, poiché renderebbe inconsistente l'AS nel momento in cui un player dovesse
 % trovarsi con le possibili mosse su tile della propria coda, e.g. si immagini il player in una "spirale".
-%:~ nextMove(X, Y, Name), tile(X, Y, "nas", Name), nextMove(_, _, Name). [10@10]
+%:~ nextMove(X, Y, Name), tile(X, Y, nas, Name), nextMove(_, _, Name). [10@10]
 
 % È necessario che ci sia una nextMove per player.
 :-player(_,_,N,_,_),#count{X,Y: nextMove(X,Y,N)}!=1.
@@ -53,7 +55,7 @@ nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, Name), 
 :~ nextMove(X,Y, Name), tile(X,Y,Owner,ContestedOwner), Name!=Owner, Name!=ContestedOwner, Owner=nas, ContestedOwner=nas. [1@4, Name]
 
 % Si preferisce massimizzare il numero di tile contestate dal currentPlayer
-:~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, nextMove(_, _, P), P = ContestedOwner, &abs(10 - Cont; Costo). [Costo@3, Costo, Cont,P]
+:~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, nextMove(_, _, P), P = ContestedOwner, Cont>=10, tile (TX, TY, P, _), distanceTileFromPlayer(Distance, TX, TY, P). [Distance@3, Cont, P, Distance]
 
 % Si preferisce massimizzare la distanza tra i diversi nemici. minimizzare con un determinato treshold.
 :~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@4]

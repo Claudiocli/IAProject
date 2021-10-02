@@ -2,6 +2,7 @@ package se.liu.ida.paperio;
 
 import it.unical.mat.embasp.languages.Id;
 import it.unical.mat.embasp.languages.Param;
+import it.unical.mat.embasp.languages.asp.SymbolicConstant;
 
 @Id("nextMove")
 public class NextMove {
@@ -10,7 +11,7 @@ public class NextMove {
 	@Param(1)
 	private int y;
 	@Param(2)
-	private String name;
+	private SymbolicConstant name;
 
 	public NextMove() {
 		this.x = -1;
@@ -48,14 +49,14 @@ public class NextMove {
 	/**
 	 * @return the name
 	 */
-	public String getName() {
+	public SymbolicConstant getName() {
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
+	public void setName(SymbolicConstant name) {
 		this.name = name;
 	}
 
