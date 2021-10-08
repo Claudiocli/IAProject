@@ -39,6 +39,13 @@ public class Tile {
         this.ownerName = this.contestedOwnerName = new SymbolicConstant("nas");
     }
 
+    public Tile()   {
+        this.x = -1;
+        this.y = -1;
+        this.color = Color.WHITE;
+        this.ownerName = this.contestedOwnerName = new SymbolicConstant("nas");
+    }
+
     /**
      * Decides what color to be drawn depending on owner and contested owner
      * 

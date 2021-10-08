@@ -1,259 +1,261 @@
 Output 0
 DLV 2.0
 
-{}
-COST 1494@2 283@1
+{nextMove(21,7,tentacruel), nextMove(5,30,weedle), nextMove(30,23,alakazam), nextMove(32,10,lickitung), nextMove(34,3,kabutops)}
+COST 1800@2 295@1
 OPTIMUM
 
 Output 1
 DLV 2.0
 
 {}
-COST 1521@2 292@1
+COST 1791@2 283@1
 OPTIMUM
 
 Output 2
 DLV 2.0
 
-{}
-COST 1548@2 296@1
+{nextMove(7,30,weedle), nextMove(32,23,alakazam), nextMove(30,10,lickitung), nextMove(32,3,kabutops), nextMove(22,8,tentacruel)}
+COST 1782@2 271@1
 OPTIMUM
 
 Output 3
 DLV 2.0
 
-{nextMove(29,20,kabuto), nextMove(25,4,golduck), nextMove(35,6,nidorina), nextMove(7,37,voltorb), nextMove(36,32,mew)}
-COST 1575@2 323@1
-OPTIMUM
+INCOHERENT
 
 Output 4
 DLV 2.0
 
 {}
-COST 1584@2 265@1
+COST 1728@2 258@1
 OPTIMUM
 
 Output 5
 DLV 2.0
 
-{nextMove(31,20,kabuto), nextMove(37,33,mew), nextMove(6,38,voltorb), nextMove(33,6,nidorina), nextMove(26,5,golduck)}
-COST 1599@2 327@1
+{nextMove(23,10,tentacruel), nextMove(29,3,kabutops), nextMove(9,31,weedle), nextMove(34,24,alakazam), nextMove(28,11,lickitung)}
+COST 1701@2 254@1
 OPTIMUM
 
 Output 6
 DLV 2.0
 
 {}
-COST 1608@2 329@1
+COST 1692@2 256@1
+{}
+COST 1692@2 255@1
 OPTIMUM
 
 Output 7
 DLV 2.0
 
-{}
-COST 1617@2 331@1
+{nextMove(35,25,alakazam), nextMove(29,12,lickitung), nextMove(8,32,weedle), nextMove(27,3,kabutops), nextMove(24,11,tentacruel)}
+COST 1683@2 259@1
+{nextMove(10,32,weedle), nextMove(35,25,alakazam), nextMove(29,12,lickitung), nextMove(27,3,kabutops), nextMove(24,11,tentacruel)}
+COST 1683@2 258@1
 OPTIMUM
 
 Output 8
 DLV 2.0
 
-{nextMove(34,20,kabuto), nextMove(27,7,golduck), nextMove(3,38,voltorb), nextMove(30,6,nidorina), nextMove(39,34,mew)}
-COST 1626@2 339@1
+{}
+COST 1674@2 247@1
 OPTIMUM
 
 Output 9
 DLV 2.0
 
 {}
-COST 1647@2 345@1
+COST 1665@2 226@1
 OPTIMUM
 
 Output 10
 DLV 2.0
 
-{nextMove(29,7,golduck), nextMove(1,38,voltorb), nextMove(28,6,nidorina), nextMove(35,21,kabuto), nextMove(39,36,mew)}
-COST 1674@2 292@1
+{nextMove(13,32,weedle), nextMove(38,25,alakazam), nextMove(32,12,lickitung), nextMove(23,13,tentacruel), nextMove(24,3,kabutops)}
+COST 1656@2 261@1
 OPTIMUM
 
 Output 11
 DLV 2.0
 
-{}
-COST 1683@2 298@1
+{nextMove(14,32,weedle), nextMove(33,12,lickitung), nextMove(23,3,kabutops), nextMove(23,14,tentacruel), nextMove(38,26,alakazam)}
+COST 1647@2 265@1
 OPTIMUM
 
 Output 12
 DLV 2.0
 
 {}
-COST 1692@2 365@1
+COST 1620@2 181@1
 OPTIMUM
 
 Output 13
 DLV 2.0
 
 {}
-COST 1593@2 242@1
+COST 1593@2 267@1
 OPTIMUM
 
 Output 14
 DLV 2.0
 
-{nextMove(34,24,kabuto), nextMove(25,6,nidorina), nextMove(38,38,mew), nextMove(32,33,nidorino)}
-COST 1215@2 151@1
+{}
+COST 1566@2 246@1
 OPTIMUM
 
 Output 15
 DLV 2.0
 
-{nextMove(31,33,nidorino), nextMove(34,25,kabuto), nextMove(25,7,nidorina), nextMove(38,39,mew)}
-COST 1176@2 138@1
+{}
+COST 1545@2 271@1
 OPTIMUM
 
 Output 16
 DLV 2.0
 
 {}
-COST 1185@2 149@1
+COST 1530@2 208@1
 OPTIMUM
 
 Output 17
 DLV 2.0
 
-{}
-COST 807@2 131@1
+{nextMove(22,19,tentacruel), nextMove(37,31,alakazam), nextMove(19,33,weedle), nextMove(38,13,lickitung), nextMove(18,4,kabutops)}
+COST 1521@2 277@1
 OPTIMUM
 
 Output 18
 DLV 2.0
 
-{}
-COST 807@2 99@1
+{nextMove(39,13,lickitung), nextMove(19,4,kabutops), nextMove(18,33,weedle), nextMove(22,20,tentacruel), nextMove(37,32,alakazam)}
+COST 1494@2 254@1
 OPTIMUM
 
 Output 19
 DLV 2.0
 
-{}
-COST 813@2 123@1
+{nextMove(23,20,tentacruel), nextMove(38,32,alakazam), nextMove(20,4,kabutops), nextMove(18,34,weedle), nextMove(39,14,lickitung)}
+COST 1527@2 279@1
 OPTIMUM
 
 Output 20
 DLV 2.0
 
 {}
-COST 825@2 121@1
+COST 1554@2 221@1
 OPTIMUM
 
 Output 21
 DLV 2.0
 
-{nextMove(35,30,kabuto), nextMove(26,12,nidorina), nextMove(19,35,chansey), nextMove(26,34,nidorino)}
-COST 843@2 119@1
+{nextMove(25,20,tentacruel), nextMove(19,35,weedle), nextMove(22,4,kabutops), nextMove(39,16,lickitung), nextMove(39,31,alakazam)}
+COST 1581@2 283@1
 OPTIMUM
 
 Output 22
 DLV 2.0
 
 {}
-COST 873@2 125@1
+COST 1572@2 273@1
 OPTIMUM
 
 Output 23
 DLV 2.0
 
-{}
-COST 909@2 133@1
+{nextMove(27,20,tentacruel), nextMove(24,4,kabutops), nextMove(38,17,lickitung), nextMove(20,36,weedle), nextMove(39,29,alakazam)}
+COST 1563@2 263@1
 OPTIMUM
 
 Output 24
 DLV 2.0
 
 {}
-COST 945@2 143@1
+COST 1578@2 261@1
 OPTIMUM
 
 Output 25
 DLV 2.0
 
 {}
-COST 981@2 126@1
+COST 1599@2 177@1
 OPTIMUM
 
 Output 26
 DLV 2.0
 
-{nextMove(25,38,nidorino), nextMove(14,35,chansey), nextMove(39,31,kabuto), nextMove(30,13,nidorina)}
-COST 1017@2 163@1
+{}
+COST 1626@2 257@1
 OPTIMUM
 
 Output 27
 DLV 2.0
 
-{}
-COST 1035@2 163@1
+{nextMove(19,39,weedle), nextMove(30,21,tentacruel), nextMove(35,18,lickitung), nextMove(27,5,kabutops), nextMove(39,25,alakazam)}
+COST 1653@2 255@1
 OPTIMUM
 
 Output 28
 DLV 2.0
 
-{nextMove(31,14,nidorina), nextMove(23,38,nidorino), nextMove(12,35,chansey), nextMove(39,33,kabuto)}
-COST 1053@2 163@1
+{}
+COST 1656@2 251@1
 OPTIMUM
 
 Output 29
 DLV 2.0
 
 {}
-COST 1089@2 167@1
+COST 1665@2 247@1
 OPTIMUM
 
 Output 30
 DLV 2.0
 
-{}
-COST 1125@2 170@1
+{nextMove(28,7,kabutops), nextMove(29,23,tentacruel), nextMove(34,20,lickitung), nextMove(17,38,weedle), nextMove(39,22,alakazam)}
+COST 1674@2 243@1
 OPTIMUM
 
 Output 31
 DLV 2.0
 
-{nextMove(9,35,chansey), nextMove(39,36,kabuto), nextMove(33,15,nidorina), nextMove(21,39,nidorino)}
-COST 1161@2 174@1
+{nextMove(18,38,weedle), nextMove(29,7,kabutops), nextMove(29,24,tentacruel), nextMove(34,21,lickitung), nextMove(39,21,alakazam)}
+COST 1665@2 235@1
 OPTIMUM
 
 Output 32
 DLV 2.0
 
-{nextMove(34,15,nidorina), nextMove(20,39,nidorino), nextMove(39,37,kabuto), nextMove(9,36,chansey)}
-COST 1179@2 178@1
+{nextMove(35,21,lickitung), nextMove(30,7,kabutops), nextMove(28,24,tentacruel), nextMove(18,39,weedle), nextMove(39,20,alakazam)}
+COST 1674@2 229@1
 OPTIMUM
 
 Output 33
 DLV 2.0
 
-{nextMove(35,15,nidorina), nextMove(38,37,kabuto), nextMove(8,36,chansey), nextMove(20,38,nidorino)}
-COST 1215@2 180@1
+{}
+COST 1287@2 154@1
 OPTIMUM
 
 Output 34
 DLV 2.0
 
-{nextMove(21,38,nidorino), nextMove(38,38,kabuto), nextMove(35,16,nidorina), nextMove(8,37,chansey)}
-COST 1215@2 178@1
+{}
+COST 1314@2 155@1
 OPTIMUM
 
 Output 35
 DLV 2.0
 
-{nextMove(39,38,kabuto), nextMove(36,16,nidorina), nextMove(9,36,chansey), nextMove(25,4,sandslash)}
-COST 1440@2 228@1
+{nextMove(33,7,kabutops), nextMove(26,25,tentacruel), nextMove(37,22,lickitung), nextMove(17,15,poliwhirl), nextMove(39,18,alakazam)}
+COST 1341@2 132@1
 OPTIMUM
 
 Output 36
 DLV 2.0
 
 {}
-COST 1377@2 218@1
+COST 1356@2 157@1
 OPTIMUM
 

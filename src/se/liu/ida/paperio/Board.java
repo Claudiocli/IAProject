@@ -626,7 +626,7 @@ public class Board extends JPanel {
         private int cont;
 
         public ScheduleTask() {
-            this.desktopService = new DLV2DesktopService("lib/Dlv2/dlv2_64bit.exe");
+            this.desktopService = new DLV2DesktopService("lib\\Dlv2\\dlv2_64bit.exe");
             this.handler = new DesktopHandler(desktopService);
             this.noFactsOption = new OptionDescriptor("--no-facts");
             this.fixedProgram = new ASPInputProgram();
@@ -636,7 +636,7 @@ public class Board extends JPanel {
             this.cont = 0;
 
             // Adding options
-            this.handler.addOption(this.noFactsOption);
+            // this.handler.addOption(this.noFactsOption);
             // Adding the fixed part of program
             //this.fixedProgram.clearAll();   // Why it reminds of the old program?!
             // BufferedReader br = null;
@@ -679,6 +679,7 @@ public class Board extends JPanel {
             System.out.println(this.fixedProgram.getPrograms());
 
             this.handler.addProgram(this.fixedProgram);
+            this.handler.addProgram(this.variableProgram);
         }
 
         private AIPlayer getPlayerByName(String name)  {
@@ -715,7 +716,7 @@ public class Board extends JPanel {
             tileAIPlayerMap.clear();
 
             // DLV2 setup
-            // Adding map and players to the program (it changes everytime `tick()` is called)
+            // Adding map and players to the program (it changes everytime `tick()` is called)            
             this.variableProgram.clearAll();
 
             try {
@@ -734,7 +735,6 @@ public class Board extends JPanel {
             // System.out.println("VARIABLE PROGRAM:");
             // System.out.println(this.variableProgram.getPrograms());
 
-            this.handler.addProgram(this.variableProgram);
             // "ciao" "ciao"
             BufferedWriter bw = null;
             try {
@@ -788,6 +788,25 @@ public class Board extends JPanel {
             for (AnswerSet a : answers.getOptimalAnswerSets())  {
                 // System.out.println("There is an AS");
             // System.out.println(a);
+
+            // try {
+            //     if (this.cont == 0)
+            //         bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt")));
+            //     else
+            //         bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt"), true));
+            //     bw.write("Output "+this.cont+"\n"+a+"\n"+a+"\n");
+            // } catch (IOException e) {
+            //     e.printStackTrace();
+            // } finally   {
+            //     if (bw!=null)
+            //         try {
+            //             bw.close();
+            //         } catch (IOException e) {
+            //            e.printStackTrace();
+            //         }
+            //     this.cont++;
+            // }
+
                 try {
                     for (Object obj : a.getAtoms()) {
                         System.out.println(obj);

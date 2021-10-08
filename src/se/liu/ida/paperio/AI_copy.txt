@@ -1,0 +1,61 @@
+#show nextMove/3.
+
+% Si aspetti come input  i fatti corrispondenti ai singoli AIPlayer e allo status delle singole Tile
+% Verranno trattati come segue:
+% - player(X, Y, Name, CurrentDirection, AreaSize).
+%		I predicati `player(X, Y, Name, CurrentDirection, AreaSize)` sono identificati dal termine univoco
+% 		`Name`, il quale sarà unico per ogni AIPlayer. `X` ed `Y` sono le coordinate del player;
+%		`CurrentDirection` indica la direzione in cui si sta andando attualmente (E.g. nel caso stessi andando
+%		verso sud, non potrei andare nella direzione da cui arrivo, ovvero nord); `AreaSize` è un numero che
+%		identifica il numero di tiles conquistate dal player
+% - tile(X, Y, Owner, ContestedOwner).
+%		I predicati `tile(X, Y, Owner, ContestedOwner)` sono identificati dalla coppia dei termini (X, Y), 
+%		i quali identificano la Tile in posizione (X, Y). Essa avrà, inoltre, il nome (che è identificativo)
+%		delleventuale `Owner` (il player che lha conquistata) e/o delleventuale `ContestedOwner` (il player
+%		che ci è passato sopra e la sta conquistando. Si può intendere come la "coda" del player). Di default
+%		le due stringhe sopracitate sono vuote (i.e."nas", aka NotAString)
+% TODO: can delete
+
+% ------------------------------------ PLAYER RULES -------------------------------------
+
+
+% ---> la distanza tra i vari player viene calcolata dalla distanza tra la tile del player e quella "dell'enemy"
+distanceFromPlayer(Distance, Player, Enemy):- player(PX, PY, Player, _, _), player(EX, EY, Enemy, _, _), Player!=Enemy, &abs(PX - EX; AX), &abs(PY - EY; AY), Distance = AX+AY.
+% Predicato ausiliare che identifica le eventuali "code" degli avversari che si trovano nel territorio del currentPlayer.
+enemyTailInTerritory(X,Y,P,E):- tile(X,Y,P,E), player(_, _, P, _, _), P != E.
+
+% ----> È preferibile diminuire la distanza tra il player e il nemico nel territorio.
+distanceTileFromPlayer(Distance, TileX, TileY, P):- nextMove(_,_,P), player(PX, PY, P, _, _), tile(TileX, TileY, _, _), &abs(PX - TileX; AX), &abs(PY - TileY; AY), Distance = AX + AY.
+:~nextMove(Nx, Ny, P),P != E, distanceTileFromPlayer(D, X, Y, P), enemyTailInTerritory(X,Y,P,E). [D@5, D, X, Y, P]
+
+% Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
+% prescindere la direzione da cui si arriva
+% Nord
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP, Y=XY-1, CDir!=south.
+% Sud
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP, Y=XY+1, CDir!=north.
+% Ovest
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP-1, Y=XY, CDir!=east.
+% Est
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP+1, Y=XY, CDir!=west.
+
+
+% Guess della next move
+nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, Name), player(_, _, Name, _, _).
+
+% È *molto* sconsigliato che la nextMove sia una tile della "coda" del player.
+% Non è uno strong costraint, poiché renderebbe inconsistente l'AS nel momento in cui un player dovesse
+% trovarsi con le possibili mosse su tile della propria coda, e.g. si immagini il player in una "spirale".
+:~ nextMove(X, Y, Name), tile(X, Y, nas, Name), nextMove(_, _, Name). [10@10]
+
+% È necessario che ci sia una nextMove per player.
+:-player(_,_,N,_,_),#count{X,Y: nextMove(X,Y,N)}!=1.
+
+% È preferibile ampliare il proprio territorio piuttosto che avvicinarsi ad un territorio nemico.
+:~ nextMove(X,Y, Name), tile(X,Y,Owner,ContestedOwner), Name!=Owner, Name!=ContestedOwner, Owner=nas, ContestedOwner=nas. [1@4, Name]
+
+% Si preferisce massimizzare il numero di tile contestate dal currentPlayer
+:~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, nextMove(_, _, P), P = ContestedOwner, Cont>=10, tile (TX, TY, P, _), distanceTileFromPlayer(Distance, TX, TY, P). [Distance@3, Cont, P, Distance]
+
+% Si preferisce massimizzare la distanza tra i diversi nemici. minimizzare con un determinato treshold.
+:~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@4]
