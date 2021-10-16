@@ -24,6 +24,7 @@ hs_err_pid*
 
 # Test pakage
 test-loide/*
+lib/EmbASP/newVersion_7.5.0/
 
 .vscode/*
 !.vscode/settings.json

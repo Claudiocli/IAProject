@@ -22,10 +22,8 @@ import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Timer;
@@ -72,8 +70,8 @@ public class Board extends JPanel {
     private Random r;
     private boolean multiplayer = false;
 
-    // I know the entire class should be refactored, but it's a mess and it would
-    // take too much time
+    // I know, have mercy. The entire class, if not the whole code, should be refactored, 
+    // but it's a mess and it would take too much time
     private static Board instance = null;
 
     private List<Color> colorList = new ArrayList<>(
@@ -160,7 +158,7 @@ public class Board extends JPanel {
         this.gameArea = new Tile[areaHeight][areaWidth];
         for (int i = 0; i < gameArea.length; i++) {
             for (int j = 0; j < gameArea[i].length; j++) {
-                gameArea[i][j] = new Tile(j, i);
+                gameArea[i][j] = new Tile(i, j);
             }
         }
 
@@ -195,7 +193,8 @@ public class Board extends JPanel {
             players.remove(p);
 
         // Starts a timer to tick the game logic
-        final int INITIAL_DELAY = 0;
+        // TODO: ensure the ConcurrentModificationException was raised because of the little initial delay
+        final int INITIAL_DELAY = 100;
         final int PERIOD_INTERVAL = 1000 / 60;
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new ScheduleTask(), INITIAL_DELAY, PERIOD_INTERVAL);
@@ -624,50 +623,51 @@ public class Board extends JPanel {
         private ASPInputProgram fixedProgram;
         private ASPInputProgram variableProgram;
 
+        private int cont;
+
         public ScheduleTask() {
-            this.desktopService = new DLV2DesktopService("lib/Dlv2/dlv2_64bit.exe");
+            this.desktopService = new DLV2DesktopService("lib\\Dlv2\\dlv2_32bit.exe");
             this.handler = new DesktopHandler(desktopService);
             this.noFactsOption = new OptionDescriptor("--no-facts");
             this.fixedProgram = new ASPInputProgram();
             this.variableProgram = new ASPInputProgram();
 
+            // Debug purpose
+            this.cont = 0;
+
             // Adding options
-            this.handler.addOption(this.noFactsOption);
+            // this.handler.addOption(this.noFactsOption);
             // Adding the fixed part of program
-            this.fixedProgram.clearAll();   // Why it reminds of the old program?!
-            BufferedReader br = null;
-            // this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");    // Not working?
-            ArrayList<String> file = new ArrayList<>();
-            try {
-                br = new BufferedReader(new FileReader(new File("src\\se\\liu\\ida\\paperio\\AI.txt")));
-                while (br.ready())
-                    file.add(br.readLine());
-            } catch (Exception e) {
-                e.printStackTrace();
-                System.out.println(e.getMessage());
-            } finally   {
-                if (br != null)
-                    try {
-                        br.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        System.out.println(e.getMessage());
-                    }
-            }
+            //this.fixedProgram.clearAll();   // Why it reminds of the old program?!
+            // BufferedReader br = null;
+            // src\\se\\liu\\ida\\paperio\\AI.txt
+            this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");    // Not working?
+            // ArrayList<String> file = new ArrayList<>();
+            // try {
+            //     br = new BufferedReader(new FileReader(new File("src\\se\\liu\\ida\\paperio\\AI.txt")));
+            //     while (br.ready())
+            //         file.add(br.readLine());
+            // } catch (Exception e) {
+            //     e.printStackTrace();
+            //     System.out.println(e.getMessage());
+            // } finally   {
+            //     if (br != null)
+            //         try {
+            //             br.close();
+            //         } catch (IOException e) {
+            //             e.printStackTrace();
+            //             System.out.println(e.getMessage());
+            //         }
+            // }
 
             // Registering all the classes needed to the ASPMapper
             try {
-                for (String s : file)
-                    this.fixedProgram.addProgram(s);
+                // for (String s : file)
+                //     this.fixedProgram.addProgram(s);
 
                 ASPMapper.getInstance().registerClass(AIPlayer.class);
                 ASPMapper.getInstance().registerClass(Tile.class);
-                ASPMapper.getInstance().registerClass(LimitX.class);
-                ASPMapper.getInstance().registerClass(LimitY.class);
                 ASPMapper.getInstance().registerClass(NextMove.class);
-                // Adding borders
-                this.fixedProgram.addObjectInput(new LimitX());
-                this.fixedProgram.addObjectInput(new LimitY());
             } catch (ObjectNotValidException | IllegalAnnotationException e) {
                 System.out.println(e instanceof ObjectNotValidException ? "OBJECT NOT VALID" : "ILLEGAL ANNOTATION");
                 e.printStackTrace();
@@ -675,14 +675,16 @@ public class Board extends JPanel {
                 e.printStackTrace();
             }
 
-            // System.out.println(this.fixedProgram.getPrograms());
+            System.out.println("Fixed program:");
+            System.out.println(this.fixedProgram.getPrograms());
 
             this.handler.addProgram(this.fixedProgram);
+            this.handler.addProgram(this.variableProgram);
         }
 
         private AIPlayer getPlayerByName(String name)  {
             for (AIPlayer p : players)  {
-                if (p.getName().equals(name))
+                if (p.getName().getValue().equals(name))
                     return p;
             }
             return null;
@@ -714,7 +716,7 @@ public class Board extends JPanel {
             tileAIPlayerMap.clear();
 
             // DLV2 setup
-            // Adding map and players to the program (it changes everytime `tick()` is called)
+            // Adding map and players to the program (it changes everytime `tick()` is called)            
             this.variableProgram.clearAll();
 
             try {
@@ -733,12 +735,14 @@ public class Board extends JPanel {
             // System.out.println("VARIABLE PROGRAM:");
             // System.out.println(this.variableProgram.getPrograms());
 
-            this.handler.addProgram(this.variableProgram);
-
+            // "ciao" "ciao"
             BufferedWriter bw = null;
             try {
-                bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt")));
-                bw.write(this.variableProgram.getPrograms());
+                if (this.cont == 0)
+                   bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt")));
+                else
+                   bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt"), true));
+                bw.write("Input "+this.cont+"\n"+this.variableProgram.getPrograms()+"\n");
             } catch (IOException e) {
                 e.printStackTrace();
             } finally   {
@@ -753,24 +757,64 @@ public class Board extends JPanel {
             // Calling DLV2
             Output o = this.handler.startSync();
 
-            System.out.println(o.getErrors());
+            // System.out.println("Output:");
+            // System.out.println(o.toString());
+
+            // System.out.println(o.getErrors());
 
             // Handling output
             AnswerSets answers = (AnswerSets) o;
 
+            try {
+                if (this.cont == 0)
+                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt")));
+                else
+                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt"), true));
+                bw.write("Output "+this.cont+"\n"+answers.getAnswerSetsString()+"\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally   {
+                if (bw!=null)
+                    try {
+                        bw.close();
+                    } catch (IOException e) {
+                       e.printStackTrace();
+                    }
+                this.cont++;
+            }
+            // System.out.println("As output:");
+            // System.out.println(answers.getAnswerSetsString());
+
             for (AnswerSet a : answers.getOptimalAnswerSets())  {
-                System.out.println("There is an AS");
-                System.out.println(a);
+                // System.out.println("There is an AS");
+            // System.out.println(a);
+
+            // try {
+            //     if (this.cont == 0)
+            //         bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt")));
+            //     else
+            //         bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt"), true));
+            //     bw.write("Output "+this.cont+"\n"+a+"\n"+a+"\n");
+            // } catch (IOException e) {
+            //     e.printStackTrace();
+            // } finally   {
+            //     if (bw!=null)
+            //         try {
+            //             bw.close();
+            //         } catch (IOException e) {
+            //            e.printStackTrace();
+            //         }
+            //     this.cont++;
+            // }
+
                 try {
                     for (Object obj : a.getAtoms()) {
                         System.out.println(obj);
                         if (!(obj instanceof NextMove))
                             continue;
                         NextMove nextMove = (NextMove) obj;
-                        System.out.println("player: "+nextMove.getName()+" - next direction: ");
                         AIPlayer player = getPlayerByName(nextMove.getName().getValue());
-                        if (player == null)
-                            break;
+                        System.out.println("player: "+player.getName().getValue()+" - current tile["+player.getX()+","+player.getY()+"]"+" - next direction: ");
                         if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
                             player.setCurrentDirection(Board.NORTH_DIRECTION);
                             player.setNextKey(KeyEvent.VK_UP);
@@ -791,12 +835,14 @@ public class Board extends JPanel {
                             player.setNextKey(KeyEvent.VK_RIGHT);
                             System.out.println("RIGHT");
                         }
+                        System.out.println("Player is = "+player);
                     }
                 } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | InstantiationException e) {
                     System.err.println(e.getClass() + " error message:\n"+ e.getMessage());
                     e.printStackTrace();
                 }
             }
+            // System.exit(-1);
 
             for (int i = 0; i < players.size(); i++) {
 
@@ -830,7 +876,7 @@ public class Board extends JPanel {
             }
             respawnBots();
 
-            focussed.updateD();
+            System.out.println("Current player position: ["+focussed.getX() + "," + focussed.getY()+"]");
             focussedPainter.get(focussed).setDraw(focussed.getAlive());
             if (multiplayer) {
                 focussed2.updateD();

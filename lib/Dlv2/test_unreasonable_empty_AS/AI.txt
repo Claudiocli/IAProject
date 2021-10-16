@@ -1,0 +1,33 @@
+#show nextMove/3.
+
+distanceFromPlayer(Distance, Player, Enemy):- player(PX, PY, Player, _, _), player(EX, EY, Enemy, _, _), Player!=Enemy, &abs(PX - EX; AX), &abs(PY - EY; AY), Distance = AX+AY.
+
+enemyTailInTerritory(X,Y,P,E):- tile(X,Y,P,E), player(_, _, P, _, _), P != E.
+
+distanceTileFromPlayer(Distance, TileX, TileY, P):- nextMove(_,_,P), player(PX, PY, P, _, _), tile(TileX, TileY, _, _), &abs(PX - TileX; AX), &abs(PY - TileY; AY), Distance = AX + AY.
+:~nextMove(Nx, Ny, P),P != E, distanceTileFromPlayer(D, X, Y, P), enemyTailInTerritory(X,Y,P,E). [D@5, D, X, Y, P]
+
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP, Y=XY-1, CDir!=south.
+
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP, Y=XY+1, CDir!=north.
+
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP-1, Y=XY, CDir!=east.
+
+adjacentTile(X, Y, O, Co, Name):- tile(X, Y, O, Co), player(XP, XY, Name, CDir, _), X=XP+1, Y=XY, CDir!=west.
+
+
+
+nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, Name), player(_, _, Name, _, _).
+
+:~ nextMove(X, Y, Name), tile(X, Y, nas, Name), nextMove(_, _, Name). [10@10]
+
+:-player(_,_,N,_,_),#count{X,Y: nextMove(X,Y,N)}!=1.
+
+:~ nextMove(X,Y, Name), tile(X,Y,Owner,ContestedOwner), Name!=Owner, Name!=ContestedOwner, Owner=nas, ContestedOwner=nas. [1@4, Name]
+
+:~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, nextMove(_, _, P), P = ContestedOwner, Cont>=10, tile (TX, TY, P, _), distanceTileFromPlayer(Distance, TX, TY, P). [Distance@3, Cont, P, Distance]
+
+:~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@4]
+
+
+
