@@ -626,7 +626,7 @@ public class Board extends JPanel {
         private int cont;
 
         public ScheduleTask() {
-            this.desktopService = new DLV2DesktopService("lib\\Dlv2\\dlv2_64bit.exe");
+            this.desktopService = new DLV2DesktopService("lib\\Dlv2\\dlv2_32bit.exe");
             this.handler = new DesktopHandler(desktopService);
             this.noFactsOption = new OptionDescriptor("--no-facts");
             this.fixedProgram = new ASPInputProgram();
