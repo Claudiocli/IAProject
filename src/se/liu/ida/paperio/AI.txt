@@ -25,7 +25,7 @@ enemyTailInTerritory(X,Y,P,E):- tile(X,Y,P,E), player(_, _, P, _, _), P != E.
 
 % È preferibile diminuire la distanza tra il player e il nemico nel territorio.
 distanceTileFromPlayer(Distance, TileX, TileY, P):- nextMove(_,_,P), player(PX, PY, P, _, _), tile(TileX, TileY, _, _), &abs(PX - TileX; AX), &abs(PY - TileY; AY), Distance = AX + AY.
-:~ nextMove(Nx, Ny, P),P != E, distanceTileFromPlayer(D, X, Y, P), enemyTailInTerritory(X, Y, P, E). [D@5, D, X, Y, P]
+:~ nextMove(Nx, Ny, P),P != E, distanceTileFromPlayer(D, X, Y, P), enemyTailInTerritory(X, Y, P, E). [D@3, D, X, Y, P]
 
 % Aggiungo alle Tile adiacenti al player solo quelle che può raggiungere (N,S,W,E), indi, eliminando a
 % prescindere la direzione da cui si arriva
@@ -45,16 +45,17 @@ nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, Name), 
 % È *molto* sconsigliato che la nextMove sia una tile della "coda" del player.
 % Non è uno strong costraint, poiché renderebbe inconsistente l'AS nel momento in cui un player dovesse
 % trovarsi con le possibili mosse su tile della propria coda, e.g. si immagini il player in una "spirale".
-:~ nextMove(X, Y, Name), tile(X, Y, nas, Name), nextMove(_, _, Name). [10@10]
+:~ nextMove(X, Y, Name), tile(X, Y, nas, Name), nextMove(_, _, Name). [100@4]
 
 % È necessario che ci sia una nextMove per player.
-:-player(_,_,N,_,_),#count{X,Y: nextMove(X,Y,N)}!=1.
-
-% È preferibile ampliare il proprio territorio piuttosto che avvicinarsi ad un territorio nemico.
-:~ nextMove(X, Y, Name), tile(X, Y, Owner, ContestedOwner), Name!=Owner, Name!=ContestedOwner, Owner=nas, ContestedOwner=nas. [1@4, Name]
+:- player(_,_,N,_,_),#count{X,Y: nextMove(X,Y,N)}!=1.
 
 % Si preferisce massimizzare il numero di tile contestate dal currentPlayer
-:~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, nextMove(_, _, P), P = ContestedOwner, Cont>=10, tile (TX, TY, P, _), distanceTileFromPlayer(Distance, TX, TY, P). [Distance@3, Cont, P, Distance]
+:~ #count{ContestedOwner: tile(_, _, _, ContestedOwner)} = Cont, Cost = 10 - Cont. [Cost@3, Cost]
+
+% Una volta superato un dato treshold, indicante il numero di tile "sufficente" da conquistare, si preferisce che la nextMove sia il più vicino possibile al proprio territorio
+nearestTileTerritory(X, Y, O, D):- &abs(X - TX; AX), &abs(Y - TY; AY), #min{Distance : tile(TX, TY, O, _), Distance = AX + AY} = D.
+:~ nextMove(NX, NY, ContestedOwner), #count{ContestedOwner: tile(_, _, _, ContestedOwner)} >= 10, nearestTileTerritory(NX, NY, ContestedOwner, Distance). [Distance@2, ContestedOwner, Distance, NX, NY]
 
 % Si preferisce massimizzare la distanza tra i diversi nemici. minimizzare con un determinato treshold.
-:~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@4]
+:~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@1]

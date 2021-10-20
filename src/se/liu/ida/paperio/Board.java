@@ -619,7 +619,7 @@ public class Board extends JPanel {
     private class ScheduleTask extends TimerTask {
         private DLV2DesktopService desktopService;
         private Handler handler;
-        private OptionDescriptor noFactsOption;
+        // private OptionDescriptor noFactsOption;
         private ASPInputProgram fixedProgram;
         private ASPInputProgram variableProgram;
 
@@ -628,7 +628,7 @@ public class Board extends JPanel {
         public ScheduleTask() {
             this.desktopService = new DLV2DesktopService("lib\\Dlv2\\dlv2_32bit.exe");
             this.handler = new DesktopHandler(desktopService);
-            this.noFactsOption = new OptionDescriptor("--no-facts");
+            // this.noFactsOption = new OptionDescriptor("--no-facts");
             this.fixedProgram = new ASPInputProgram();
             this.variableProgram = new ASPInputProgram();
 
@@ -636,8 +636,8 @@ public class Board extends JPanel {
             this.cont = 0;
 
             // Adding options
-            this.handler.addOption(this.noFactsOption);
-            
+            // this.handler.addOption(this.noFactsOption);
+
             this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");
 
             // Registering all the classes needed to the ASPMapper
@@ -651,9 +651,6 @@ public class Board extends JPanel {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            System.out.println("Fixed program:");
-            System.out.println(this.fixedProgram.getPrograms());
 
             this.handler.addProgram(this.fixedProgram);
             this.handler.addProgram(this.variableProgram);
