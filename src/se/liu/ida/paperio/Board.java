@@ -636,35 +636,12 @@ public class Board extends JPanel {
             this.cont = 0;
 
             // Adding options
-            // this.handler.addOption(this.noFactsOption);
-            // Adding the fixed part of program
-            //this.fixedProgram.clearAll();   // Why it reminds of the old program?!
-            // BufferedReader br = null;
-            // src\\se\\liu\\ida\\paperio\\AI.txt
-            this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");    // Not working?
-            // ArrayList<String> file = new ArrayList<>();
-            // try {
-            //     br = new BufferedReader(new FileReader(new File("src\\se\\liu\\ida\\paperio\\AI.txt")));
-            //     while (br.ready())
-            //         file.add(br.readLine());
-            // } catch (Exception e) {
-            //     e.printStackTrace();
-            //     System.out.println(e.getMessage());
-            // } finally   {
-            //     if (br != null)
-            //         try {
-            //             br.close();
-            //         } catch (IOException e) {
-            //             e.printStackTrace();
-            //             System.out.println(e.getMessage());
-            //         }
-            // }
+            this.handler.addOption(this.noFactsOption);
+            
+            this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");
 
             // Registering all the classes needed to the ASPMapper
             try {
-                // for (String s : file)
-                //     this.fixedProgram.addProgram(s);
-
                 ASPMapper.getInstance().registerClass(AIPlayer.class);
                 ASPMapper.getInstance().registerClass(Tile.class);
                 ASPMapper.getInstance().registerClass(NextMove.class);
@@ -697,6 +674,7 @@ public class Board extends JPanel {
         @Override
         public void run() {
             if (!paused) {
+                // What
                 // tickCounter++;
                 // tickCounter %= tickReset;
                 // if (tickCounter == 0) {
@@ -729,13 +707,7 @@ public class Board extends JPanel {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            // var variableInput = this.variableProgram.getPrograms();
-            // this.variableProgram.clearAll();
-            // this.variableProgram.addProgram(variableInput.replaceAll("\"\"([a-zA-Z]+)\"\"", "\"$1\""));
-            // System.out.println("VARIABLE PROGRAM:");
-            // System.out.println(this.variableProgram.getPrograms());
 
-            // "ciao" "ciao"
             BufferedWriter bw = null;
             try {
                 if (this.cont == 0)
@@ -757,11 +729,6 @@ public class Board extends JPanel {
             // Calling DLV2
             Output o = this.handler.startSync();
 
-            // System.out.println("Output:");
-            // System.out.println(o.toString());
-
-            // System.out.println(o.getErrors());
-
             // Handling output
             AnswerSets answers = (AnswerSets) o;
 
@@ -782,31 +749,8 @@ public class Board extends JPanel {
                     }
                 this.cont++;
             }
-            // System.out.println("As output:");
-            // System.out.println(answers.getAnswerSetsString());
 
             for (AnswerSet a : answers.getOptimalAnswerSets())  {
-                // System.out.println("There is an AS");
-            // System.out.println(a);
-
-            // try {
-            //     if (this.cont == 0)
-            //         bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt")));
-            //     else
-            //         bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt"), true));
-            //     bw.write("Output "+this.cont+"\n"+a+"\n"+a+"\n");
-            // } catch (IOException e) {
-            //     e.printStackTrace();
-            // } finally   {
-            //     if (bw!=null)
-            //         try {
-            //             bw.close();
-            //         } catch (IOException e) {
-            //            e.printStackTrace();
-            //         }
-            //     this.cont++;
-            // }
-
                 try {
                     for (Object obj : a.getAtoms()) {
                         System.out.println(obj);
@@ -842,7 +786,6 @@ public class Board extends JPanel {
                     e.printStackTrace();
                 }
             }
-            // System.exit(-1);
 
             for (int i = 0; i < players.size(); i++) {
 
@@ -891,8 +834,6 @@ public class Board extends JPanel {
 
             // Remove dead players
             players.removeIf(p -> !p.getAlive());
-
-            // System.out.println("A tick has passed");
         }
 
     }
