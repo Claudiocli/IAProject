@@ -1,60 +1,4846 @@
 Output 0
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(26,10,clefairy)}
+COST 9@1
+OPTIMUM
 
 Output 1
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(25,10,clefairy)}
+COST 9@1
+OPTIMUM
 
 Output 2
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(25,11,clefairy)}
+COST 8@1
+OPTIMUM
 
 Output 3
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(26,11,clefairy)}
+COST 2@2 8@1
+OPTIMUM
 
 Output 4
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(27,11,clefairy)}
+COST 9@1
+OPTIMUM
 
 Output 5
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(28,11,clefairy)}
+COST 9@1
+OPTIMUM
 
 Output 6
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(28,12,clefairy)}
+COST 9@1
+OPTIMUM
 
 Output 7
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(27,12,clefairy)}
+COST 8@1
+OPTIMUM
 
 Output 8
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
-
+{nextMove(27,13,clefairy)}
+COST 3@2 8@1
+{nextMove(26,12,clefairy)}
+COST 2@2 8@1
+OPTIMUM
 
 Output 9
 DLV 2.0
 
---> Safety Error: Aux_10_1(Distance):-tile(TX,TY,O,_),Distance=(AX+AY).
+{nextMove(26,13,clefairy)}
+COST 3@2 8@1
+{nextMove(26,11,clefairy)}
+COST 2@2 8@1
+OPTIMUM
 
+Output 10
+DLV 2.0
+
+{nextMove(27,11,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 11
+DLV 2.0
+
+{nextMove(28,11,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 12
+DLV 2.0
+
+{nextMove(28,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 13
+DLV 2.0
+
+{nextMove(29,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 14
+DLV 2.0
+
+{nextMove(30,12,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 15
+DLV 2.0
+
+{nextMove(31,12,clefairy)}
+COST 4@2 8@1
+{nextMove(30,11,clefairy)}
+COST 3@2 8@1
+OPTIMUM
+
+Output 16
+DLV 2.0
+
+{nextMove(29,11,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 17
+DLV 2.0
+
+{nextMove(28,11,clefairy)}
+COST 0@3 2@2 8@1
+OPTIMUM
+
+Output 18
+DLV 2.0
+
+{nextMove(27,11,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 19
+DLV 2.0
+
+{nextMove(27,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 20
+DLV 2.0
+
+{nextMove(28,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 21
+DLV 2.0
+
+{nextMove(28,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 22
+DLV 2.0
+
+{nextMove(27,13,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 23
+DLV 2.0
+
+{nextMove(27,14,clefairy)}
+COST 3@2 8@1
+{nextMove(26,13,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 24
+DLV 2.0
+
+{nextMove(26,14,clefairy)}
+COST 3@2 8@1
+{nextMove(26,12,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 25
+DLV 2.0
+
+{nextMove(27,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 26
+DLV 2.0
+
+{nextMove(28,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 27
+DLV 2.0
+
+{nextMove(28,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 28
+DLV 2.0
+
+{nextMove(27,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 29
+DLV 2.0
+
+{nextMove(27,14,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 30
+DLV 2.0
+
+{nextMove(26,14,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 31
+DLV 2.0
+
+{nextMove(25,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 32
+DLV 2.0
+
+{nextMove(24,14,clefairy)}
+COST 3@2 8@1
+{nextMove(25,13,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 33
+DLV 2.0
+
+{nextMove(25,12,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 34
+DLV 2.0
+
+{nextMove(24,12,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 35
+DLV 2.0
+
+{nextMove(24,13,clefairy)}
+COST 3@2 8@1
+{nextMove(24,11,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 36
+DLV 2.0
+
+{nextMove(25,11,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 37
+DLV 2.0
+
+{nextMove(25,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 38
+DLV 2.0
+
+{nextMove(24,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 39
+DLV 2.0
+
+{nextMove(23,12,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 40
+DLV 2.0
+
+{nextMove(22,12,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 41
+DLV 2.0
+
+{nextMove(22,13,clefairy)}
+COST 3@2 8@1
+OPTIMUM
+
+Output 42
+DLV 2.0
+
+{nextMove(21,13,clefairy)}
+COST 4@2 8@1
+{nextMove(23,13,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 43
+DLV 2.0
+
+{nextMove(24,13,clefairy)}
+COST 0@3 2@2 8@1
+OPTIMUM
+
+Output 44
+DLV 2.0
+
+{nextMove(25,13,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 45
+DLV 2.0
+
+{nextMove(26,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 46
+DLV 2.0
+
+{nextMove(26,14,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 47
+DLV 2.0
+
+{nextMove(25,14,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 48
+DLV 2.0
+
+{nextMove(25,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 49
+DLV 2.0
+
+{nextMove(24,15,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 50
+DLV 2.0
+
+{nextMove(24,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 51
+DLV 2.0
+
+{nextMove(23,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 52
+DLV 2.0
+
+{nextMove(22,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 53
+DLV 2.0
+
+{nextMove(21,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 54
+DLV 2.0
+
+{nextMove(21,15,clefairy)}
+COST 3@2 8@1
+{nextMove(21,13,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 55
+DLV 2.0
+
+{nextMove(22,13,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 56
+DLV 2.0
+
+{nextMove(23,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 57
+DLV 2.0
+
+{nextMove(24,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 58
+DLV 2.0
+
+{nextMove(25,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 59
+DLV 2.0
+
+{nextMove(26,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 60
+DLV 2.0
+
+{nextMove(27,13,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 61
+DLV 2.0
+
+{nextMove(27,14,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 62
+DLV 2.0
+
+{nextMove(26,14,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 63
+DLV 2.0
+
+{nextMove(26,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 64
+DLV 2.0
+
+{nextMove(25,15,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 65
+DLV 2.0
+
+{nextMove(24,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 66
+DLV 2.0
+
+{nextMove(24,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 67
+DLV 2.0
+
+{nextMove(23,16,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 68
+DLV 2.0
+
+{nextMove(23,15,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 69
+DLV 2.0
+
+{nextMove(24,15,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 70
+DLV 2.0
+
+{nextMove(25,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 71
+DLV 2.0
+
+{nextMove(25,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 72
+DLV 2.0
+
+{nextMove(26,16,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 73
+DLV 2.0
+
+{nextMove(26,15,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 74
+DLV 2.0
+
+{nextMove(25,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 75
+DLV 2.0
+
+{nextMove(25,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 76
+DLV 2.0
+
+{nextMove(24,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 77
+DLV 2.0
+
+{nextMove(23,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 78
+DLV 2.0
+
+{nextMove(23,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 79
+DLV 2.0
+
+{nextMove(22,17,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 80
+DLV 2.0
+
+{nextMove(22,18,clefairy)}
+COST 3@2 8@1
+{nextMove(22,16,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 81
+DLV 2.0
+
+{nextMove(22,15,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 82
+DLV 2.0
+
+{nextMove(21,15,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 83
+DLV 2.0
+
+{nextMove(21,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 84
+DLV 2.0
+
+{nextMove(20,14,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 85
+DLV 2.0
+
+{nextMove(20,15,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 86
+DLV 2.0
+
+{nextMove(19,15,clefairy)}
+COST 3@2 8@1
+{nextMove(20,16,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 87
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 3@2 8@1
+{nextMove(21,16,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 88
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 89
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 90
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 3@2 8@1
+{nextMove(22,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 91
+DLV 2.0
+
+{nextMove(22,19,clefairy)}
+COST 3@2 8@1
+{nextMove(22,17,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 92
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 93
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 94
+DLV 2.0
+
+{nextMove(20,16,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 95
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 96
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 97
+DLV 2.0
+
+{nextMove(19,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 98
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 99
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 100
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 101
+DLV 2.0
+
+{nextMove(21,20,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 102
+DLV 2.0
+
+{nextMove(21,21,clefairy)}
+COST 4@2 8@1
+{nextMove(22,20,clefairy)}
+COST 3@2 8@1
+OPTIMUM
+
+Output 103
+DLV 2.0
+
+{nextMove(23,20,clefairy)}
+COST 3@2 8@1
+{nextMove(22,19,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 104
+DLV 2.0
+
+{nextMove(23,19,clefairy)}
+COST 0@3 2@2 8@1
+OPTIMUM
+
+Output 105
+DLV 2.0
+
+{nextMove(23,20,clefairy)}
+COST 3@2 8@1
+{nextMove(23,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 106
+DLV 2.0
+
+{nextMove(22,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 107
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 108
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 109
+DLV 2.0
+
+{nextMove(21,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 110
+DLV 2.0
+
+{nextMove(20,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 111
+DLV 2.0
+
+{nextMove(20,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 112
+DLV 2.0
+
+{nextMove(19,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 113
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 114
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 115
+DLV 2.0
+
+{nextMove(18,15,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 116
+DLV 2.0
+
+{nextMove(18,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 117
+DLV 2.0
+
+{nextMove(17,14,clefairy)}
+COST 3@2 8@1
+{nextMove(19,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 118
+DLV 2.0
+
+{nextMove(19,15,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 119
+DLV 2.0
+
+{nextMove(18,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 120
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 121
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 122
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 123
+DLV 2.0
+
+{nextMove(17,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 124
+DLV 2.0
+
+{nextMove(18,14,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 125
+DLV 2.0
+
+{nextMove(18,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 126
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 127
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 128
+DLV 2.0
+
+{nextMove(15,15,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 129
+DLV 2.0
+
+{nextMove(14,15,clefairy)}
+COST 4@2 8@1
+{nextMove(15,16,clefairy)}
+COST 3@2 8@1
+OPTIMUM
+
+Output 130
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 131
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 0@3 2@2 8@1
+OPTIMUM
+
+Output 132
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 133
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 134
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 135
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 136
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 137
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 138
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 139
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 140
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 141
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 142
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 143
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 144
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 145
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 146
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 147
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 148
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 149
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 150
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 151
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 152
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 153
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 154
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 155
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 156
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 157
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 158
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 159
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 160
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 161
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 162
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 163
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 164
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 165
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 166
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 167
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 168
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 169
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 170
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 171
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 172
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 173
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 174
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 175
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 176
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 177
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 178
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 179
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 180
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 181
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 182
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 183
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 184
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 185
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 186
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 187
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 188
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 189
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 190
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 191
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 192
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 193
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 194
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 195
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 196
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 197
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 198
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 199
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 200
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 201
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 202
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 203
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 204
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 205
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 206
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 207
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 208
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 209
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 210
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 211
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 212
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 213
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 214
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 215
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 216
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 217
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 218
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 219
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 220
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 221
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 222
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 223
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 224
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 225
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 226
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 227
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 228
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 229
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 230
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 231
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 232
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 233
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 234
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 235
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 236
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 237
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 238
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 239
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 240
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 241
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 242
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 243
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 244
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 245
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 246
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 247
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 248
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 249
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 250
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 251
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 252
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 253
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 254
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 255
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 256
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 257
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 258
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 259
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 260
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 261
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 262
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 263
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 264
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 265
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 266
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 267
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 268
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 269
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 270
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 271
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 272
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 273
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 274
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 275
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 276
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 277
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 278
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 279
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 280
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 281
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 282
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 283
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 284
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 285
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 286
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 287
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 288
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 289
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 290
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 291
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 292
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 293
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 294
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 295
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 296
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 297
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 298
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 299
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 300
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 301
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 302
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 303
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 304
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 305
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 306
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 307
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 308
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 309
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 310
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 311
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 312
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 313
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 314
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 315
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 316
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 317
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 318
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 319
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 320
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 321
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 322
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 323
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 324
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 325
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 326
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 327
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 328
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 329
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 330
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 331
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 332
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 333
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 334
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 335
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 336
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 337
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 338
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 339
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 340
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 341
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 342
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 343
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 344
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 345
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 346
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 347
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 348
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 349
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 350
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 351
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 352
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 353
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 354
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 355
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 356
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 357
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 358
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 359
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 360
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 361
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 362
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 363
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 364
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 365
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 366
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 367
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 368
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 369
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 370
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 371
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 372
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 373
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 374
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 375
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 376
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 377
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 378
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 379
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 380
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 381
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 382
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 383
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 384
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 385
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 386
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 387
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 388
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 389
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 390
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 391
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 392
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 393
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 394
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 395
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 396
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 397
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 398
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 399
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 400
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 401
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 402
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 403
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 404
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 405
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 406
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 407
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 408
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 409
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 410
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 411
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 412
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 413
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 414
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 415
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 416
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 417
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 418
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 419
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 420
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 421
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 422
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 423
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 424
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 425
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 426
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 427
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 428
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 429
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 430
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 431
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 432
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 433
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 434
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 435
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 436
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 437
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 438
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 439
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 440
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 441
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 442
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 443
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 444
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 445
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 446
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 447
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 448
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 449
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 450
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 451
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 452
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 453
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 454
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 455
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 456
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 457
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 458
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 459
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 460
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 461
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 462
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 463
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 464
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 465
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 466
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 467
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 468
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 469
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 470
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 471
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 472
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 473
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 474
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 475
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 476
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 477
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 478
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 479
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 480
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 481
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 482
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 483
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 484
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 485
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 486
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 487
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 488
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 489
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 490
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 491
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 492
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 493
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 494
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 495
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 496
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 497
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 498
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 499
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 500
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 501
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 502
+DLV 2.0
+
+{nextMove(16,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 503
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 504
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 505
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 506
+DLV 2.0
+
+{nextMove(18,14,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 507
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 508
+DLV 2.0
+
+{nextMove(20,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 509
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 510
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 511
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 512
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 513
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 514
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 515
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 516
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 517
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 518
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 519
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 520
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 521
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 522
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 523
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 524
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 525
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 526
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 527
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 528
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 529
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 530
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 531
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 532
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 533
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 534
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 535
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 536
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 537
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 538
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 539
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 540
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 541
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 542
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 543
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 544
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 545
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 546
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 547
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 548
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 549
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 550
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 551
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 552
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 553
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 554
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 555
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 556
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 557
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 558
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 559
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 560
+DLV 2.0
+
+{nextMove(22,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 561
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 562
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 563
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 564
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 565
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 566
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 567
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 568
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 569
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 570
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 571
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 572
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 573
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 574
+DLV 2.0
+
+{nextMove(22,20,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 575
+DLV 2.0
+
+{nextMove(22,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 576
+DLV 2.0
+
+{nextMove(22,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 577
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 578
+DLV 2.0
+
+{nextMove(21,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 579
+DLV 2.0
+
+{nextMove(20,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 580
+DLV 2.0
+
+{nextMove(20,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 581
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 582
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 583
+DLV 2.0
+
+{nextMove(21,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 584
+DLV 2.0
+
+{nextMove(22,20,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 585
+DLV 2.0
+
+{nextMove(22,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 586
+DLV 2.0
+
+{nextMove(23,21,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 587
+DLV 2.0
+
+{nextMove(23,20,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 588
+DLV 2.0
+
+{nextMove(23,19,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 589
+DLV 2.0
+
+{nextMove(23,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 590
+DLV 2.0
+
+{nextMove(22,18,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 591
+DLV 2.0
+
+{nextMove(22,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 592
+DLV 2.0
+
+{nextMove(21,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 593
+DLV 2.0
+
+{nextMove(20,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 594
+DLV 2.0
+
+{nextMove(19,19,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 595
+DLV 2.0
+
+{nextMove(18,19,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 596
+DLV 2.0
+
+{nextMove(18,20,clefairy)}
+COST 3@2 8@1
+{nextMove(18,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 597
+DLV 2.0
+
+{nextMove(19,18,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 598
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 599
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 600
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 601
+DLV 2.0
+
+{nextMove(16,17,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 602
+DLV 2.0
+
+{nextMove(16,18,clefairy)}
+COST 3@2 8@1
+{nextMove(16,16,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 603
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 604
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 605
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 606
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 607
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 608
+DLV 2.0
+
+{nextMove(19,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 609
+DLV 2.0
+
+{nextMove(18,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 610
+DLV 2.0
+
+{nextMove(17,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 611
+DLV 2.0
+
+{nextMove(16,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 612
+DLV 2.0
+
+{nextMove(15,15,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 613
+DLV 2.0
+
+{nextMove(15,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 614
+DLV 2.0
+
+{nextMove(14,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 615
+DLV 2.0
+
+{nextMove(14,17,clefairy)}
+COST 8@1
+OPTIMUM
+
+Output 616
+DLV 2.0
+
+{nextMove(13,17,clefairy)}
+COST 3@2 8@1
+{nextMove(15,17,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 617
+DLV 2.0
+
+{nextMove(16,17,clefairy)}
+COST 2@2 8@1
+OPTIMUM
+
+Output 618
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 619
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 620
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 621
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 622
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 623
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 624
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 625
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 626
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 627
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 628
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 629
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 630
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 631
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 632
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 633
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 634
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 635
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 636
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 637
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 638
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 639
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 640
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 641
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 642
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 643
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 644
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 645
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 646
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 647
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 648
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 649
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 650
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 651
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 652
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 653
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 654
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 655
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 656
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 657
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 658
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 659
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 660
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 661
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 662
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 663
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 664
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 665
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 666
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 667
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 668
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 669
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 670
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 671
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 672
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 673
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 674
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 675
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 676
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 677
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 678
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 679
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 680
+DLV 2.0
+
+{nextMove(19,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 681
+DLV 2.0
+
+{nextMove(19,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 682
+DLV 2.0
+
+{nextMove(18,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 683
+DLV 2.0
+
+{nextMove(17,16,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 684
+DLV 2.0
+
+{nextMove(17,17,clefairy)}
+COST 9@1
+OPTIMUM
+
+Output 685
+DLV 2.0
+
+{nextMove(18,17,clefairy)}
+COST 9@1
+OPTIMUM
 
