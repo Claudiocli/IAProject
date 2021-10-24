@@ -715,9 +715,7 @@ public class Board extends JPanel {
                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt")));
                 else
                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt"), true));
-                String input = this.variableProgram.getPrograms();
-                input.replaceAll("\\n", "");
-                bw.write("Input "+this.cont+"\n"+input+"\n");
+                bw.write("Input "+this.cont+"\n"+this.variableProgram.getPrograms().replaceAll("[\\r\\n]", "")+"\n");
             } catch (IOException e) {
                 e.printStackTrace();
             } finally   {
