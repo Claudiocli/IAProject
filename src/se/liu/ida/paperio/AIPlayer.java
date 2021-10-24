@@ -433,6 +433,9 @@ public class AIPlayer implements Comparable<AIPlayer> {
 	 * Moves the player in different directions
 	 */
 	public void move() {
+		// God have marcy
+		// Board.getInstance().getMapTiles()[y][x].setContestedOwner(this);
+		
 		x += dx;
 		y += dy;
 	}

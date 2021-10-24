@@ -106,7 +106,11 @@ public class Tile {
      */
     public void setContestedOwner(AIPlayer contestedOwner) {
         this.contestedOwner = contestedOwner;
-        this.contestedOwnerName = new SymbolicConstant("nas");
+        if (contestedOwner == null) {
+            this.contestedOwnerName = new SymbolicConstant("nas");
+            return;
+        }
+        this.contestedOwnerName = contestedOwner.getName();
     }
 
     /**
@@ -127,11 +131,12 @@ public class Tile {
         if (this.owner != null) {
             this.owner.removeTileOwned(this);
         }
-        this.owner = this.contestedOwner = owner;
+        this.owner = owner;
         if (owner == null)
             this.ownerName = new SymbolicConstant("nas");
         else
             this.ownerName = owner.getName();
+        this.contestedOwner = null;
         this.contestedOwnerName = new SymbolicConstant("nas");
     }
 

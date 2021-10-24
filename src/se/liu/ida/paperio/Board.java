@@ -3,7 +3,6 @@ package se.liu.ida.paperio;
 import javax.swing.*;
 
 import it.unical.mat.embasp.base.Handler;
-import it.unical.mat.embasp.base.OptionDescriptor;
 import it.unical.mat.embasp.base.Output;
 import it.unical.mat.embasp.languages.IllegalAnnotationException;
 import it.unical.mat.embasp.languages.ObjectNotValidException;
@@ -19,12 +18,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Timer;
 import java.util.*;
@@ -155,7 +155,7 @@ public class Board extends JPanel {
      * Initializes necessary variables, timer, players etc required for the board
      */
     private void initBoard() {
-        this.gameArea = new Tile[areaHeight][areaWidth];
+        this.gameArea = new Tile[areaWidth][areaHeight];
         for (int i = 0; i < gameArea.length; i++) {
             for (int j = 0; j < gameArea[i].length; j++) {
                 gameArea[i][j] = new Tile(i, j);
@@ -386,6 +386,7 @@ public class Board extends JPanel {
      * Method to end game and tell this to PaperIO class
      */
     private void endGame() {
+                
         JOptionPane.showMessageDialog(this, "You lost, game over", "GAME OVER", JOptionPane.PLAIN_MESSAGE);
         actionListener.actionPerformed(new ActionEvent(this, 0, "End Game"));
     }
@@ -461,9 +462,9 @@ public class Board extends JPanel {
     private void fillEnclosure(AIPlayer player) {
         // Set boundary
         int maxX = 0;
-        int minX = gameArea[0].length;
+        int minX = gameArea.length;
         int maxY = 0;
-        int minY = gameArea.length;
+        int minY = gameArea[0].length;
         for (Tile t : player.getTilesOwned()) {
             if (t.getX() > maxX)
                 maxX = t.getX();
@@ -485,8 +486,9 @@ public class Board extends JPanel {
         int y;
         int x;
         for (Tile t : player.getTilesOwned()) {
-            y = t.getY();
-            x = t.getX();
+            // I know this is horrible, I don't have time to fix this shit.
+            y = t.getX();
+            x = t.getY();
             // Can be enclosed in one single if statement
             if (y - 1 >= 0)
                 toCheck.add(gameArea[y - 1][x]);
@@ -511,8 +513,9 @@ public class Board extends JPanel {
                 while ((!stack.empty()) && canContinue) {
                     v = stack.pop();
                     if (!visited.contains(v) && (v.getOwner() != player)) {
-                        y = v.getY();
-                        x = v.getX();
+                        // Please, have mercy. They don't know what they're doin'
+                        y = v.getX();
+                        x = v.getY();
                         if (outside.contains(v) // If already declared as outside
                                 || x < minX || x > maxX || y < minY || y > maxY // If outside of boundary
                                 || x == gameArea[0].length - 1 || x == 0 || y == 0 || y == gameArea.length - 1) {
@@ -599,7 +602,8 @@ public class Board extends JPanel {
      */
     Tile getTile(int x, int y) {
         // Why? Just why?
-        return gameArea[y][x];
+        // return gameArea[y][x];
+        return gameArea[x][y];
     }
 
     public static Board getInstance() {
@@ -619,7 +623,7 @@ public class Board extends JPanel {
     private class ScheduleTask extends TimerTask {
         private DLV2DesktopService desktopService;
         private Handler handler;
-        private OptionDescriptor noFactsOption;
+        // private OptionDescriptor noFactsOption;
         private ASPInputProgram fixedProgram;
         private ASPInputProgram variableProgram;
 
@@ -628,7 +632,7 @@ public class Board extends JPanel {
         public ScheduleTask() {
             this.desktopService = new DLV2DesktopService("lib\\Dlv2\\dlv2_32bit.exe");
             this.handler = new DesktopHandler(desktopService);
-            this.noFactsOption = new OptionDescriptor("--no-facts");
+            // this.noFactsOption = new OptionDescriptor("--no-facts");
             this.fixedProgram = new ASPInputProgram();
             this.variableProgram = new ASPInputProgram();
 
@@ -636,9 +640,9 @@ public class Board extends JPanel {
             this.cont = 0;
 
             // Adding options
-            this.handler.addOption(this.noFactsOption);
-            
-            this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.txt");
+            // this.handler.addOption(this.noFactsOption);
+
+            this.fixedProgram.addFilesPath("src\\se\\liu\\ida\\paperio\\AI.dl");
 
             // Registering all the classes needed to the ASPMapper
             try {
@@ -651,9 +655,6 @@ public class Board extends JPanel {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            System.out.println("Fixed program:");
-            System.out.println(this.fixedProgram.getPrograms());
 
             this.handler.addProgram(this.fixedProgram);
             this.handler.addProgram(this.variableProgram);
@@ -714,7 +715,9 @@ public class Board extends JPanel {
                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt")));
                 else
                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt"), true));
-                bw.write("Input "+this.cont+"\n"+this.variableProgram.getPrograms()+"\n");
+                String input = this.variableProgram.getPrograms();
+                input.replaceAll("\\n", "");
+                bw.write("Input "+this.cont+"\n"+input+"\n");
             } catch (IOException e) {
                 e.printStackTrace();
             } finally   {
@@ -753,7 +756,6 @@ public class Board extends JPanel {
             for (AnswerSet a : answers.getOptimalAnswerSets())  {
                 try {
                     for (Object obj : a.getAtoms()) {
-                        System.out.println(obj);
                         if (!(obj instanceof NextMove))
                             continue;
                         NextMove nextMove = (NextMove) obj;
