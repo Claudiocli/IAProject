@@ -56,7 +56,7 @@ nextMove(X, Y, Name) | noNextMove(X, Y, Name):- adjacentTile(X, Y, _, _, Name), 
 % Una volta superato un dato treshold, indicante il numero di tile "sufficente" da conquistare, si preferisce che la nextMove sia il più vicino possibile al proprio territorio
 %nearestTileTerritory(X, Y, O, D):- &abs(X - TX; AX), &abs(Y - TY; AY), #min{AX + AY : tile(TX, TY, O, _)} = D.
 nearestTileTerritory(X, Y, O, D):- nextMove(X, Y, O), #min{Distance, AX, AY : &abs(X - TX; AX), &abs(Y - TY; AY), tile(TX, TY, O, _), &sum(AX , AY; Distance), TX != X, TY != Y} = D.
-:~ nextMove(NX, NY, ContestedOwner), #count{ContestedOwner, X, Y: tile(X, Y, _, ContestedOwner)} >= 2, nearestTileTerritory(NX, NY, ContestedOwner, Distance). [Distance@3, ContestedOwner, Distance, NX, NY]
+:~ nextMove(NX, NY, ContestedOwner), #count{ContestedOwner, X, Y: tile(X, Y, _, ContestedOwner)} >= 10, nearestTileTerritory(NX, NY, ContestedOwner, Distance). [Distance@3, ContestedOwner, Distance, NX, NY]
 
 % Si preferisce massimizzare la distanza tra i diversi nemici. minimizzare con un determinato treshold.
 :~ distanceFromPlayer(D, P, E), nextMove(_, _, P), player(_, _, E, _, _), P != E. [D@1]
