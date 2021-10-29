@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import it.unical.mat.embasp.languages.Id;
 import it.unical.mat.embasp.languages.Param;
 import it.unical.mat.embasp.languages.asp.SymbolicConstant;
@@ -76,13 +78,15 @@ public class AIPlayer implements Comparable<AIPlayer> {
 				names.add(new SymbolicConstant(sanificatedName.toLowerCase()));
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "An error has occurred when trying to read bots' names", "Read File Error", JOptionPane.ERROR_MESSAGE);
+			// e.printStackTrace();
 		} finally {
 			if (br != null)
 				try {
 					br.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, "An error has occurred while closing the file to write on!", "Writing Error", JOptionPane.ERROR_MESSAGE);
+					// e.printStackTrace();
 				}
 		}
 
@@ -161,13 +165,15 @@ public class AIPlayer implements Comparable<AIPlayer> {
 				names.add(new SymbolicConstant(sanificatedName.toLowerCase()));
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "An error has occurred when trying to read bots' names", "Read File Error", JOptionPane.ERROR_MESSAGE);
+			// e.printStackTrace();
 		} finally {
 			if (br != null)
 				try {
 					br.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, "An error has occurred while closing the file to write on!", "Writing Error", JOptionPane.ERROR_MESSAGE);
+					// e.printStackTrace();
 				}
 		}
 		this.name = names.get(r.nextInt(names.size()));

@@ -1,969 +1,196 @@
 Output 0
 DLV 2.0
 
-{nextMove(16,36,machoke), nextMove(26,24,vulpix)}
-COST 9@2 24@1
+{nextMove(9,21,snorlax), nextMove(17,22,graveler)}
+COST 9@2 7@1
 OPTIMUM
 
 Output 1
 DLV 2.0
 
-{nextMove(25,24,vulpix), nextMove(16,37,machoke)}
-COST 9@2 22@1
+{nextMove(18,22,graveler), nextMove(9,22,snorlax)}
+COST 9@2 9@1
 OPTIMUM
 
 Output 2
 DLV 2.0
 
-{nextMove(24,24,vulpix), nextMove(15,37,machoke)}
-COST 8@2 22@1
+{nextMove(8,22,snorlax), nextMove(18,23,graveler)}
+COST 9@2 9@1
 OPTIMUM
 
 Output 3
 DLV 2.0
 
-{nextMove(23,24,vulpix), nextMove(15,38,machoke)}
-COST 8@2 22@1
+{nextMove(19,23,graveler), nextMove(7,22,snorlax)}
+COST 7@2 11@1
 OPTIMUM
 
 Output 4
 DLV 2.0
 
-{nextMove(16,38,machoke), nextMove(22,24,vulpix)}
-COST 7@2 22@1
+{nextMove(6,22,snorlax), nextMove(19,24,graveler)}
+COST 7@2 13@1
 OPTIMUM
 
 Output 5
 DLV 2.0
 
-{nextMove(22,25,vulpix), nextMove(16,39,machoke)}
-COST 7@2 20@1
+{nextMove(5,22,snorlax), nextMove(18,24,graveler)}
+COST 7@2 15@1
 OPTIMUM
 
 Output 6
 DLV 2.0
 
-{nextMove(21,25,vulpix), nextMove(15,39,machoke)}
-COST 7@2 20@1
+{nextMove(4,22,snorlax), nextMove(18,25,graveler)}
+COST 0@3 7@2 15@1
 OPTIMUM
 
 Output 7
 DLV 2.0
 
-{nextMove(20,25,vulpix), nextMove(14,39,machoke)}
-COST 0@3 7@2 20@1
+{nextMove(19,25,graveler), nextMove(3,22,snorlax)}
+COST 7@2 17@1
 OPTIMUM
 
 Output 8
 DLV 2.0
 
-{nextMove(19,25,vulpix), nextMove(13,39,machoke)}
-COST 7@2 20@1
+{nextMove(20,25,graveler), nextMove(3,21,snorlax)}
+COST 0@3 7@2 19@1
 OPTIMUM
 
 Output 9
 DLV 2.0
 
-{nextMove(18,25,vulpix), nextMove(12,39,machoke)}
-COST 7@2 20@1
+{nextMove(4,21,snorlax), nextMove(20,26,graveler)}
+COST 7@2 21@1
 OPTIMUM
 
 Output 10
 DLV 2.0
 
-{nextMove(17,25,vulpix), nextMove(11,39,machoke)}
-COST 7@2 20@1
+{nextMove(21,26,graveler), nextMove(4,20,snorlax)}
+COST 0@3 7@2 21@1
 OPTIMUM
 
 Output 11
 DLV 2.0
 
-{nextMove(16,25,vulpix), nextMove(11,38,machoke)}
-COST 11@3 7@2 20@1
-{nextMove(17,24,vulpix), nextMove(11,38,machoke)}
-COST 10@3 7@2 20@1
+{nextMove(22,26,graveler), nextMove(3,20,snorlax)}
+COST 7@2 23@1
 OPTIMUM
 
 Output 12
 DLV 2.0
 
-{nextMove(18,24,vulpix), nextMove(10,38,machoke)}
-COST 9@3 7@2 20@1
+{nextMove(2,20,snorlax), nextMove(22,25,graveler)}
+COST 0@4 15@3 7@2 25@1
+{nextMove(3,19,snorlax), nextMove(22,25,graveler)}
+COST 0@4 14@3 7@2 25@1
 OPTIMUM
 
 Output 13
 DLV 2.0
 
-{nextMove(19,24,vulpix), nextMove(10,37,machoke)}
-COST 0@4 13@3 7@2 22@1
+{nextMove(4,19,snorlax), nextMove(23,25,graveler)}
+COST 14@3 7@2 25@1
+{nextMove(4,19,snorlax), nextMove(21,25,graveler)}
+COST 12@3 7@2 25@1
 OPTIMUM
 
 Output 14
 DLV 2.0
 
-{nextMove(9,37,machoke), nextMove(19,23,vulpix)}
-COST 0@4 14@3 7@2 22@1
-{nextMove(20,24,vulpix), nextMove(11,37,machoke)}
-COST 0@4 11@3 7@2 22@1
+{nextMove(5,19,snorlax), nextMove(21,24,graveler)}
+COST 0@4 10@3 7@2 23@1
 OPTIMUM
 
 Output 15
 DLV 2.0
 
-{nextMove(20,23,vulpix), nextMove(11,36,machoke)}
-COST 0@4 11@3 7@2 22@1
-{nextMove(21,24,vulpix), nextMove(12,37,machoke)}
-COST 0@4 9@3 7@2 22@1
+{nextMove(20,24,graveler), nextMove(5,20,snorlax)}
+COST 9@3 7@2 21@1
+{nextMove(6,19,snorlax), nextMove(20,24,graveler)}
+COST 8@3 7@2 21@1
 OPTIMUM
 
 Output 16
 DLV 2.0
 
-{nextMove(21,23,vulpix), nextMove(12,36,machoke)}
-COST 0@4 9@3 7@2 22@1
-{nextMove(13,37,machoke), nextMove(21,23,vulpix)}
-COST 0@4 8@3 7@2 22@1
+{nextMove(6,20,snorlax), nextMove(20,23,graveler)}
+COST 0@4 7@3 7@2 19@1
+{nextMove(7,19,snorlax), nextMove(20,23,graveler)}
+COST 0@4 6@3 7@2 19@1
 OPTIMUM
 
 Output 17
 DLV 2.0
 
-{nextMove(22,23,vulpix), nextMove(14,37,machoke)}
-COST 7@3 7@2 22@1
+{nextMove(8,19,snorlax), nextMove(21,23,graveler)}
+COST 0@4 6@3 7@2 17@1
+{nextMove(8,19,snorlax), nextMove(20,22,graveler)}
+COST 0@4 5@3 7@2 17@1
 OPTIMUM
 
 Output 18
 DLV 2.0
 
-{nextMove(23,23,vulpix), nextMove(15,37,machoke)}
-COST 0@4 4@3 8@2 22@1
+{nextMove(9,19,snorlax), nextMove(21,22,graveler)}
+COST 6@3 7@2 15@1
+{nextMove(9,19,snorlax), nextMove(20,21,graveler)}
+COST 5@3 7@2 15@1
+{nextMove(9,19,snorlax), nextMove(19,22,graveler)}
+COST 4@3 7@2 15@1
 OPTIMUM
 
 Output 19
 DLV 2.0
 
-{nextMove(16,37,machoke), nextMove(24,23,vulpix)}
-COST 0@4 3@3 8@2 22@1
+{nextMove(9,20,snorlax), nextMove(19,21,graveler)}
+COST 0@4 4@3 7@2 13@1
 OPTIMUM
 
 Output 20
 DLV 2.0
 
-{nextMove(17,37,machoke), nextMove(25,23,vulpix)}
-COST 0@4 2@3 8@2 22@1
+{nextMove(8,20,snorlax), nextMove(18,21,graveler)}
+COST 2@3 8@2 11@1
 OPTIMUM
 
 Output 21
 DLV 2.0
 
-{nextMove(18,37,machoke), nextMove(26,23,vulpix)}
-COST 0@4 2@3 7@2 22@1
+{nextMove(7,20,snorlax), nextMove(17,21,graveler)}
+COST 8@2 11@1
 OPTIMUM
 
 Output 22
 DLV 2.0
 
-{nextMove(27,23,vulpix), nextMove(18,36,machoke)}
-COST 8@2 22@1
+{nextMove(17,20,graveler), nextMove(7,19,snorlax)}
+COST 8@2 11@1
 OPTIMUM
 
 Output 23
 DLV 2.0
 
-{nextMove(19,36,machoke), nextMove(27,24,vulpix)}
-COST 8@2 22@1
+{nextMove(6,19,snorlax), nextMove(17,19,graveler)}
+COST 9@2 11@1
 OPTIMUM
 
 Output 24
 DLV 2.0
 
-{nextMove(26,24,vulpix), nextMove(19,37,machoke)}
-COST 8@2 20@1
+{nextMove(6,20,snorlax), nextMove(17,18,graveler)}
+COST 8@2 11@1
 OPTIMUM
 
 Output 25
 DLV 2.0
 
-{nextMove(25,24,vulpix), nextMove(19,38,machoke)}
-COST 0@3 8@2 20@1
-OPTIMUM
-
-Output 26
-DLV 2.0
-
-{nextMove(20,38,machoke), nextMove(24,24,vulpix)}
-COST 8@2 20@1
-OPTIMUM
-
-Output 27
-DLV 2.0
-
-{nextMove(21,38,machoke), nextMove(23,24,vulpix)}
-COST 8@2 18@1
-OPTIMUM
-
-Output 28
-DLV 2.0
-
-{nextMove(22,38,machoke), nextMove(22,24,vulpix)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 29
-DLV 2.0
-
-{nextMove(22,39,machoke), nextMove(22,23,vulpix)}
-COST 8@2 14@1
-OPTIMUM
-
-Output 30
-DLV 2.0
-
-{nextMove(23,39,machoke), nextMove(21,23,vulpix)}
-COST 8@3 8@2 16@1
-{nextMove(21,23,vulpix), nextMove(21,39,machoke)}
-COST 6@3 8@2 16@1
-OPTIMUM
-
-Output 31
-DLV 2.0
-
-{nextMove(20,39,machoke), nextMove(21,22,vulpix)}
-COST 0@4 5@3 8@2 16@1
-OPTIMUM
-
-Output 32
-DLV 2.0
-
-{nextMove(19,39,machoke), nextMove(21,21,vulpix)}
-COST 0@4 4@3 7@2 18@1
-OPTIMUM
-
-Output 33
-DLV 2.0
-
-{nextMove(18,39,machoke), nextMove(21,20,vulpix)}
-COST 0@4 3@3 7@2 20@1
-OPTIMUM
-
-Output 34
-DLV 2.0
-
-{nextMove(22,20,vulpix), nextMove(17,39,machoke)}
-COST 2@3 7@2 22@1
-OPTIMUM
-
-Output 35
-DLV 2.0
-
-{nextMove(16,39,machoke), nextMove(22,19,vulpix)}
-COST 2@3 7@2 24@1
-OPTIMUM
-
-Output 36
-DLV 2.0
-
-{nextMove(15,39,machoke), nextMove(22,18,vulpix)}
-COST 8@2 26@1
-OPTIMUM
-
-Output 37
-DLV 2.0
-
-{nextMove(23,18,vulpix), nextMove(15,38,machoke)}
-COST 8@2 28@1
-OPTIMUM
-
-Output 38
-DLV 2.0
-
-{nextMove(24,18,vulpix), nextMove(14,38,machoke)}
-COST 8@2 28@1
-OPTIMUM
-
-Output 39
-DLV 2.0
-
-{nextMove(14,37,machoke), nextMove(24,17,vulpix)}
-COST 7@2 30@1
-OPTIMUM
-
-Output 40
-DLV 2.0
-
-{nextMove(15,37,machoke), nextMove(25,17,vulpix)}
-COST 8@2 30@1
-OPTIMUM
-
-Output 41
-DLV 2.0
-
-{nextMove(15,38,machoke), nextMove(25,18,vulpix)}
-COST 6@3 8@2 30@1
-OPTIMUM
-
-Output 42
-DLV 2.0
-
-{nextMove(16,38,machoke), nextMove(26,18,vulpix)}
-COST 0@4 6@3 8@2 30@1
-{nextMove(16,38,machoke), nextMove(25,19,vulpix)}
-COST 0@4 5@3 8@2 30@1
-OPTIMUM
-
-Output 43
-DLV 2.0
-
-{nextMove(17,38,machoke), nextMove(24,19,vulpix)}
-COST 5@3 8@2 28@1
-{nextMove(17,38,machoke), nextMove(25,20,vulpix)}
-COST 4@3 8@2 28@1
-OPTIMUM
-
-Output 44
-DLV 2.0
-
-{nextMove(18,38,machoke), nextMove(25,21,vulpix)}
-COST 3@3 7@2 26@1
-OPTIMUM
-
-Output 45
-DLV 2.0
-
-{nextMove(19,38,machoke), nextMove(25,22,vulpix)}
-COST 2@3 7@2 24@1
-OPTIMUM
-
-Output 46
-DLV 2.0
-
-{nextMove(20,38,machoke), nextMove(24,22,vulpix)}
-COST 2@3 8@2 22@1
-OPTIMUM
-
-Output 47
-DLV 2.0
-
-{nextMove(20,37,machoke), nextMove(24,21,vulpix)}
-COST 3@3 8@2 20@1
-{nextMove(23,22,vulpix), nextMove(20,37,machoke)}
-COST 2@3 8@2 20@1
-OPTIMUM
-
-Output 48
-DLV 2.0
-
-{nextMove(19,37,machoke), nextMove(22,22,vulpix)}
-COST 2@3 7@2 18@1
-OPTIMUM
-
-Output 49
-DLV 2.0
-
-{nextMove(18,37,machoke), nextMove(22,21,vulpix)}
-COST 0@4 3@3 8@2 18@1
-{nextMove(18,37,machoke), nextMove(22,23,vulpix)}
-COST 0@4 2@3 8@2 18@1
-OPTIMUM
-
-Output 50
-DLV 2.0
-
-{nextMove(22,24,vulpix), nextMove(18,36,machoke)}
-COST 9@2 18@1
-OPTIMUM
-
-Output 51
-DLV 2.0
-
-{nextMove(17,36,machoke), nextMove(22,25,vulpix)}
-COST 9@2 16@1
-OPTIMUM
-
-Output 52
-DLV 2.0
-
-{nextMove(22,26,vulpix), nextMove(17,35,machoke)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 53
-DLV 2.0
-
-{nextMove(18,35,machoke), nextMove(22,27,vulpix)}
-COST 7@2 14@1
-OPTIMUM
-
-Output 54
-DLV 2.0
-
-{nextMove(21,27,vulpix), nextMove(18,34,machoke)}
-COST 7@2 12@1
-OPTIMUM
-
-Output 55
-DLV 2.0
-
-{nextMove(19,34,machoke), nextMove(21,26,vulpix)}
-COST 7@2 10@1
-OPTIMUM
-
-Output 56
-DLV 2.0
-
-{nextMove(20,34,machoke), nextMove(21,25,vulpix)}
-COST 0@3 7@2 10@1
-OPTIMUM
-
-Output 57
-DLV 2.0
-
-{nextMove(20,35,machoke), nextMove(21,24,vulpix)}
-COST 8@2 10@1
-OPTIMUM
-
-Output 58
-DLV 2.0
-
-{nextMove(19,35,machoke), nextMove(21,23,vulpix)}
-COST 8@2 12@1
-OPTIMUM
-
-Output 59
-DLV 2.0
-
-{nextMove(22,23,vulpix), nextMove(19,36,machoke)}
-COST 0@3 8@2 14@1
-OPTIMUM
-
-Output 60
-DLV 2.0
-
-{nextMove(20,36,machoke), nextMove(22,22,vulpix)}
-COST 9@2 16@1
-OPTIMUM
-
-Output 61
-DLV 2.0
-
-{nextMove(21,36,machoke), nextMove(21,22,vulpix)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 62
-DLV 2.0
-
-{nextMove(21,37,machoke), nextMove(21,21,vulpix)}
-COST 8@2 14@1
-OPTIMUM
-
-Output 63
-DLV 2.0
-
-{nextMove(21,38,machoke), nextMove(21,20,vulpix)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 64
-DLV 2.0
-
-{nextMove(22,20,vulpix), nextMove(22,38,machoke)}
-COST 9@2 18@1
-OPTIMUM
-
-Output 65
-DLV 2.0
-
-{nextMove(23,38,machoke), nextMove(22,19,vulpix)}
-COST 9@2 18@1
-OPTIMUM
-
-Output 66
-DLV 2.0
-
-{nextMove(23,19,vulpix), nextMove(24,38,machoke)}
-COST 8@2 20@1
-OPTIMUM
-
-Output 67
-DLV 2.0
-
-{nextMove(25,38,machoke), nextMove(23,18,vulpix)}
-COST 8@2 20@1
-OPTIMUM
-
-Output 68
-DLV 2.0
-
-{nextMove(26,38,machoke), nextMove(23,17,vulpix)}
-COST 8@2 22@1
-OPTIMUM
-
-Output 69
-DLV 2.0
-
-{nextMove(27,38,machoke), nextMove(23,16,vulpix)}
-COST 7@2 24@1
-OPTIMUM
-
-Output 70
-DLV 2.0
-
-{nextMove(24,16,vulpix), nextMove(28,38,machoke)}
-COST 7@2 26@1
-OPTIMUM
-
-Output 71
-DLV 2.0
-
-{nextMove(29,38,machoke), nextMove(24,15,vulpix)}
-COST 7@2 26@1
-OPTIMUM
-
-Output 72
-DLV 2.0
-
-{nextMove(30,38,machoke), nextMove(24,14,vulpix)}
-COST 7@2 28@1
-OPTIMUM
-
-Output 73
-DLV 2.0
-
-{nextMove(25,14,vulpix), nextMove(31,38,machoke)}
-COST 7@2 30@1
-OPTIMUM
-
-Output 74
-DLV 2.0
-
-{nextMove(25,13,vulpix), nextMove(31,37,machoke)}
-COST 7@2 30@1
-OPTIMUM
-
-Output 75
-DLV 2.0
-
-{nextMove(30,37,machoke), nextMove(25,12,vulpix)}
-COST 9@3 7@2 30@1
-OPTIMUM
-
-Output 76
-DLV 2.0
-
-{nextMove(29,37,machoke), nextMove(25,11,vulpix)}
-COST 0@4 8@3 7@2 30@1
-OPTIMUM
-
-Output 77
-DLV 2.0
-
-{nextMove(25,10,vulpix), nextMove(29,36,machoke)}
-COST 0@4 9@3 7@2 30@1
-{nextMove(28,37,machoke), nextMove(25,10,vulpix)}
-COST 0@4 7@3 7@2 30@1
-OPTIMUM
-
-Output 78
-DLV 2.0
-
-{nextMove(27,37,machoke), nextMove(25,9,vulpix)}
-COST 0@4 15@3 7@2 30@1
-{nextMove(26,10,vulpix), nextMove(27,37,machoke)}
-COST 0@4 14@3 7@2 30@1
-OPTIMUM
-
-Output 79
-DLV 2.0
-
-{nextMove(26,37,machoke), nextMove(26,9,vulpix)}
-COST 0@4 14@3 7@2 28@1
-{nextMove(26,37,machoke), nextMove(26,11,vulpix)}
-COST 0@4 12@3 7@2 28@1
-OPTIMUM
-
-Output 80
-DLV 2.0
-
-{nextMove(25,37,machoke), nextMove(26,12,vulpix)}
-COST 0@4 10@3 7@2 26@1
-OPTIMUM
-
-Output 81
-DLV 2.0
-
-{nextMove(24,37,machoke), nextMove(26,13,vulpix)}
-COST 0@4 8@3 7@2 26@1
-OPTIMUM
-
-Output 82
-DLV 2.0
-
-{nextMove(23,37,machoke), nextMove(26,14,vulpix)}
-COST 0@4 6@3 7@2 26@1
-OPTIMUM
-
-Output 83
-DLV 2.0
-
-{nextMove(27,14,vulpix), nextMove(22,37,machoke)}
-COST 0@4 7@3 7@2 26@1
-{nextMove(22,37,machoke), nextMove(26,15,vulpix)}
-COST 0@4 5@3 7@2 26@1
-OPTIMUM
-
-Output 84
-DLV 2.0
-
-{nextMove(27,15,vulpix), nextMove(22,36,machoke)}
-COST 6@3 7@2 26@1
-{nextMove(25,15,vulpix), nextMove(22,36,machoke)}
-COST 5@3 7@2 26@1
-{nextMove(26,16,vulpix), nextMove(22,36,machoke)}
-COST 4@3 7@2 26@1
-OPTIMUM
-
-Output 85
-DLV 2.0
-
-{nextMove(27,16,vulpix), nextMove(22,35,machoke)}
-COST 5@3 7@2 24@1
-{nextMove(26,17,vulpix), nextMove(22,35,machoke)}
-COST 4@3 7@2 24@1
-OPTIMUM
-
-Output 86
-DLV 2.0
-
-{nextMove(21,35,machoke), nextMove(26,18,vulpix)}
-COST 4@3 7@2 22@1
-OPTIMUM
-
-Output 87
-DLV 2.0
-
-{nextMove(27,18,vulpix), nextMove(21,34,machoke)}
-COST 5@3 7@2 22@1
-{nextMove(26,19,vulpix), nextMove(21,34,machoke)}
-COST 4@3 7@2 22@1
-OPTIMUM
-
-Output 88
-DLV 2.0
-
-{nextMove(27,19,vulpix), nextMove(21,33,machoke)}
-COST 5@3 7@2 20@1
-{nextMove(26,20,vulpix), nextMove(21,33,machoke)}
-COST 4@3 7@2 20@1
-OPTIMUM
-
-Output 89
-DLV 2.0
-
-{nextMove(27,20,vulpix), nextMove(21,32,machoke)}
-COST 6@3 7@2 18@1
-{nextMove(20,33,machoke), nextMove(26,21,vulpix)}
-COST 4@3 7@2 18@1
-OPTIMUM
-
-Output 90
-DLV 2.0
-
-{nextMove(26,22,vulpix), nextMove(20,32,machoke)}
-COST 5@3 7@2 18@1
-{nextMove(26,22,vulpix), nextMove(20,34,machoke)}
-COST 4@3 7@2 18@1
-OPTIMUM
-
-Output 91
-DLV 2.0
-
-{nextMove(26,23,vulpix), nextMove(20,35,machoke)}
-COST 2@3 8@2 18@1
-OPTIMUM
-
-Output 92
-DLV 2.0
-
-{nextMove(21,35,machoke), nextMove(25,23,vulpix)}
-COST 9@2 18@1
-OPTIMUM
-
-Output 93
-DLV 2.0
-
-{nextMove(22,35,machoke), nextMove(25,22,vulpix)}
-COST 9@2 16@1
-OPTIMUM
-
-Output 94
-DLV 2.0
-
-{nextMove(25,21,vulpix), nextMove(22,34,machoke)}
-COST 9@2 16@1
-OPTIMUM
-
-Output 95
-DLV 2.0
-
-{nextMove(26,21,vulpix), nextMove(21,34,machoke)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 96
-DLV 2.0
-
-{nextMove(26,20,vulpix), nextMove(21,33,machoke)}
-COST 9@2 18@1
-OPTIMUM
-
-Output 97
-DLV 2.0
-
-{nextMove(27,20,vulpix), nextMove(21,32,machoke)}
-COST 9@2 18@1
-OPTIMUM
-
-Output 98
-DLV 2.0
-
-{nextMove(28,20,vulpix), nextMove(22,32,machoke)}
-COST 7@2 18@1
-OPTIMUM
-
-Output 99
-DLV 2.0
-
-{nextMove(29,20,vulpix), nextMove(23,32,machoke)}
-COST 7@2 18@1
-OPTIMUM
-
-Output 100
-DLV 2.0
-
-{nextMove(24,32,machoke), nextMove(29,21,vulpix)}
-COST 7@2 18@1
-OPTIMUM
-
-Output 101
-DLV 2.0
-
-{nextMove(30,21,vulpix), nextMove(25,32,machoke)}
-COST 7@2 16@1
-OPTIMUM
-
-Output 102
-DLV 2.0
-
-{nextMove(31,21,vulpix), nextMove(26,32,machoke)}
-COST 7@2 16@1
-OPTIMUM
-
-Output 103
-DLV 2.0
-
-{nextMove(27,32,machoke), nextMove(31,22,vulpix)}
-COST 7@2 16@1
-OPTIMUM
-
-Output 104
-DLV 2.0
-
-{nextMove(32,22,vulpix), nextMove(28,32,machoke)}
-COST 7@2 14@1
-OPTIMUM
-
-Output 105
-DLV 2.0
-
-{nextMove(33,22,vulpix), nextMove(29,32,machoke)}
-COST 7@2 14@1
-OPTIMUM
-
-Output 106
-DLV 2.0
-
-{nextMove(30,32,machoke), nextMove(33,23,vulpix)}
-COST 7@2 14@1
-OPTIMUM
-
-Output 107
-DLV 2.0
-
-{nextMove(33,24,vulpix), nextMove(30,33,machoke)}
-COST 11@3 7@2 12@1
-{nextMove(32,23,vulpix), nextMove(30,33,machoke)}
-COST 10@3 7@2 12@1
-OPTIMUM
-
-Output 108
-DLV 2.0
-
-{nextMove(29,33,machoke), nextMove(32,24,vulpix)}
-COST 0@4 10@3 7@2 12@1
-{nextMove(31,23,vulpix), nextMove(30,34,machoke)}
-COST 0@4 8@3 7@2 12@1
-OPTIMUM
-
-Output 109
-DLV 2.0
-
-{nextMove(31,24,vulpix), nextMove(30,35,machoke)}
-COST 0@4 7@3 7@2 12@1
-{nextMove(30,23,vulpix), nextMove(30,35,machoke)}
-COST 0@4 6@3 7@2 12@1
-OPTIMUM
-
-Output 110
-DLV 2.0
-
-{nextMove(29,23,vulpix), nextMove(29,35,machoke)}
-COST 5@3 7@2 12@1
-{nextMove(29,23,vulpix), nextMove(30,36,machoke)}
-COST 4@3 7@2 12@1
-OPTIMUM
-
-Output 111
-DLV 2.0
-
-{nextMove(31,36,machoke), nextMove(28,23,vulpix)}
-COST 4@3 7@2 14@1
-OPTIMUM
-
-Output 112
-DLV 2.0
-
-{nextMove(32,36,machoke), nextMove(27,23,vulpix)}
-COST 2@3 8@2 16@1
-OPTIMUM
-
-Output 113
-DLV 2.0
-
-{nextMove(33,36,machoke), nextMove(26,23,vulpix)}
-COST 3@3 8@2 18@1
-{nextMove(26,23,vulpix), nextMove(32,37,machoke)}
-COST 2@3 8@2 18@1
-OPTIMUM
-
-Output 114
-DLV 2.0
-
-{nextMove(33,37,machoke), nextMove(26,22,vulpix)}
-COST 3@3 8@2 20@1
-{nextMove(31,37,machoke), nextMove(26,22,vulpix)}
-COST 2@3 8@2 20@1
-OPTIMUM
-
-Output 115
-DLV 2.0
-
-{nextMove(27,22,vulpix), nextMove(31,36,machoke)}
-COST 9@2 20@1
-OPTIMUM
-
-Output 116
-DLV 2.0
-
-{nextMove(30,36,machoke), nextMove(27,23,vulpix)}
-COST 8@2 18@1
-OPTIMUM
-
-Output 117
-DLV 2.0
-
-{nextMove(29,36,machoke), nextMove(26,23,vulpix)}
-COST 9@2 16@1
-OPTIMUM
-
-Output 118
-DLV 2.0
-
-{nextMove(28,36,machoke), nextMove(25,23,vulpix)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 119
-DLV 2.0
-
-{nextMove(27,36,machoke), nextMove(25,22,vulpix)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 120
-DLV 2.0
-
-{nextMove(26,22,vulpix), nextMove(27,35,machoke)}
-COST 8@2 16@1
-OPTIMUM
-
-Output 121
-DLV 2.0
-
-{nextMove(28,35,machoke), nextMove(27,22,vulpix)}
-COST 8@2 14@1
-OPTIMUM
-
-Output 122
-DLV 2.0
-
-{nextMove(29,35,machoke), nextMove(28,22,vulpix)}
-COST 0@3 8@2 14@1
-OPTIMUM
-
-Output 123
-DLV 2.0
-
-{nextMove(30,35,machoke), nextMove(29,22,vulpix)}
-COST 0@3 7@2 14@1
-OPTIMUM
-
-Output 124
-DLV 2.0
-
-{nextMove(29,23,vulpix), nextMove(30,34,machoke)}
-COST 8@2 14@1
-OPTIMUM
-
-Output 125
-DLV 2.0
-
-{nextMove(29,24,vulpix), nextMove(30,33,machoke)}
-COST 9@2 12@1
-OPTIMUM
-
-Output 126
-DLV 2.0
-
-{nextMove(29,25,vulpix), nextMove(30,32,machoke)}
-COST 8@2 10@1
-OPTIMUM
-
-Output 127
-DLV 2.0
-
-{nextMove(29,26,vulpix), nextMove(30,31,machoke)}
-COST 8@2 8@1
-OPTIMUM
-
-Output 128
-DLV 2.0
-
-{nextMove(29,27,vulpix), nextMove(30,30,machoke)}
-COST 7@2 6@1
-OPTIMUM
-
-Output 129
-DLV 2.0
-
-{nextMove(29,30,machoke), nextMove(29,28,vulpix)}
-COST 7@2 4@1
-OPTIMUM
-
-Output 130
-DLV 2.0
-
-{nextMove(29,29,vulpix), nextMove(29,29,machoke)}
-COST 7@2 2@1
+{nextMove(7,20,snorlax), nextMove(18,18,graveler)}
+COST 7@2 13@1
 OPTIMUM
 

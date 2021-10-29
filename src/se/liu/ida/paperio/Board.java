@@ -35,6 +35,7 @@ import java.util.*;
  * Painter:s to draw the game area and players on it.
  */
 public class Board extends JPanel {
+    private static final boolean DEBUG = false;
 
     private static final String PAUSE = "Pause";
 
@@ -69,7 +70,7 @@ public class Board extends JPanel {
     private boolean multiplayer = false;
 
     // I know, have mercy. The entire class, if not the whole code, should be refactored, 
-    // but it's a mess and it would take too much time
+    // but it's a mess and it would take too much time. Damn spaghetti code.
     private static Board instance = null;
 
     private List<Color> colorList = new ArrayList<>(
@@ -340,6 +341,7 @@ public class Board extends JPanel {
         } catch (IndexOutOfBoundsException ignored) {
             // THIS EXCEPTION SHOULD NOT EXIST!
             // Furthermore an exception should always be handled
+            // FIXME: error unhandled
         }
         Toolkit.getDefaultToolkit().sync();
     }
@@ -648,10 +650,9 @@ public class Board extends JPanel {
                 ASPMapper.getInstance().registerClass(Tile.class);
                 ASPMapper.getInstance().registerClass(NextMove.class);
             } catch (ObjectNotValidException | IllegalAnnotationException e) {
-                System.out.println(e instanceof ObjectNotValidException ? "OBJECT NOT VALID" : "ILLEGAL ANNOTATION");
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "An error has occured while registering classes in DLV", "Error mapping classes", JOptionPane.ERROR_MESSAGE);
+                // System.out.println(e instanceof ObjectNotValidException ? "OBJECT NOT VALID" : "ILLEGAL ANNOTATION");
+                // e.printStackTrace();
             }
 
             this.handler.addProgram(this.fixedProgram);
@@ -704,26 +705,12 @@ public class Board extends JPanel {
                     for (var y = 0; y < map[0].length; y++)
                         this.variableProgram.addObjectInput(map[x][y]);
             } catch (Exception e) {
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "An error has occurred while generating the input for DLV", "Input DLV Error", JOptionPane.ERROR_MESSAGE);
+                // e.printStackTrace();
             }
 
-            BufferedWriter bw = null;
-            try {
-                if (this.cont == 0)
-                   bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt")));
-                else
-                   bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt"), true));
-                bw.write("Input "+this.cont+"\n"+this.variableProgram.getPrograms().replaceAll("[\\r\\n]", "")+"\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally   {
-                if (bw!=null)
-                    try {
-                        bw.close();
-                    } catch (IOException e) {
-                       e.printStackTrace();
-                    }
-            }
+            if (DEBUG)
+                writeInputDLV();                
 
             // Calling DLV2
             Output o = this.handler.startSync();
@@ -731,23 +718,8 @@ public class Board extends JPanel {
             // Handling output
             AnswerSets answers = (AnswerSets) o;
 
-            try {
-                if (this.cont == 0)
-                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt")));
-                else
-                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt"), true));
-                bw.write("Output "+this.cont+"\n"+answers.getAnswerSetsString()+"\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally   {
-                if (bw!=null)
-                    try {
-                        bw.close();
-                    } catch (IOException e) {
-                       e.printStackTrace();
-                    }
-                this.cont++;
-            }
+            if (DEBUG)
+                writeOutputDLV(answers);
 
             for (AnswerSet a : answers.getOptimalAnswerSets())  {
                 try {
@@ -756,32 +728,19 @@ public class Board extends JPanel {
                             continue;
                         NextMove nextMove = (NextMove) obj;
                         AIPlayer player = getPlayerByName(nextMove.getName().getValue());
-                        System.out.println("player: "+player.getName().getValue()+" - current tile["+player.getX()+","+player.getY()+"]"+" - next direction: ");
-                        if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
-                            player.setCurrentDirection(Board.NORTH_DIRECTION);
-                            player.setNextKey(KeyEvent.VK_UP);
-                            System.out.println("UP");
-                        }
-                        if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() + 1)  {
-                            player.setCurrentDirection(Board.SOUTH_DIRECTION);
-                            player.setNextKey(KeyEvent.VK_DOWN);
-                            System.out.println("DOWN");
-                        }
-                        if (nextMove.getX() == player.getX() - 1 && nextMove.getY() == player.getY())  {
-                            player.setCurrentDirection(Board.WEST_DIRECTION);
-                            player.setNextKey(KeyEvent.VK_LEFT);
-                            System.out.println("LEFT");
-                        }
-                        if (nextMove.getX() == player.getX() + 1 && nextMove.getY() == player.getY())  {
-                            player.setCurrentDirection(Board.EAST_DIRECTION);
-                            player.setNextKey(KeyEvent.VK_RIGHT);
-                            System.out.println("RIGHT");
-                        }
-                        System.out.println("Player is = "+player);
+                        if (DEBUG)
+                            printPlayerInfoDebug(player, nextMove);
                     }
-                } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException | InstantiationException e) {
-                    System.err.println(e.getClass() + " error message:\n"+ e.getMessage());
-                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    JOptionPane.showMessageDialog(null, "An error has occurred when handling DLV's output: Illegal Access");
+                } catch(IllegalArgumentException e) {
+                    JOptionPane.showMessageDialog(null, "An error has occurred when handling DLV's output: Illegal Argument");
+                } catch(InstantiationException e) {
+                    JOptionPane.showMessageDialog(null, "An error has occurred when handling DLV's output: Instantiation Error");
+                } catch(InvocationTargetException | NoSuchMethodException | SecurityException e) {
+                    JOptionPane.showMessageDialog(null, "An error has occurred when handling DLV's output: Generic");
+                    // System.err.println(e.getClass() + " error message:\n"+ e.getMessage());
+                    // e.printStackTrace();
                 }
             }
 
@@ -817,7 +776,9 @@ public class Board extends JPanel {
             }
             respawnBots();
 
-            System.out.println("Current player position: ["+focussed.getX() + "," + focussed.getY()+"]");
+            if (DEBUG)
+                System.out.println("Current player position: ["+focussed.getX() + "," + focussed.getY()+"]");
+
             focussedPainter.get(focussed).setDraw(focussed.getAlive());
             if (multiplayer) {
                 focussed2.updateD();
@@ -832,6 +793,76 @@ public class Board extends JPanel {
 
             // Remove dead players
             players.removeIf(p -> !p.getAlive());
+        }
+
+        private void writeInputDLV()    {
+            BufferedWriter bw = null;
+            try {
+                if (this.cont == 0)
+                   bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt")));
+                else
+                   bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\input.txt"), true));
+                bw.write("Input "+this.cont+"\n"+this.variableProgram.getPrograms().replaceAll("[\\r\\n]", "")+"\n");
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "An error has occurred while writing on file the input of DLV", "Writing Input Error", JOptionPane.ERROR_MESSAGE);
+                // e.printStackTrace();
+            } finally   {
+                if (bw!=null)
+                    try {
+                        bw.close();
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null, "An error has occurred while closing the file to write on!", "Writing Error", JOptionPane.ERROR_MESSAGE);
+                    //    e.printStackTrace();
+                    }
+            }
+        }
+
+        private void writeOutputDLV(AnswerSets answers)   {
+            BufferedWriter bw = null;
+            try {
+                if (this.cont == 0)
+                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt")));
+                else
+                    bw = new BufferedWriter(new FileWriter(new File("src\\se\\liu\\ida\\paperio\\output.txt"), true));
+                bw.write("Output "+this.cont+"\n"+answers.getAnswerSetsString()+"\n");
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "An error has occurred while writing on file the output of DLV", "Writing Output Error", JOptionPane.ERROR_MESSAGE);
+                // e.printStackTrace();
+            } finally   {
+                if (bw!=null)
+                    try {
+                        bw.close();
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null, "An error has occurred while closing the file to write on!", "Writing Error", JOptionPane.ERROR_MESSAGE);
+                    //    e.printStackTrace();
+                    }
+                this.cont++;
+            }
+        }
+
+        private void printPlayerInfoDebug(AIPlayer player, NextMove nextMove)  {
+            System.out.println("player: "+player.getName().getValue()+" - current tile["+player.getX()+","+player.getY()+"]"+" - next direction: ");
+            if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
+                player.setCurrentDirection(Board.NORTH_DIRECTION);
+                player.setNextKey(KeyEvent.VK_UP);
+                System.out.println("UP");
+            }
+            if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() + 1)  {
+                player.setCurrentDirection(Board.SOUTH_DIRECTION);
+                player.setNextKey(KeyEvent.VK_DOWN);
+                System.out.println("DOWN");
+            }
+            if (nextMove.getX() == player.getX() - 1 && nextMove.getY() == player.getY())  {
+                player.setCurrentDirection(Board.WEST_DIRECTION);
+                player.setNextKey(KeyEvent.VK_LEFT);
+                System.out.println("LEFT");
+            }
+            if (nextMove.getX() == player.getX() + 1 && nextMove.getY() == player.getY())  {
+                player.setCurrentDirection(Board.EAST_DIRECTION);
+                player.setNextKey(KeyEvent.VK_RIGHT);
+                System.out.println("RIGHT");
+            }
+            System.out.println("Player is = "+player);
         }
 
     }
