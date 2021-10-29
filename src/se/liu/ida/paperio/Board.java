@@ -728,8 +728,7 @@ public class Board extends JPanel {
                             continue;
                         NextMove nextMove = (NextMove) obj;
                         AIPlayer player = getPlayerByName(nextMove.getName().getValue());
-                        if (DEBUG)
-                            printPlayerInfoDebug(player, nextMove);
+                        executeNextMove(player, nextMove);
                     }
                 } catch (IllegalAccessException e) {
                     JOptionPane.showMessageDialog(null, "An error has occurred when handling DLV's output: Illegal Access");
@@ -840,29 +839,35 @@ public class Board extends JPanel {
             }
         }
 
-        private void printPlayerInfoDebug(AIPlayer player, NextMove nextMove)  {
-            System.out.println("player: "+player.getName().getValue()+" - current tile["+player.getX()+","+player.getY()+"]"+" - next direction: ");
+        private void executeNextMove(AIPlayer player, NextMove nextMove)  {
+            if (DEBUG)
+                System.out.println("player: "+player.getName().getValue()+" - current tile["+player.getX()+","+player.getY()+"]"+" - next direction: ");
             if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() - 1)  {
                 player.setCurrentDirection(Board.NORTH_DIRECTION);
                 player.setNextKey(KeyEvent.VK_UP);
-                System.out.println("UP");
+                if (DEBUG)
+                    System.out.println("UP");
             }
             if (nextMove.getX() == player.getX() && nextMove.getY() == player.getY() + 1)  {
                 player.setCurrentDirection(Board.SOUTH_DIRECTION);
                 player.setNextKey(KeyEvent.VK_DOWN);
-                System.out.println("DOWN");
+                if (DEBUG)
+                    System.out.println("DOWN");
             }
             if (nextMove.getX() == player.getX() - 1 && nextMove.getY() == player.getY())  {
                 player.setCurrentDirection(Board.WEST_DIRECTION);
                 player.setNextKey(KeyEvent.VK_LEFT);
-                System.out.println("LEFT");
+                if (DEBUG)
+                    System.out.println("LEFT");
             }
             if (nextMove.getX() == player.getX() + 1 && nextMove.getY() == player.getY())  {
                 player.setCurrentDirection(Board.EAST_DIRECTION);
                 player.setNextKey(KeyEvent.VK_RIGHT);
-                System.out.println("RIGHT");
+                if (DEBUG)
+                    System.out.println("RIGHT");
             }
-            System.out.println("Player is = "+player);
+            if (DEBUG)
+                System.out.println("Player is = "+player);
         }
 
     }
