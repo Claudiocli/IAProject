@@ -1,0 +1,196 @@
+Output 0
+DLV 2.0
+
+{nextMove(9,21,snorlax), nextMove(17,22,graveler)}
+COST 9@2 7@1
+OPTIMUM
+
+Output 1
+DLV 2.0
+
+{nextMove(18,22,graveler), nextMove(9,22,snorlax)}
+COST 9@2 9@1
+OPTIMUM
+
+Output 2
+DLV 2.0
+
+{nextMove(8,22,snorlax), nextMove(18,23,graveler)}
+COST 9@2 9@1
+OPTIMUM
+
+Output 3
+DLV 2.0
+
+{nextMove(19,23,graveler), nextMove(7,22,snorlax)}
+COST 7@2 11@1
+OPTIMUM
+
+Output 4
+DLV 2.0
+
+{nextMove(6,22,snorlax), nextMove(19,24,graveler)}
+COST 7@2 13@1
+OPTIMUM
+
+Output 5
+DLV 2.0
+
+{nextMove(5,22,snorlax), nextMove(18,24,graveler)}
+COST 7@2 15@1
+OPTIMUM
+
+Output 6
+DLV 2.0
+
+{nextMove(4,22,snorlax), nextMove(18,25,graveler)}
+COST 0@3 7@2 15@1
+OPTIMUM
+
+Output 7
+DLV 2.0
+
+{nextMove(19,25,graveler), nextMove(3,22,snorlax)}
+COST 7@2 17@1
+OPTIMUM
+
+Output 8
+DLV 2.0
+
+{nextMove(20,25,graveler), nextMove(3,21,snorlax)}
+COST 0@3 7@2 19@1
+OPTIMUM
+
+Output 9
+DLV 2.0
+
+{nextMove(4,21,snorlax), nextMove(20,26,graveler)}
+COST 7@2 21@1
+OPTIMUM
+
+Output 10
+DLV 2.0
+
+{nextMove(21,26,graveler), nextMove(4,20,snorlax)}
+COST 0@3 7@2 21@1
+OPTIMUM
+
+Output 11
+DLV 2.0
+
+{nextMove(22,26,graveler), nextMove(3,20,snorlax)}
+COST 7@2 23@1
+OPTIMUM
+
+Output 12
+DLV 2.0
+
+{nextMove(2,20,snorlax), nextMove(22,25,graveler)}
+COST 0@4 15@3 7@2 25@1
+{nextMove(3,19,snorlax), nextMove(22,25,graveler)}
+COST 0@4 14@3 7@2 25@1
+OPTIMUM
+
+Output 13
+DLV 2.0
+
+{nextMove(4,19,snorlax), nextMove(23,25,graveler)}
+COST 14@3 7@2 25@1
+{nextMove(4,19,snorlax), nextMove(21,25,graveler)}
+COST 12@3 7@2 25@1
+OPTIMUM
+
+Output 14
+DLV 2.0
+
+{nextMove(5,19,snorlax), nextMove(21,24,graveler)}
+COST 0@4 10@3 7@2 23@1
+OPTIMUM
+
+Output 15
+DLV 2.0
+
+{nextMove(20,24,graveler), nextMove(5,20,snorlax)}
+COST 9@3 7@2 21@1
+{nextMove(6,19,snorlax), nextMove(20,24,graveler)}
+COST 8@3 7@2 21@1
+OPTIMUM
+
+Output 16
+DLV 2.0
+
+{nextMove(6,20,snorlax), nextMove(20,23,graveler)}
+COST 0@4 7@3 7@2 19@1
+{nextMove(7,19,snorlax), nextMove(20,23,graveler)}
+COST 0@4 6@3 7@2 19@1
+OPTIMUM
+
+Output 17
+DLV 2.0
+
+{nextMove(8,19,snorlax), nextMove(21,23,graveler)}
+COST 0@4 6@3 7@2 17@1
+{nextMove(8,19,snorlax), nextMove(20,22,graveler)}
+COST 0@4 5@3 7@2 17@1
+OPTIMUM
+
+Output 18
+DLV 2.0
+
+{nextMove(9,19,snorlax), nextMove(21,22,graveler)}
+COST 6@3 7@2 15@1
+{nextMove(9,19,snorlax), nextMove(20,21,graveler)}
+COST 5@3 7@2 15@1
+{nextMove(9,19,snorlax), nextMove(19,22,graveler)}
+COST 4@3 7@2 15@1
+OPTIMUM
+
+Output 19
+DLV 2.0
+
+{nextMove(9,20,snorlax), nextMove(19,21,graveler)}
+COST 0@4 4@3 7@2 13@1
+OPTIMUM
+
+Output 20
+DLV 2.0
+
+{nextMove(8,20,snorlax), nextMove(18,21,graveler)}
+COST 2@3 8@2 11@1
+OPTIMUM
+
+Output 21
+DLV 2.0
+
+{nextMove(7,20,snorlax), nextMove(17,21,graveler)}
+COST 8@2 11@1
+OPTIMUM
+
+Output 22
+DLV 2.0
+
+{nextMove(17,20,graveler), nextMove(7,19,snorlax)}
+COST 8@2 11@1
+OPTIMUM
+
+Output 23
+DLV 2.0
+
+{nextMove(6,19,snorlax), nextMove(17,19,graveler)}
+COST 9@2 11@1
+OPTIMUM
+
+Output 24
+DLV 2.0
+
+{nextMove(6,20,snorlax), nextMove(17,18,graveler)}
+COST 8@2 11@1
+OPTIMUM
+
+Output 25
+DLV 2.0
+
+{nextMove(7,20,snorlax), nextMove(18,18,graveler)}
+COST 7@2 13@1
+OPTIMUM
+

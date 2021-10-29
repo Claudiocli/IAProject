@@ -5,6 +5,12 @@
         "exclude": [
             "lib/EmbASP/embASP_v7.2.0.jar",
             "lib/EmbASP/newVersion_7.5.0/EmbASP-Java/app/build/libs/embASP.jar"
-        ]
-    }
+        ],
+        "sources": {
+            "embASP_v7.5.0.jar": "lib/EmbASP/embASP_v7.5.0.jar",
+            "antlr-4.7-complete.jar": "lib/antlr-4.7-complete.jar",
+            "dlv2_32bit.exe": "lib/DLV2/dlv2_32bit.exe"
+        }
+    },
+    "java.project.outputPath": "bin"
 }

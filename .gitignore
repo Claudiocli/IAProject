@@ -24,7 +24,13 @@ hs_err_pid*
 
 # Test pakage
 test-loide/*
-lib/EmbASP/newVersion_7.5.0/
+# Other lib
+lib/EmbASP/*
+!embASP_v7.5.0.jar
+!antlr-4.7-complete.jar
+lib/DLV2/*
+!dlv2_32bit.exe
+!dlv2_64bit.exe
 
 .vscode/*
 !.vscode/settings.json
