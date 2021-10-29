@@ -37,10 +37,10 @@ import java.util.*;
 public class Board extends JPanel {
     private static final boolean DEBUG = false;
 
-    private static final String AI_FILE_PATH = "AI.dl";
-    private static final String DLV_EXE_PATH = "dlv2_32bit.exe";
-    private static final String INPUT_FILE_PATH = "input.txt";
-    private static final String OUTPUT_FILE_PATH = "output.txt";
+    private static final String AI_FILE_PATH = "res\\AI.dl";
+    private static final String DLV_EXE_PATH = "res\\dlv2_32bit.exe";
+    private static final String INPUT_FILE_PATH = "res\\input.txt";
+    private static final String OUTPUT_FILE_PATH = "res\\output.txt";
 
     private static final String PAUSE = "Pause";
 

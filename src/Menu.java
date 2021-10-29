@@ -5,8 +5,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.awt.GridLayout;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -96,7 +97,7 @@ public class Menu extends JPanel {
         ArrayList<String> names = new ArrayList<>();
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("pokemon_names.txt")));
+			br = new BufferedReader(new FileReader(new File("res\\pokemon_names.txt")));
 			while (br.ready())
 				names.add(br.readLine());
 		} catch (Exception e) {

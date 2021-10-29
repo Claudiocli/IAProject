@@ -3,8 +3,9 @@
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -69,7 +70,7 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		ArrayList<SymbolicConstant> names = new ArrayList<>();
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("pokemon_names.txt")));
+			br = new BufferedReader(new FileReader(new File("res\\pokemon_names.txt")));
 			// "Magikarp" -/> magikarp -> "Magikarp"
 			while (br.ready())	{
 				String sanificatedName = br.readLine();
@@ -157,7 +158,7 @@ public class AIPlayer implements Comparable<AIPlayer> {
 		ArrayList<SymbolicConstant> names = new ArrayList<>();
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream("pokemon_names.txt")));
+			br = new BufferedReader(new FileReader(new File("res\\pokemon_names.txt")));
 			while (br.ready())	{
 				String sanificatedName = br.readLine();
 				sanificatedName = sanificatedName.trim();
